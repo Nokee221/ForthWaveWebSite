@@ -45,7 +45,7 @@ const hangs = [
 
 export function TeamSection() {
   return (
-    <Section id="team" className="relative isolate overflow-hidden">
+    <Section id="team" className="relative isolate overflow-clip">
       <SectionDivider />
       <SectionWatermark word="People" />
 
@@ -103,7 +103,7 @@ export function TeamSection() {
             {/* One soft light behind the whole row, shared by everyone. */}
             <div
               aria-hidden="true"
-              className="absolute inset-x-[8%] -inset-y-[6%] -z-10 bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-50"
+              className="scroll-drift absolute inset-x-[8%] -inset-y-[6%] -z-10 [--drift:-110px] bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-50"
             />
 
             <ul className="grid grid-cols-2 items-start gap-x-4 gap-y-14 sm:gap-x-6 lg:grid-cols-4 lg:border-t lg:border-border">

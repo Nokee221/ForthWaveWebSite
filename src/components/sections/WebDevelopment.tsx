@@ -41,10 +41,7 @@ export function WebDevelopment() {
   const [featured, secondary] = webProjects;
 
   return (
-    <Section
-      id="web-development"
-      className="relative isolate overflow-hidden"
-    >
+    <Section id="web-development" className="relative isolate overflow-clip">
       <SectionDivider />
       <SectionWatermark word="Web" />
 
@@ -52,7 +49,10 @@ export function WebDevelopment() {
         <Reveal className="group grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
           <div className="lg:col-span-7">
             <p className={cn(eyebrowStyle, enter, "flex items-center gap-3")}>
-              <span aria-hidden="true" className="h-px w-8 bg-accent-gradient" />
+              <span
+                aria-hidden="true"
+                className="h-px w-8 bg-accent-gradient"
+              />
               {webDevelopmentIntro.eyebrow}
             </p>
             <h2
@@ -81,12 +81,12 @@ export function WebDevelopment() {
                 <ProjectLink
                   project={featured}
                   canOpen={canOpen}
-                  className="rounded-lg md:rounded-xl"
+                  className="scroll-grow rounded-lg md:rounded-xl"
                 >
                   {/* Restrained purple light behind the window. */}
                   <span
                     aria-hidden="true"
-                    className="absolute -inset-x-[6%] -inset-y-[10%] -z-10 bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-50 transition-opacity duration-(--duration-slow) ease-standard group-hover/project:opacity-90"
+                    className="scroll-drift absolute -inset-x-[6%] -inset-y-[10%] -z-10 [--drift:-90px] bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-50 transition-opacity duration-(--duration-slow) ease-standard group-hover/project:opacity-90"
                   />
                   <BrowserFrame
                     address={projectAddress(featured)}
@@ -103,7 +103,7 @@ export function WebDevelopment() {
                 </ProjectLink>
               </div>
 
-              <div className="mt-8 grid gap-5 md:mt-10 lg:grid-cols-12 lg:gap-10">
+              <div className="scroll-drift mt-8 grid gap-5 [--drift:36px] md:mt-10 lg:grid-cols-12 lg:gap-10">
                 <div className={cn(enter, "lg:col-span-6")} style={delay(240)}>
                   <ProjectHeading
                     project={featured}
@@ -121,56 +121,58 @@ export function WebDevelopment() {
           )}
         </WebProject>
 
-        {/* Secondary: text on the left; the window rises out of a tinted panel
-            that crops its lower edge. */}
+        {/* Secondary: the same full-width window, set apart by a rule, with
+            its text row mirrored. */}
         <WebProject project={secondary}>
           {({ canOpen, button }) => (
-            <Reveal className="group mt-20 grid items-center gap-8 border-t border-border pt-16 md:mt-30 md:gap-10 md:pt-24 lg:grid-cols-12">
-              <div className="lg:col-span-4">
-                <div className={enter} style={delay(200)}>
+            <Reveal className="group mt-20 border-t border-border pt-16 md:mt-30 md:pt-24">
+              <div className={cn(enterScale, "relative")}>
+                <ProjectLink
+                  project={secondary}
+                  canOpen={canOpen}
+                  className="scroll-grow rounded-lg md:rounded-xl"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="scroll-drift absolute -inset-x-[6%] -inset-y-[10%] -z-10 [--drift:-90px] bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-50 transition-opacity duration-(--duration-slow) ease-standard group-hover/project:opacity-90"
+                  />
+                  <BrowserFrame
+                    address={projectAddress(secondary)}
+                    className={cn(
+                      frameHover,
+                      canOpen && "group-hover/project:-translate-y-1.5",
+                    )}
+                  >
+                    <Page
+                      project={secondary}
+                      sizes="(min-width: 80rem) 75rem, 100vw"
+                    />
+                  </BrowserFrame>
+                </ProjectLink>
+              </div>
+
+              <div className="scroll-drift mt-8 grid gap-5 [--drift:36px] md:mt-10 lg:grid-cols-12 lg:gap-10">
+                <div
+                  className={cn(
+                    enter,
+                    "lg:order-2 lg:col-span-5 lg:col-start-8",
+                  )}
+                  style={delay(240)}
+                >
                   <ProjectHeading
                     project={secondary}
                     label="02 — Selected project"
                   />
                 </div>
-                <div className={cn(enter, "mt-5")} style={delay(280)}>
+                <div
+                  className={cn(
+                    enter,
+                    "lg:order-1 lg:col-span-6 lg:col-start-1 lg:row-start-1",
+                  )}
+                  style={delay(320)}
+                >
                   <ProjectSummary project={secondary} button={button} />
                 </div>
-              </div>
-
-              <div className="max-lg:order-first lg:col-span-8">
-                <ProjectLink
-                  project={secondary}
-                  canOpen={canOpen}
-                  className={cn(
-                    "overflow-hidden rounded-xl border border-border bg-background-soft px-5 pt-5 transition-[border-color] duration-(--duration-normal) ease-standard sm:px-10 sm:pt-10 lg:px-14 lg:pt-12",
-                    "group-data-[reveal=in]:animate-wipe-from-bottom group-data-[reveal=pending]:opacity-0",
-                    canOpen && "hover:border-accent/40",
-                  )}
-                >
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_85%_0%,var(--glow),transparent)] opacity-40 transition-opacity duration-(--duration-slow) ease-standard group-hover/project:opacity-80"
-                  />
-                  <span
-                    className={cn(enterScale, "relative -mb-2 block")}
-                    style={delay(220)}
-                  >
-                    <BrowserFrame
-                      address={projectAddress(secondary)}
-                      className={cn(
-                        frameHover,
-                        "rounded-b-none border-b-0 md:rounded-b-none",
-                        canOpen && "group-hover/project:-translate-y-2",
-                      )}
-                    >
-                      <Page
-                        project={secondary}
-                        sizes="(min-width: 64rem) 46rem, 100vw"
-                      />
-                    </BrowserFrame>
-                  </span>
-                </ProjectLink>
               </div>
             </Reveal>
           )}
@@ -212,7 +214,14 @@ function WebProject({
   // A real screenshot is one image. A demo website is a long page, so it is
   // shown twice: the first screen and further down.
   const slides = publicFileExists(project.image)
-    ? [<Page key="screenshot" project={project} sizes="(min-width: 64rem) 58rem, 100vw" still />]
+    ? [
+        <Page
+          key="screenshot"
+          project={project}
+          sizes="(min-width: 64rem) 58rem, 100vw"
+          still
+        />,
+      ]
     : [
         <Page key="top" project={project} sizes="" still />,
         <Page key="lower" project={project} sizes="" still view="lower" />,

@@ -33,7 +33,7 @@ export function VideoEditing() {
   return (
     <Section
       id="video-editing"
-      className="relative isolate overflow-hidden"
+      className="relative isolate overflow-clip"
     >
       <SectionDivider />
       <SectionWatermark word="Video" />
@@ -67,9 +67,12 @@ export function VideoEditing() {
           {/* Soft purple light behind the screen. */}
           <div
             aria-hidden="true"
-            className="absolute -inset-x-[6%] -inset-y-[14%] -z-10 bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-60"
+            className="scroll-glow absolute -inset-x-[6%] -inset-y-[14%] -z-10 bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-60"
           />
-          <VideoPreview video={featuredVideo} size="featured" />
+          {/* Widens from a smaller frame as it is scrolled into view. */}
+          <div className="scroll-expand scroll-scope">
+            <VideoPreview video={featuredVideo} size="featured" />
+          </div>
         </Reveal>
 
         {moreVideos.length > 0 && (
@@ -157,7 +160,16 @@ function VideoPreview({
         >
           <span className="absolute inset-0 block group-data-[reveal=in]:animate-reveal-image">
             <span className="absolute inset-0 block transition-[scale,translate] duration-(--duration-slow) ease-emphasized group-hover/video:-translate-y-0.5 group-hover/video:scale-[1.03]">
-              {media}
+              {/* On the featured screen the footage eases back from a slight
+                  zoom while the page scrolls. */}
+              <span
+                className={cn(
+                  "absolute inset-0 block",
+                  isFeatured && "scroll-zoom-out scroll-scoped",
+                )}
+              >
+                {media}
+              </span>
             </span>
           </span>
 

@@ -41,7 +41,7 @@ export function Hero() {
       className="relative isolate flex min-h-svh flex-col overflow-hidden pt-24 pb-0 sm:pt-28 md:pt-36 md:pb-0 lg:justify-center lg:pt-24 lg:pb-12"
     >
       <Container className="relative z-20">
-        <div className="lg:max-w-[40rem]">
+        <div className="scroll-hero-text lg:max-w-[40rem]">
           <p className={cn(smallLabel, "flex items-center gap-3")}>
             <span
               aria-hidden="true"
@@ -143,7 +143,7 @@ export function Hero() {
       </HeroParallax>
 
       {/* A cue to scroll, on desktop screens tall enough to have room for it. */}
-      <div className="absolute inset-x-0 bottom-8 z-20 hidden lg:[@media(min-height:52rem)]:block">
+      <div className="scroll-hero-cue absolute inset-x-0 bottom-8 z-20 hidden lg:[@media(min-height:52rem)]:block">
         <Container>
           <a
             href={hero.scrollCue.href}

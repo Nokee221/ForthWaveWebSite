@@ -11,64 +11,50 @@ export const mobileDevelopmentIntro = {
 /*
  * The two Mobile Development projects. The first is the featured one.
  *
- * ┌──────────────────────────────────────────────────────────────────────┐
- * │ BOTH PROJECTS BELOW ARE FICTIONAL DEMOS.                             │
- * │ "Smart Living" and "MoveWell" are not real FourthWave work. Their    │
- * │ names, descriptions, roles, technologies and app screens exist only  │
- * │ to preview the layout, and the site labels them "Demo".              │
- * └──────────────────────────────────────────────────────────────────────┘
+ * Both now use real screenshots (public + the `image` / `src` paths below;
+ * portrait phone screenshots fit best).
  *
- * To replace a demo with a real project:
- *   1. Put its screenshots at public + the `image` / `src` paths below.
- *      A real file replaces the demo screen automatically. Portrait phone
- *      screenshots fit best.
- *   2. Replace `title`, `description`, `role` and `technologies` with the
- *      real information (delete any you don't have).
- *   3. Delete the `demo: true` line to remove the "Demo" label.
+ * Still to fill in, with real information only:
+ *   - Project 1 has no `title` yet. Until it has one, the site shows
+ *     `placeholderTitle` and its details view stays disabled.
+ *   - `description`, `role`, `technologies` and `projectUrl` for both (all
+ *     optional; only the fields that are filled in are displayed).
  */
 export const mobileProjects: Project[] = [
   {
     id: "mobile-project-01",
-    demo: true,
     image: "/images/portfolio/mobile-development/project-01-screen-01.jpg",
-    imageAlt: "Home screen of the Smart Living demo app.",
+    imageAlt: "Home screen of the app, showing the available balance.",
     imagePosition: "50% 0%",
-    imageDemoScreen: "smart-living-home",
     moreImages: [
       {
         src: "/images/portfolio/mobile-development/project-01-screen-02.jpg",
-        alt: "Room controls screen of the Smart Living demo app.",
+        alt: "Forecast screen of the app, showing a financial health score.",
         position: "50% 0%",
-        demoScreen: "smart-living-room",
       },
     ],
     placeholderTitle: "Featured Mobile Project",
-    title: "Smart Living",
-    description:
-      "A modern mobile experience designed to make everyday tasks simpler, faster, and more intuitive.",
-    role: "Demo value — UX/UI design and development",
-    technologies: ["Demo value"],
+    // title: "",
+    // description: "",
+    // role: "",
+    // technologies: [],
   },
   {
     id: "mobile-project-02",
-    demo: true,
     image: "/images/portfolio/mobile-development/project-02-screen-01.jpg",
-    imageAlt: "Daily progress screen of the MoveWell demo app.",
+    imageAlt: "Check-in screen of the SHIFT app.",
     imagePosition: "50% 0%",
-    imageDemoScreen: "movewell-today",
     moreImages: [
       {
         src: "/images/portfolio/mobile-development/project-02-screen-02.jpg",
-        alt: "Weekly goals screen of the MoveWell demo app.",
+        alt: "Check-in screen of the SHIFT app.",
         position: "50% 0%",
-        demoScreen: "movewell-goals",
       },
     ],
     placeholderTitle: "Mobile Project",
-    title: "MoveWell",
-    description:
-      "A seamless mobile experience that helps users stay organized, track progress, and reach their goals.",
-    role: "Demo value — UX/UI design and development",
-    technologies: ["Demo value"],
+    title: "SHIFT",
+    // description: "",
+    // role: "",
+    // technologies: [],
   },
 ];

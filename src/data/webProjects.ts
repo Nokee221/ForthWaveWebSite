@@ -10,58 +10,46 @@ export const webDevelopmentIntro = {
 /*
  * The two Web Development projects. The first is the featured one.
  *
- * ┌──────────────────────────────────────────────────────────────────────┐
- * │ BOTH PROJECTS BELOW ARE FICTIONAL DEMOS.                             │
- * │ "Halden Studio" and "Drift" are not real FourthWave work or clients. │
- * │ Their names, categories, descriptions, roles, technologies and       │
- * │ website designs exist only to preview the layout, and the site       │
- * │ labels them "Demo".                                                  │
- * └──────────────────────────────────────────────────────────────────────┘
+ * Both now use real screenshots. Only the titles are filled in; add the rest
+ * when it is written:
+ *   - `category`, `description`, `role`, `technologies` (all optional; only
+ *     the fields that are filled in are displayed),
+ *   - `projectUrl: "https://…"` if the site is live. The mockup then shows
+ *     the address and the details view links to it.
  *
- * To replace a demo with a real project:
- *   1. Put its screenshot at public + `image` (the paths below). A real
- *      file replaces the demo website automatically. A wide screenshot of
- *      the top of the page fits best; `imagePosition` chooses which part
- *      stays in view when it is cropped to 16:10.
- *   2. Replace `title`, `category`, `description`, `role` and
- *      `technologies` with the real information (delete any you don't
- *      have), and write `imageAlt`.
- *   3. Replace `address` with `projectUrl: "https://…"` if the site is
- *      live; the mockup then shows the real address and the details view
- *      links to it.
- *   4. Delete the `demo: true` and `imageDemoSite` lines.
+ * To change a screenshot, replace the file at public + `image`. A wide
+ * screenshot of the top of the page fits best; `imagePosition` chooses which
+ * part stays in view when it is cropped to 16:10.
+ *
+ * Do not fill these in with anything that is not real.
  */
 export const webProjects: Project[] = [
   {
     id: "web-project-01",
-    demo: true,
-    image: "/images/portfolio/web-development/project-01.jpg",
-    imageAlt: "Home page of the Halden Studio demo website.",
+    image: "/images/portfolio/web-development/project-01.png",
+    imageAlt: "Home page of the PerfectCV website.",
     imagePosition: "50% 0%",
-    imageDemoSite: "halden-studio",
     placeholderTitle: "Featured Web Project",
-    title: "Halden Studio",
-    category: "Studio website — demo concept",
-    description:
-      "A calm, editorial website concept for an architecture and interior design studio, built around large imagery and generous space.",
-    role: "Demo value — Web design and development",
-    technologies: ["Demo value"],
-    address: "haldenstudio.demo",
+    title: "PerfectCV",
+    // category: "",
+    // description: "",
+    // role: "",
+    // technologies: [],
+    // projectUrl: "",
   },
   {
     id: "web-project-02",
-    demo: true,
-    image: "/images/portfolio/web-development/project-02.jpg",
-    imageAlt: "Home page of the Drift demo website.",
+    // A 16:10 crop of project-02.png, trimmed to the page content so it
+    // fills the browser window instead of sitting small between wide margins.
+    image: "/images/portfolio/web-development/project-02-cropped.jpg",
+    imageAlt: "Home page of the SHIFT website.",
     imagePosition: "50% 0%",
-    imageDemoSite: "drift",
     placeholderTitle: "Web Project",
-    title: "Drift",
-    category: "Online store — demo concept",
-    description:
-      "A bold product website concept for a drinks brand, with a single clear message and a short path from landing to shop.",
-    role: "Demo value — Web design and development",
-    technologies: ["Demo value"],
-    address: "drinkdrift.demo",
+    title: "SHIFT",
+    // category: "",
+    // description: "",
+    // role: "",
+    // technologies: [],
+    // projectUrl: "",
   },
 ];

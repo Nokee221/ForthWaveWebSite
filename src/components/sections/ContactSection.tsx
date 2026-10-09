@@ -21,7 +21,7 @@ export function ContactSection() {
   return (
     <Section
       id="contact"
-      className="relative isolate overflow-hidden bg-background-soft"
+      className="relative isolate overflow-clip bg-background-soft"
     >
       <SectionDivider />
       <SectionWatermark word="Contact" />
@@ -80,7 +80,7 @@ export function ContactSection() {
             {/* A restrained purple light behind the form. */}
             <div
               aria-hidden="true"
-              className="absolute -inset-[8%] -z-10 bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-50"
+              className="scroll-drift absolute -inset-[8%] -z-10 [--drift:-90px] bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-50"
             />
             <div className="rounded-xl border border-border bg-surface-elevated p-6 shadow-md group-data-[reveal=in]:animate-enter-scale group-data-[reveal=pending]:opacity-0 md:p-10">
               <ContactForm />

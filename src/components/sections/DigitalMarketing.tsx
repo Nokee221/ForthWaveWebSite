@@ -30,7 +30,7 @@ export function DigitalMarketing() {
   return (
     <Section
       id="digital-marketing"
-      className="relative isolate overflow-hidden bg-background-soft"
+      className="relative isolate overflow-clip bg-background-soft"
     >
       <SectionDivider />
       <SectionWatermark word="Marketing" />
@@ -74,13 +74,17 @@ export function DigitalMarketing() {
             {/* A restrained purple light behind the canvas. */}
             <div
               aria-hidden="true"
-              className="absolute -inset-[10%] -z-10 bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-50"
+              className="scroll-glow absolute -inset-[10%] -z-10 bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-50"
             />
-            <MarketingCanvas />
+            <div className="scroll-drift [--drift:50px]">
+              <MarketingCanvas />
+            </div>
           </Reveal>
         </div>
 
-        <MarketingConcepts />
+        <div className="scroll-grow [--grow-from:0.9]">
+          <MarketingConcepts />
+        </div>
 
         <Workflow />
 
@@ -92,7 +96,8 @@ export function DigitalMarketing() {
   );
 }
 
-/* Strategy → Create → Grow, joined by a line that draws itself. */
+/* Strategy → Create → Grow, joined by a line that draws itself: with the
+   scroll position where the browser supports it, otherwise once on entry. */
 function Workflow() {
   return (
     <Reveal className="group mt-24 md:mt-36">
@@ -104,13 +109,13 @@ function Workflow() {
           aria-hidden="true"
           className="absolute top-[5px] right-0 left-0 h-px bg-border max-md:hidden"
         >
-          <span className="block h-full origin-left bg-accent-gradient group-data-[reveal=in]:animate-grow-x [animation-duration:1400ms]" />
+          <span className="scroll-draw-x block h-full origin-left bg-accent-gradient group-data-[reveal=in]:animate-grow-x [animation-duration:1400ms]" />
         </li>
         <li
           aria-hidden="true"
           className="absolute top-0 bottom-0 left-[5px] w-px bg-border md:hidden"
         >
-          <span className="block h-full origin-top bg-accent-gradient group-data-[reveal=in]:animate-grow-y" />
+          <span className="scroll-draw-y block h-full origin-top bg-accent-gradient group-data-[reveal=in]:animate-grow-y" />
         </li>
 
         {marketingWorkflow.map((stage, index) => (

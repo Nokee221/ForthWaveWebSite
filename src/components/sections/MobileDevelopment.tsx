@@ -45,7 +45,7 @@ export function MobileDevelopment() {
   return (
     <Section
       id="mobile-development"
-      className="relative isolate overflow-hidden bg-background-soft"
+      className="relative isolate overflow-clip bg-background-soft"
     >
       <SectionDivider />
       <SectionWatermark word="Mobile" />
@@ -54,7 +54,10 @@ export function MobileDevelopment() {
         <Reveal className="group grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
           <div className="lg:col-span-7">
             <p className={cn(eyebrowStyle, enter, "flex items-center gap-3")}>
-              <span aria-hidden="true" className="h-px w-8 bg-accent-gradient" />
+              <span
+                aria-hidden="true"
+                className="h-px w-8 bg-accent-gradient"
+              />
               {mobileDevelopmentIntro.eyebrow}
             </p>
             <h2
@@ -97,17 +100,22 @@ export function MobileDevelopment() {
               >
                 <div
                   aria-hidden="true"
-                  className="absolute inset-x-[8%] inset-y-0 -z-10 bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-60 transition-opacity duration-(--duration-slow) ease-standard group-hover/project:opacity-100"
+                  className="scroll-drift absolute inset-x-[8%] inset-y-0 -z-10 [--drift:-100px] bg-[radial-gradient(closest-side,var(--glow),transparent)] opacity-60 transition-opacity duration-(--duration-slow) ease-standard group-hover/project:opacity-100"
                 />
                 <div className={cn(enterScale, "z-10 w-[60%] sm:w-[40%]")}>
-                  <PhoneFrame
-                    className={cn(
-                      phoneHover,
-                      "group-hover/project:-translate-y-2",
-                    )}
-                  >
-                    <Screen image={featuredMain} sizes="(min-width: 64rem) 18rem, 60vw" />
-                  </PhoneFrame>
+                  <div className="scroll-tilt [--drift:30px] [--tilt:3deg]">
+                    <PhoneFrame
+                      className={cn(
+                        phoneHover,
+                        "group-hover/project:-translate-y-2",
+                      )}
+                    >
+                      <Screen
+                        image={featuredMain}
+                        sizes="(min-width: 64rem) 18rem, 60vw"
+                      />
+                    </PhoneFrame>
+                  </div>
                 </div>
                 {/* Second screen: smaller, behind and lower. Hidden on phones. */}
                 <div
@@ -117,14 +125,16 @@ export function MobileDevelopment() {
                   )}
                   style={delay(220)}
                 >
-                  <PhoneFrame
-                    className={cn(
-                      phoneHover,
-                      "group-hover/project:translate-x-2",
-                    )}
-                  >
-                    <Screen image={featuredSecond} sizes="14rem" />
-                  </PhoneFrame>
+                  <div className="scroll-tilt [--drift:90px] [--tilt:-6deg]">
+                    <PhoneFrame
+                      className={cn(
+                        phoneHover,
+                        "group-hover/project:translate-x-2",
+                      )}
+                    >
+                      <Screen image={featuredSecond} sizes="14rem" />
+                    </PhoneFrame>
+                  </div>
                 </div>
               </Devices>
             </Reveal>
@@ -141,27 +151,34 @@ export function MobileDevelopment() {
                 className="gap-[5%] lg:col-span-6"
               >
                 <div className={cn(enterScale, "mt-[12%] w-[52%] sm:w-[36%]")}>
-                  <PhoneFrame
-                    className={cn(
-                      phoneHover,
-                      "group-hover/project:-translate-y-2",
-                    )}
-                  >
-                    <Screen image={secondaryMain} sizes="(min-width: 64rem) 14rem, 52vw" />
-                  </PhoneFrame>
+                  <div className="scroll-tilt [--drift:36px] [--tilt:-4deg]">
+                    <PhoneFrame
+                      className={cn(
+                        phoneHover,
+                        "group-hover/project:-translate-y-2",
+                      )}
+                    >
+                      <Screen
+                        image={secondaryMain}
+                        sizes="(min-width: 64rem) 14rem, 52vw"
+                      />
+                    </PhoneFrame>
+                  </div>
                 </div>
                 <div
                   className={cn(enterScale, "mb-[12%] w-[36%] max-sm:hidden")}
                   style={delay(140)}
                 >
-                  <PhoneFrame
-                    className={cn(
-                      phoneHover,
-                      "group-hover/project:-translate-y-2",
-                    )}
-                  >
-                    <Screen image={secondarySecond} sizes="14rem" />
-                  </PhoneFrame>
+                  <div className="scroll-tilt [--drift:80px] [--tilt:5deg]">
+                    <PhoneFrame
+                      className={cn(
+                        phoneHover,
+                        "group-hover/project:-translate-y-2",
+                      )}
+                    >
+                      <Screen image={secondarySecond} sizes="14rem" />
+                    </PhoneFrame>
+                  </div>
                 </div>
               </Devices>
 

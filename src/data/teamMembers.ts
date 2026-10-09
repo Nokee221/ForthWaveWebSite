@@ -82,7 +82,7 @@ export const teamMembers: TeamMember[] = [
     name: "Adem Halilović",
     initials: "AH",
     portrait: {
-      src: "/images/team/adem-halilovic.jpg",
+      src: "/images/team/adem-halilovic.jpeg",
       alt: "Portrait of Adem Halilović",
       objectPosition: "50% 25%",
     },
@@ -96,11 +96,11 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: "kenan-cosic",
-    name: "Kenan Ćosić",
-    initials: "KĆ",
+    name: "Kenan Čosić",
+    initials: "KČ",
     portrait: {
       src: "/images/team/kenan-cosic.jpg",
-      alt: "Portrait of Kenan Ćosić",
+      alt: "Portrait of Kenan Čosić",
       objectPosition: "50% 25%",
     },
     role: ROLE_PLACEHOLDER,
@@ -116,7 +116,7 @@ export const teamMembers: TeamMember[] = [
     name: "Ammar Kahrimanović",
     initials: "AK",
     portrait: {
-      src: "/images/team/ammar-kahrimanovic.jpg",
+      src: "/images/team/ammar-kahrimanovic.jpeg",
       alt: "Portrait of Ammar Kahrimanović",
       objectPosition: "50% 25%",
     },
@@ -133,7 +133,7 @@ export const teamMembers: TeamMember[] = [
     name: "Sumeja Halilović",
     initials: "SH",
     portrait: {
-      src: "/images/team/sumeja-halilovic.jpg",
+      src: "/images/team/sumeja-halilovic.jpeg",
       alt: "Portrait of Sumeja Halilović",
       objectPosition: "50% 25%",
     },

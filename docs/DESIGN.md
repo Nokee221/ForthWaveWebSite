@@ -253,11 +253,11 @@ Used to present website projects in the Web Development portfolio:
 
 - **Window.** A minimal browser window: three neutral dots, a small address bar with a lock mark, one faint "new tab" mark, and a `16:10` page area. Large radius on mobile, XL from tablet up; hairline border and the large shadow. It follows the page theme (light frame on light, dark frame on dark) and has no working browser controls.
 - **Featured project.** The window spans the full content width over a restrained purple light, with the project's label, title and category on the left beneath it and the description and button on the right.
-- **Secondary project.** Text on the left (one third), and on the right a tinted panel (soft background, XL radius, hairline border, purple light in its top corner) with the window rising out of its lower edge, so the window has no bottom border. Below desktop the panel comes first and the text follows.
+- **Secondary project.** The same full-width window, set apart from the featured project by a hairline, with its text row mirrored: description and button on the left, label and title on the right.
 - **Page content.** The real screenshot when its file exists, cropped from the top by default. Until then, a demo website drawn in code, if one is defined, or a neutral "coming soon" note. Demo websites have their own fictional brand palettes and fonts, scale with the window, and are longer than one screen.
 - **Labels.** Demo projects carry a "Demo" pill beside the project label, and their category says "demo concept".
-- **Entrance.** The featured window rises `24px` and scales from `0.98` while its page is uncovered from the top down; the label and title follow at `240ms` and the description and button at `320ms`. The secondary panel wipes up from its lower edge, its window rises inside it, and its text follows the same stagger. Small parts of a demo website (a caption, the product shots) settle in last.
-- **Hover (projects that can be opened).** The featured window lifts `6px` and the secondary one `8px`; the border takes a hint of the accent color and the purple light brightens. A demo page scrolls up slowly inside its window to show there is more below; a real screenshot zooms to `102%`. A "View project" tag with an arrow fades in at the lower right corner, also on keyboard focus. With reduced motion the page does not scroll.
+- **Entrance.** The featured window rises `24px` and scales from `0.98` while its page is uncovered from the top down; the label and title follow at `240ms` and the description and button at `320ms`. The secondary project enters the same way. Small parts of a demo website (a caption, the product shots) settle in last.
+- **Hover (projects that can be opened).** The window lifts `6px`; the border takes a hint of the accent color and the purple light brightens. A demo page scrolls up slowly inside its window to show there is more below; a real screenshot zooms to `102%`. A "View project" tag with an arrow fades in at the lower right corner, also on keyboard focus. With reduced motion the page does not scroll.
 
 ### Phone mockups
 
@@ -350,6 +350,20 @@ Every section after the Hero has one word set very large behind its foot, in the
 ### Section boundaries
 
 Every section after the Hero starts with the same marker at its top edge: a hairline across the content width in the border color, with a `64px` purple gradient segment at its left end. The Mobile Development section also uses the soft background so the page alternates as it scrolls. The Hero itself is unchanged.
+
+### Scroll-driven motion
+
+On top of the entrance reveals, some movement follows the scroll position itself, forwards and backwards. It is defined in `src/styles/scroll.css` with CSS scroll-driven animations, animates only position, scale, rotation and opacity, and is an enhancement: with reduced motion, or in a browser without support, the elements simply sit in place and the entrance reveals carry the page.
+
+- **Hero exit.** Over the first screen of scroll the photograph moves in to `120%`, the ambient light dims to `20%` and widens, and the text fades and rises `110px`. The text stays fully readable for the first fifth of that distance. The scroll cue fades out first.
+- **Web Development.** Each browser window settles from `86%` to full size as it enters; the light behind it and the text row beneath drift at different rates.
+- **Mobile Development.** Each phone drifts `30–90px` and turns at most `6deg`, every phone at its own rate; the light behind moves the other way.
+- **Video Editing.** The featured screen widens from `74%` and brightens as it approaches, while the footage inside eases back from a `125%` zoom; the light behind is brightest when the screen is centered.
+- **Digital Marketing.** The canvas drifts, its light brightens toward the center, the concept row settles from `90%`, and the Strategy → Create → Grow line draws with the scroll.
+- **Team and Contact.** The shared light behind the portraits and behind the form drifts against the scroll. Portraits and form fields themselves do not move with the scroll.
+- **Section watermarks.** The large word behind each section rises slower than the page.
+- **Phones.** Every drift and tilt is reduced to `40%` below `768px`.
+- **Rules.** No scroll hijacking, pinning or snapping. Sections use `overflow: clip` (not `hidden`) so these animations can follow the page scroll.
 
 ### Project details dialog
 

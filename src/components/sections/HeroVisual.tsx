@@ -24,7 +24,10 @@ export function HeroVisual() {
           aria-hidden="true"
           className="absolute inset-0 animate-emerge [animation-delay:400ms]"
         >
-          <div className="absolute inset-0 animate-ambient bg-[radial-gradient(closest-side_at_50%_30%,var(--glow),transparent_85%)] lg:bg-[radial-gradient(closest-side_at_42%_50%,var(--glow),transparent_85%)]" />
+          {/* Dims and widens as the Hero is scrolled away. */}
+          <div className="scroll-hero-glow absolute inset-0">
+            <div className="absolute inset-0 animate-ambient bg-[radial-gradient(closest-side_at_50%_30%,var(--glow),transparent_85%)] lg:bg-[radial-gradient(closest-side_at_42%_50%,var(--glow),transparent_85%)]" />
+          </div>
         </div>
       </HeroPointerShift>
 
@@ -34,19 +37,22 @@ export function HeroVisual() {
           {/* Oversized so the pointer shift never exposes an edge. */}
           <HeroPointerShift strength={8} className="absolute -inset-4">
             <div className="absolute inset-0 animate-reveal-image">
-              {hasImage ? (
-                <Image
-                  src={hero.image.src}
-                  alt={hero.image.alt}
-                  fill
-                  preload
-                  sizes="(min-width: 64rem) 54vw, 100vw"
-                  className="object-cover"
-                  style={{ objectPosition: hero.image.focalPoint }}
-                />
-              ) : (
-                <HeroImagePlaceholder />
-              )}
+              {/* Moves in slightly as the Hero is scrolled away. */}
+              <div className="scroll-hero-image absolute inset-0">
+                {hasImage ? (
+                  <Image
+                    src={hero.image.src}
+                    alt={hero.image.alt}
+                    fill
+                    preload
+                    sizes="(min-width: 64rem) 54vw, 100vw"
+                    className="object-cover"
+                    style={{ objectPosition: hero.image.focalPoint }}
+                  />
+                ) : (
+                  <HeroImagePlaceholder />
+                )}
+              </div>
             </div>
           </HeroPointerShift>
         </div>

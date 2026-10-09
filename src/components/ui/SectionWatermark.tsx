@@ -1,7 +1,9 @@
 /**
  * A single very faint word, set very large behind the foot of a section.
- * The section must be `relative isolate overflow-hidden` so the word sits
- * behind the content and is cut off at the section's edges.
+ * The section must be `relative isolate overflow-clip` so the word sits
+ * behind the content and is cut off at the section's edges. (`clip`, not
+ * `hidden`, so scroll-driven motion inside the section still follows the
+ * page.) The word rises a little slower than the page as it is scrolled.
  */
 export function SectionWatermark({ word }: { word: string }) {
   // Longer words are set smaller so every word spans a similar width.
@@ -10,7 +12,7 @@ export function SectionWatermark({ word }: { word: string }) {
   return (
     <p
       aria-hidden="true"
-      className="pointer-events-none absolute -bottom-[0.2em] left-1/2 -z-10 -translate-x-1/2 leading-none font-extrabold tracking-tighter whitespace-nowrap text-foreground/[0.035] uppercase select-none"
+      className="scroll-watermark pointer-events-none absolute -bottom-[0.2em] left-1/2 -z-10 -translate-x-1/2 leading-none font-extrabold tracking-tighter whitespace-nowrap text-foreground/[0.035] uppercase select-none"
       style={{ fontSize: `${size}vw` }}
     >
       {word}

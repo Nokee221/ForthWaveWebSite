@@ -1,0 +1,256 @@
+/*
+ * Scroll-driven motion: movement tied to how far the page has been scrolled,
+ * not to a one-off trigger. It runs forwards and backwards with the scroll
+ * position and is handled by the browser's compositor (only `translate`,
+ * `scale`, `rotate` and `opacity` are animated).
+ *
+ * Everything here is an enhancement. It applies only when the visitor allows
+ * motion and the browser supports scroll-driven animations; otherwise the
+ * elements simply sit in their normal place and the entrance reveals
+ * (src/components/ui/Reveal.tsx) carry the page on their own.
+ *
+ * These rules are deliberately outside any cascade layer so that, where both
+ * are present, they take over from an entrance animation utility on the same
+ * element.
+ *
+ * Two things to know when using the classes:
+ *   - `view()` measures against the nearest scrolling ancestor, and an
+ *     `overflow: hidden` box counts as one. Sections therefore use
+ *     `overflow-clip`. For an element inside an `overflow-hidden` box (a
+ *     video frame, say), put `scroll-scope` on an ancestor outside that box
+ *     and add `scroll-scoped` to the element.
+ *   - A class animates `translate`, `scale`, `rotate` or `opacity` for the
+ *     whole time, so do not put it on an element whose hover or entrance
+ *     uses the same property. Wrap it instead.
+ */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    :root {
+      /* Scales every drift and tilt. Smaller on phones. */
+      --scroll-k: 1;
+    }
+
+    @media (max-width: 47.99rem) {
+      :root {
+        --scroll-k: 0.4;
+      }
+    }
+
+    /* Names this element's pass through the viewport for its descendants. */
+    .scroll-scope {
+      view-timeline: --scope block;
+    }
+
+    /* Parallax: drifts by `--drift` each way while crossing the viewport. */
+    .scroll-drift {
+      animation: scroll-drift linear both;
+      animation-timeline: view();
+    }
+
+    /* Settles to full size while it enters. */
+    .scroll-grow {
+      animation: scroll-grow linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+
+    /* The video screen: widens from a smaller frame as it approaches. */
+    .scroll-expand {
+      animation: scroll-expand linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 50%;
+    }
+
+    /* Footage inside a frame: eases back from a slight zoom. */
+    .scroll-zoom-out {
+      animation: scroll-zoom-out linear both;
+      animation-timeline: view();
+    }
+
+    /* A device: drifts by `--drift` and turns through `--tilt`. */
+    .scroll-tilt {
+      animation: scroll-tilt linear both;
+      animation-timeline: view();
+    }
+
+    /* Ambient light: brightest when its section is centered. */
+    .scroll-glow {
+      animation: scroll-glow linear both;
+      animation-timeline: view();
+    }
+
+    /* A line that draws itself as it is scrolled into view. */
+    .scroll-draw-x {
+      animation: scroll-draw-x linear both;
+      animation-timeline: view();
+      animation-range: entry 100% cover 55%;
+    }
+
+    .scroll-draw-y {
+      animation: scroll-draw-y linear both;
+      animation-timeline: view();
+      animation-range: cover 12% cover 62%;
+    }
+
+    /* The large word behind a section rises slower than the page. */
+    .scroll-watermark {
+      animation: scroll-watermark linear both;
+      animation-timeline: view();
+    }
+
+    /* Must follow the classes above: swaps their timeline for the named one. */
+    .scroll-scoped {
+      animation-timeline: --scope;
+    }
+
+    /*
+     * The Hero's exit. Tied to the first screen of page scroll. The text
+     * stays fully readable for the first third of that distance.
+     */
+    .scroll-hero-text {
+      animation: scroll-hero-text linear both;
+      animation-timeline: scroll(root);
+      animation-range: 22vh 80vh;
+    }
+
+    .scroll-hero-image {
+      animation: scroll-hero-image linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+
+    .scroll-hero-glow {
+      animation: scroll-hero-glow linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 90vh;
+    }
+
+    .scroll-hero-cue {
+      animation: scroll-hero-cue linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 22vh;
+    }
+
+    @keyframes scroll-drift {
+      from {
+        translate: 0 calc(var(--drift, 32px) * var(--scroll-k));
+      }
+      to {
+        translate: 0 calc(var(--drift, 32px) * var(--scroll-k) * -1);
+      }
+    }
+
+    @keyframes scroll-grow {
+      from {
+        scale: var(--grow-from, 0.86);
+      }
+      to {
+        scale: 1;
+      }
+    }
+
+    @keyframes scroll-expand {
+      from {
+        opacity: 0.35;
+        scale: 0.74;
+      }
+      to {
+        opacity: 1;
+        scale: 1;
+      }
+    }
+
+    @keyframes scroll-zoom-out {
+      from {
+        scale: 1.25;
+      }
+      to {
+        scale: 1;
+      }
+    }
+
+    @keyframes scroll-tilt {
+      from {
+        translate: 0 calc(var(--drift, 24px) * var(--scroll-k));
+        rotate: calc(var(--tilt, 2deg) * var(--scroll-k));
+      }
+      50% {
+        rotate: 0deg;
+      }
+      to {
+        translate: 0 calc(var(--drift, 24px) * var(--scroll-k) * -1);
+        rotate: calc(var(--tilt, 2deg) * var(--scroll-k) * -0.5);
+      }
+    }
+
+    @keyframes scroll-glow {
+      from {
+        opacity: 0.1;
+        scale: 0.8;
+      }
+      50% {
+        opacity: 0.9;
+        scale: 1;
+      }
+      to {
+        opacity: 0.15;
+        scale: 1.12;
+      }
+    }
+
+    @keyframes scroll-draw-x {
+      from {
+        scale: 0 1;
+      }
+      to {
+        scale: 1 1;
+      }
+    }
+
+    @keyframes scroll-draw-y {
+      from {
+        scale: 1 0;
+      }
+      to {
+        scale: 1 1;
+      }
+    }
+
+    /* Keeps the word's own horizontal centering (-50%). */
+    @keyframes scroll-watermark {
+      from {
+        translate: -50% 45%;
+      }
+      to {
+        translate: -50% -12%;
+      }
+    }
+
+    @keyframes scroll-hero-text {
+      to {
+        opacity: 0;
+        translate: 0 -110px;
+      }
+    }
+
+    @keyframes scroll-hero-image {
+      to {
+        scale: 1.2;
+      }
+    }
+
+    @keyframes scroll-hero-glow {
+      to {
+        opacity: 0.2;
+        scale: 1.3;
+      }
+    }
+
+    @keyframes scroll-hero-cue {
+      to {
+        opacity: 0;
+      }
+    }
+  }
+}

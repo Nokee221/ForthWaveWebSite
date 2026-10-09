@@ -53,7 +53,7 @@ const presentation: Record<
 
 export function ServicesOverview() {
   return (
-    <Section id="services" className="relative isolate overflow-hidden">
+    <Section id="services" className="relative isolate overflow-clip">
       <SectionDivider />
       <SectionWatermark word="Services" />
 
