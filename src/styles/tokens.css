@@ -1,0 +1,321 @@
+/*
+ * Design tokens. Values come from docs/DESIGN.md.
+ *
+ * Spacing uses Tailwind's default 4px grid, which already covers the scale in
+ * DESIGN.md: 1=4, 2=8, 3=12, 4=16, 6=24, 8=32, 12=48, 16=64, 20=80, 24=96,
+ * 30=120, 40=160.
+ */
+
+/* Motion tokens — mirrored in src/lib/motion.ts for JavaScript animations. */
+:root {
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 600ms;
+}
+
+@theme {
+  /* Only the project palette is available — no default Tailwind colors. */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-purple-600: #7c3aed;
+  --color-purple-500: #8b5cf6;
+  --color-purple-400: #a855f7;
+  --color-purple-300: #c084fc;
+
+  --radius-*: initial;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  --container-content: 80rem;
+
+  /* Fluid type scale: hero 48→100px, heading 32→64px, subheading 24→32px. */
+  --text-hero: clamp(3rem, 1.4rem + 5.6vw, 6.25rem);
+  --text-hero--line-height: 0.98;
+  --text-hero--letter-spacing: -0.045em;
+  --text-heading: clamp(2rem, 1.25rem + 3vw, 4rem);
+  --text-heading--line-height: 1.1;
+  --text-heading--letter-spacing: -0.02em;
+  --text-subheading: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --text-subheading--line-height: 1.2;
+  --text-subheading--letter-spacing: -0.01em;
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.6;
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /*
+   * Entrance animations. All fill "both", so an element stays in its starting
+   * state through its animation-delay; stagger a sequence with delays.
+   */
+  --animate-enter: enter var(--duration-slow) var(--ease-emphasized) both;
+  --animate-reveal-line: reveal-line 900ms var(--ease-emphasized) both;
+  --animate-reveal-image: reveal-image 1400ms var(--ease-emphasized) both;
+  --animate-reveal-mask: reveal-mask 1100ms var(--ease-standard) both;
+  --animate-grow-x: grow-x 700ms var(--ease-emphasized) both;
+  --animate-emerge: emerge 1600ms var(--ease-standard) both;
+  --animate-enter-scale: enter-scale 900ms var(--ease-emphasized) both;
+  --animate-reveal-down: reveal-down 1100ms var(--ease-emphasized) both;
+  /* Panel wipes: reveal a rounded panel from one edge. */
+  --animate-wipe-from-left: wipe-from-left 1000ms var(--ease-emphasized) both;
+  --animate-wipe-from-right: wipe-from-right 1000ms var(--ease-emphasized) both;
+  --animate-wipe-from-bottom: wipe-from-bottom 1000ms var(--ease-emphasized) both;
+  --animate-wipe-open: wipe-open 1100ms var(--ease-emphasized) both;
+  --animate-grow-y: grow-y 1400ms var(--ease-emphasized) both;
+  /* A line drawing itself. Needs pathLength="1" and stroke-dasharray="1". */
+  --animate-draw: draw 1600ms var(--ease-standard) both;
+  /* A gentle, continuous bob for decorative shapes. */
+  --animate-float: float 7s ease-in-out infinite alternate;
+  /* A short segment travelling down a line: "scroll this way". */
+  --animate-scroll-cue: scroll-cue 2.4s var(--ease-standard) infinite;
+  /* A playhead crossing its track, left to right, on a loop. */
+  --animate-scan: scan 9s linear infinite;
+  /* Slow, continuous drift for ambient light. Transform and opacity only. */
+  --animate-ambient: ambient 12s ease-in-out infinite alternate;
+
+  @keyframes enter {
+    from {
+      opacity: 0;
+      translate: 0 20px;
+    }
+  }
+
+  /* Raises a line from below; clip it with an overflow-hidden parent. */
+  @keyframes reveal-line {
+    from {
+      opacity: 0;
+      translate: 0 100%;
+    }
+    60% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes reveal-image {
+    from {
+      opacity: 0;
+      scale: 1.05;
+    }
+  }
+
+  /* Wipes in an element that uses mask-fade-left or mask-fade-up. */
+  @keyframes reveal-mask {
+    from {
+      --mask-reveal: 0%;
+    }
+  }
+
+  /* For large objects such as mockups: rises and settles to full size. */
+  @keyframes enter-scale {
+    from {
+      opacity: 0;
+      translate: 0 24px;
+      scale: 0.98;
+    }
+  }
+
+  /* Uncovers an element from the top edge down. */
+  @keyframes reveal-down {
+    from {
+      clip-path: inset(0 0 100% 0);
+    }
+    to {
+      clip-path: inset(0);
+    }
+  }
+
+  @keyframes wipe-from-left {
+    from {
+      clip-path: inset(0 100% 0 0 round var(--radius-xl));
+    }
+    to {
+      clip-path: inset(0 round var(--radius-xl));
+    }
+  }
+
+  @keyframes wipe-from-right {
+    from {
+      clip-path: inset(0 0 0 100% round var(--radius-xl));
+    }
+    to {
+      clip-path: inset(0 round var(--radius-xl));
+    }
+  }
+
+  @keyframes wipe-from-bottom {
+    from {
+      clip-path: inset(100% 0 0 0 round var(--radius-xl));
+    }
+    to {
+      clip-path: inset(0 round var(--radius-xl));
+    }
+  }
+
+  /* Opens from the centre outward, like curtains. */
+  @keyframes wipe-open {
+    from {
+      clip-path: inset(0 50% 0 50% round var(--radius-xl));
+    }
+    to {
+      clip-path: inset(0 round var(--radius-xl));
+    }
+  }
+
+  @keyframes grow-x {
+    from {
+      scale: 0 1;
+    }
+  }
+
+  @keyframes emerge {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes grow-y {
+    from {
+      scale: 1 0;
+    }
+  }
+
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes float {
+    from {
+      translate: 0 -6px;
+    }
+    to {
+      translate: 0 6px;
+    }
+  }
+
+  @keyframes scroll-cue {
+    from {
+      translate: 0 -100%;
+    }
+    to {
+      translate: 0 250%;
+    }
+  }
+
+  @keyframes scan {
+    from {
+      translate: 0 0;
+    }
+    to {
+      translate: 100% 0;
+    }
+  }
+
+  @keyframes ambient {
+    from {
+      opacity: 0.8;
+      translate: -2% -1.5%;
+      scale: 1;
+    }
+    to {
+      opacity: 1;
+      translate: 2% 1.5%;
+      scale: 1.06;
+    }
+  }
+}
+
+/* Theme-aware tokens: resolved from the variables in themes.css. */
+@theme inline {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    var(--font-space-grotesk), var(--font-manrope), ui-sans-serif, system-ui,
+    sans-serif;
+
+  --color-background: var(--background);
+  --color-background-soft: var(--background-soft);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-error: var(--error);
+
+  --shadow-*: initial;
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-lg: var(--elevation-lg);
+  --shadow-glow: 0 8px 32px -8px var(--glow);
+}
+
+@utility bg-accent-gradient {
+  background-image: var(--accent-gradient);
+}
+
+@utility bg-button-gradient {
+  background-image: var(--button-gradient);
+}
+
+@utility text-accent-gradient {
+  background-image: var(--accent-gradient);
+  background-clip: text;
+  color: transparent;
+}
+
+/*
+ * How far a masked element has been wiped in. Fully revealed by default, so
+ * the element is visible whenever the reveal animation does not run.
+ */
+@property --mask-reveal {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 130%;
+}
+
+/* Dissolves an element into the page toward the top (image below content). */
+@utility mask-fade-up {
+  mask-image:
+    linear-gradient(
+      to top,
+      black 22%,
+      rgb(0 0 0 / 0.72) 42%,
+      rgb(0 0 0 / 0.36) 62%,
+      rgb(0 0 0 / 0.12) 78%,
+      rgb(0 0 0 / 0.03) 88%,
+      transparent 96%
+    ),
+    linear-gradient(to top, black calc(var(--mask-reveal) - 30%), transparent var(--mask-reveal));
+  mask-composite: intersect;
+  mask-repeat: no-repeat;
+}
+
+/*
+ * Dissolves an element into the page toward the left, with a soft fade at the
+ * top and bottom. Because it is a mask, it adapts to whatever is behind it.
+ */
+@utility mask-fade-left {
+  mask-image:
+    linear-gradient(
+      to left,
+      black 32%,
+      rgb(0 0 0 / 0.78) 48%,
+      rgb(0 0 0 / 0.42) 64%,
+      rgb(0 0 0 / 0.14) 78%,
+      rgb(0 0 0 / 0.03) 88%,
+      transparent 96%
+    ),
+    linear-gradient(to bottom, transparent 2%, black 18%, black 82%, transparent 98%),
+    linear-gradient(to left, black calc(var(--mask-reveal) - 30%), transparent var(--mask-reveal));
+  mask-composite: intersect;
+  mask-repeat: no-repeat;
+}

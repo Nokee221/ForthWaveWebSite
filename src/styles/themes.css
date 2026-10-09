@@ -1,0 +1,54 @@
+/*
+ * Semantic theme variables. Values come from docs/DESIGN.md.
+ * Each theme defines the full set on its own — dark is not derived from light.
+ * Components use these through the Tailwind names mapped in tokens.css.
+ */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --background: #ffffff;
+  --background-soft: #fafafa;
+  --surface: #f7f7f8;
+  --surface-elevated: #ffffff;
+  --foreground: #111113;
+  --muted: #5f6068;
+  --border: #e8e8ec;
+
+  --accent: #7c3aed;
+  --accent-foreground: #ffffff;
+  --error: #dc2626;
+  --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+  --button-gradient: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+
+  --glow: rgb(124 58 237 / 0.22);
+
+  --elevation-sm: 0 1px 2px rgb(17 17 19 / 0.05);
+  --elevation-md: 0 4px 16px -4px rgb(17 17 19 / 0.08), 0 1px 2px rgb(17 17 19 / 0.04);
+  --elevation-lg: 0 16px 48px -12px rgb(17 17 19 / 0.12), 0 2px 6px rgb(17 17 19 / 0.04);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: #09090b;
+  --background-soft: #0f0f12;
+  --surface: #15151a;
+  --surface-elevated: #1b1b22;
+  --foreground: #f7f7f8;
+  --muted: #a5a5ae;
+  --border: #27272f;
+
+  --accent: #a855f7;
+  --accent-foreground: #ffffff;
+  --error: #f87171;
+  --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+  --button-gradient: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+
+  --glow: rgb(168 85 247 / 0.32);
+
+  --elevation-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --elevation-md: 0 4px 16px -4px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.03);
+  --elevation-lg: 0 16px 48px -12px rgb(0 0 0 / 0.6), 0 0 0 1px rgb(255 255 255 / 0.04);
+}
