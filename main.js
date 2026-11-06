@@ -79,6 +79,22 @@ const TEXT = {
     "mkt.a4": "Digital strategy",
     "mkt.a4.d": "A plan for what to say, where, and how often.",
 
+    "prod.kicker": "Our own product",
+    "prod.live": "Live in production",
+    "prod.lede": "Šanko is the bar book we built for cafés and bars. Waiters run their shift on a phone, the owner sees every number on a laptop, and nobody counts from a notebook anymore. It's live and in use every day.",
+    "prod.s1": "The shift, without the notebook",
+    "prod.s1.d": "The waiter logs deliveries, write-offs and stock on the phone. The owner sees the full settlement the moment it's entered.",
+    "prod.s2": "Counting with pictures",
+    "prod.s2.d": "Every item has its photo, so stocktaking goes quickly. The whole price list comes in from a single Excel file.",
+    "prod.s3": "A shortage shows up straight away",
+    "prod.s3.d": "At handover the app compares what should be in the till with what is, and shows whose shift it was.",
+    "prod.s4": "A message when the shift closes",
+    "prod.s4.d": "The owner gets the totals on Telegram, even on days they're not in the café.",
+    "prod.offline": "Works offline",
+    "prod.toast.now": "now",
+    "prod.toast.title": "Korzo: shift 2 closed",
+    "prod.toast.due": "To hand over",
+    "prod.toast.short": "Short",
     "team.kicker": "The people behind FourthWave",
     "team.title": ["Four people.", "<em>One table.</em>"],
     "team.lede": "We're small on purpose. You talk directly to the people doing the work, not to someone passing messages along.",
@@ -173,6 +189,22 @@ const TEXT = {
     "mkt.a4": "Digitalna strategija",
     "mkt.a4.d": "Plan šta reći, gdje i koliko često.",
 
+    "prod.kicker": "Naš proizvod",
+    "prod.live": "U produkciji",
+    "prod.lede": "Šanko je šankerska knjiga koju smo napravili za kafiće i barove. Konobar vodi smjenu na telefonu, gazda vidi svaki broj na laptopu, a sveska više nikome ne treba. Aplikacija radi i koristi se svaki dan.",
+    "prod.s1": "Smjena bez sveske",
+    "prod.s1.d": "Konobar na telefonu unosi ulaz, rashod i stanje. Gazda vidi cijeli obračun čim je unesen.",
+    "prod.s2": "Popis sa slikama",
+    "prod.s2.d": "Svaki artikal ima svoju sliku, pa popis ide brzo. Cijeli cjenovnik se ubaci iz jednog Excel fajla.",
+    "prod.s3": "Manjak se vidi odmah",
+    "prod.s3.d": "Pri predaji aplikacija uporedi koliko treba biti u kasi i koliko jeste, i pokaže u čijoj je smjeni.",
+    "prod.s4": "Poruka kad se smjena zatvori",
+    "prod.s4.d": "Gazda dobije iznose na Telegram, i kad nije u kafiću.",
+    "prod.offline": "Radi i bez interneta",
+    "prod.toast.now": "sada",
+    "prod.toast.title": "Korzo: smjena 2 zatvorena",
+    "prod.toast.due": "Za predaju",
+    "prod.toast.short": "Manjak",
     "team.kicker": "Ljudi iza FourthWave-a",
     "team.title": ["Četiri osobe.", "<em>Jedan sto.</em>"],
     "team.lede": "Namjerno smo mali. Razgovarate direktno s ljudima koji rade posao, a ne s nekim ko samo prenosi poruke.",
@@ -330,7 +362,7 @@ const PROJECTS = {
     if (el.id === "top") return 0;
     if (el.matches("[data-scene]")) {
       const travel = el.offsetHeight - window.innerHeight;
-      const at = el.id === "marketing" ? 0.02 : 0.62;
+      const at = el.id === "marketing" ? 0.02 : el.id === "sanko" ? 0.2 : 0.62;
       return top + travel * at;
     }
     return top - 40;
@@ -580,6 +612,52 @@ const PROJECTS = {
     return travel > 0 ? clamp(-r.top / travel) : r.top < 0 ? 1 : 0;
   }
 
+
+  /* ---- Šanko: the laptop opens, the phone rises, then four screens */
+
+  const prodEl = document.getElementById("sanko");
+  const prod = prodEl && {
+    steps: [...prodEl.querySelectorAll(".product-steps li")],
+    dots: [...prodEl.querySelectorAll(".product-dots i")],
+    phone: [...prodEl.querySelectorAll('[data-screens="phone"] img')],
+    desk: [...prodEl.querySelectorAll('[data-screens="laptop"] img')],
+  };
+
+  function renderProduct(el, p) {
+    el.style.setProperty("--open", easeOut(step(p, 0, 0.17)).toFixed(4));
+    const n = prod.steps.length;
+    const phase = step(p, 0.2, 0.88) * (n - 1);
+    const k = Math.min(n - 2, Math.floor(phase));
+    // Each screen holds still for most of its stretch, then hands over.
+    const tt = easeInOut(step(phase - k, 0.62, 1));
+
+    for (let i = 0; i < n; i++) {
+      const a = i === k ? 1 - tt : i === k + 1 ? tt : 0;
+      prod.steps[i].style.setProperty("--a", a.toFixed(3));
+      prod.steps[i].classList.toggle("on", i === (tt < 0.5 ? k : k + 1));
+      prod.dots[i].style.setProperty("--a", clamp(step(p, 0.06, 0.88) * n - i).toFixed(3));
+
+      // Phone: screens push in from the right, like moving through the app.
+      const ph = prod.phone[i];
+      const dk = prod.desk[i];
+      if (i < k || i > k + 1) {
+        ph.style.opacity = "0";
+        dk.style.opacity = "0";
+        continue;
+      }
+      const isNext = i === k + 1;
+      ph.style.opacity = isNext && tt === 0 ? "0" : "1";
+      ph.style.transform = isNext
+        ? `translate3d(${((1 - tt) * 100).toFixed(2)}%,0,0)`
+        : `translate3d(${(-tt * 28).toFixed(2)}%,0,0) scale(${(1 - tt * 0.04).toFixed(4)})`;
+      ph.style.filter = isNext ? "" : `brightness(${(1 - tt * 0.35).toFixed(3)})`;
+      // Laptop: a soft crossfade with a little settle.
+      dk.style.opacity = isNext ? tt.toFixed(3) : "1";
+      dk.style.transform = isNext ? `scale(${(1.035 - tt * 0.035).toFixed(4)})` : "";
+    }
+    el.style.setProperty("--toast", easeOut(step(p, 0.86, 0.95)).toFixed(4));
+  }
+
   let videoPlaying = false;
 
   function renderScenes(time, dt) {
@@ -612,6 +690,8 @@ const PROJECTS = {
           if (onScreen) filmVideo.play().catch(() => {});
           else filmVideo.pause();
         }
+      } else if (s.name === "product" && prod) {
+        renderProduct(s.el, p);
       } else if (s.name === "statement") {
         const lit = step(p, 0.08, 0.8) * (words.length + 1);
         words.forEach((w, i) => {
@@ -633,7 +713,7 @@ const PROJECTS = {
 
     const mid = vh * 0.5;
     let section = "";
-    for (const id of ["services", "web", "mobile", "video", "marketing", "team", "contact"]) {
+    for (const id of ["services", "web", "mobile", "video", "marketing", "sanko", "team", "contact"]) {
       const r = document.getElementById(id).getBoundingClientRect();
       if (r.top <= mid && r.bottom > mid) section = id;
     }

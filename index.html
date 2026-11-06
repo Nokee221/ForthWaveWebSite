@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <!--
@@ -30,6 +30,7 @@
     <nav class="bar-nav" aria-label="Main">
       <a href="#services" data-i18n="nav.services">Services</a>
       <a href="#web" data-i18n="nav.work">Work</a>
+      <a href="#sanko">Šanko</a>
       <a href="#team" data-i18n="nav.team">Team</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
@@ -244,10 +245,77 @@
       </div>
     </section>
 
-    <!-- 06 · Team -->
+    <!-- 06 · Šanko: our own product. A laptop opens, a phone rises, and the
+         two screens walk through one shift together while you scroll. -->
+    <section class="scene product" id="sanko" data-scene="product" data-sea="0.3">
+      <div class="sticky">
+        <div class="product-glow" aria-hidden="true"></div>
+
+        <div class="product-copy">
+          <p class="mono idx"><b>06</b><span data-i18n="prod.kicker">Our own product</span></p>
+          <div class="product-name">
+            <img src="assets/sanko/icon.webp" alt="" width="192" height="192">
+            <h2 class="h2">Šanko</h2>
+            <span class="live mono"><i aria-hidden="true"></i><span data-i18n="prod.live">Live in production</span></span>
+          </div>
+          <p class="lede" data-i18n="prod.lede"></p>
+
+          <ol class="product-steps">
+            <li><span class="mono">01</span><div><b data-i18n="prod.s1"></b><p data-i18n="prod.s1.d"></p></div></li>
+            <li><span class="mono">02</span><div><b data-i18n="prod.s2"></b><p data-i18n="prod.s2.d"></p></div></li>
+            <li><span class="mono">03</span><div><b data-i18n="prod.s3"></b><p data-i18n="prod.s3.d"></p></div></li>
+            <li><span class="mono">04</span><div><b data-i18n="prod.s4"></b><p data-i18n="prod.s4.d"></p></div></li>
+          </ol>
+
+          <ul class="chips mono product-platforms">
+            <li>Android</li><li>Windows</li><li>Web</li><li data-i18n="prod.offline">Works offline</li>
+          </ul>
+        </div>
+
+        <div class="devices" aria-label="Šanko on a laptop and a phone" role="img">
+          <div class="laptop">
+            <div class="laptop-lid">
+              <span class="laptop-cam" aria-hidden="true"></span>
+              <div class="laptop-screen" data-screens="laptop">
+                <img src="assets/sanko/desk-1.webp" alt="" width="1440" height="900" loading="lazy" decoding="async">
+                <img src="assets/sanko/desk-2.webp" alt="" width="1440" height="900" loading="lazy" decoding="async">
+                <img src="assets/sanko/desk-3.webp" alt="" width="1440" height="900" loading="lazy" decoding="async">
+                <img src="assets/sanko/desk-4.webp" alt="" width="1440" height="900" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="laptop-base" aria-hidden="true"><i></i></div>
+          </div>
+
+          <div class="handset">
+            <div class="handset-screen" data-screens="phone">
+              <img src="assets/sanko/phone-1.webp" alt="" width="600" height="1298" loading="lazy" decoding="async">
+              <img src="assets/sanko/phone-2.webp" alt="" width="600" height="1298" loading="lazy" decoding="async">
+              <img src="assets/sanko/phone-3.webp" alt="" width="600" height="1298" loading="lazy" decoding="async">
+              <img src="assets/sanko/phone-4.webp" alt="" width="600" height="1298" loading="lazy" decoding="async">
+            </div>
+            <span class="island" aria-hidden="true"></span>
+          </div>
+
+          <!-- The Telegram message the owner gets when a shift is closed (demo data). -->
+          <div class="toast" aria-hidden="true">
+            <img src="assets/sanko/icon.webp" alt="" width="192" height="192">
+            <div>
+              <p class="toast-head"><b>Šanko</b><span data-i18n="prod.toast.now">now</span></p>
+              <p class="toast-title" data-i18n="prod.toast.title">Korzo: shift 2 closed</p>
+              <p class="toast-line"><span data-i18n="prod.toast.due">To hand over</span><b>1.227,50 KM</b></p>
+              <p class="toast-line short"><span data-i18n="prod.toast.short">Short</span><b>10,00 KM</b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <!-- 07 · Team -->
     <section class="team" id="team" data-sea="0.25">
       <header class="sec-head rv">
-        <p class="mono idx"><b>06</b><span data-i18n="team.kicker">The people behind FourthWave</span></p>
+        <p class="mono idx"><b>07</b><span data-i18n="team.kicker">The people behind FourthWave</span></p>
         <h2 class="h2" data-i18n="team.title"></h2>
         <p class="lede" data-i18n="team.lede"></p>
       </header>
@@ -272,10 +340,10 @@
       </ul>
     </section>
 
-    <!-- 07 · Contact -->
+    <!-- 08 · Contact -->
     <section class="contact" id="contact" data-sea="1">
       <div class="contact-head rv">
-        <p class="mono idx"><b>07</b><span data-i18n="contact.kicker">Let's work together</span></p>
+        <p class="mono idx"><b>08</b><span data-i18n="contact.kicker">Let's work together</span></p>
         <h2 class="h2 huge" data-i18n="contact.title"></h2>
         <p class="lede" data-i18n="contact.lede"></p>
       </div>
@@ -325,6 +393,7 @@
         <p class="mono" data-i18n="footer.explore">Explore</p>
         <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#web" data-i18n="nav.work">Work</a>
+      <a href="#sanko">Šanko</a>
         <a href="#team" data-i18n="nav.team">Team</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
@@ -359,6 +428,6 @@
     <video id="videoPlayer" src="assets/content/showreel-loop.mp4" poster="assets/content/showreel-poster.jpg" controls loop playsinline preload="none"></video>
   </dialog>
 
-  <script src="main.js?v=4"></script>
+  <script src="main.js?v=5"></script>
 </body>
 </html>
