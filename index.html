@@ -58,10 +58,6 @@
           </div>
         </div>
 
-        <div class="hero-meta mono" id="heroMeta">
-          <p data-i18n="hero.kicker">Creative technology studio</p>
-          <p data-i18n="hero.areas">Web / Mobile / Video / Marketing</p>
-        </div>
 
         <div class="hero-copy" id="heroCopy">
           <h1 class="display" data-i18n="hero.title">Web, mobile and video. One team.</h1>
@@ -92,25 +88,25 @@
         <h2 class="h2" data-i18n="svc.title"></h2>
       </header>
       <ol class="svc-list">
-        <li class="rv"><a class="svc" href="#web" data-img="public/images/services/web-development.jpg">
+        <li class="rv"><a class="svc" href="#web" data-img="assets/sections/web-wide.webp">
           <span class="svc-n mono">01</span>
           <span class="svc-name" data-i18n="svc.web">Web Development</span>
           <span class="svc-desc" data-i18n="svc.web.d"></span>
           <span class="svc-go" aria-hidden="true">→</span>
         </a></li>
-        <li class="rv"><a class="svc" href="#mobile" data-img="public/images/services/mobile-development.jpg">
+        <li class="rv"><a class="svc" href="#mobile" data-img="assets/sections/mobile-wide.webp">
           <span class="svc-n mono">02</span>
           <span class="svc-name" data-i18n="svc.mobile">Mobile Development</span>
           <span class="svc-desc" data-i18n="svc.mobile.d"></span>
           <span class="svc-go" aria-hidden="true">→</span>
         </a></li>
-        <li class="rv"><a class="svc" href="#video" data-img="public/images/services/video-editing.jpg">
+        <li class="rv"><a class="svc" href="#video" data-img="assets/sections/video-wide.webp">
           <span class="svc-n mono">03</span>
           <span class="svc-name" data-i18n="svc.video">Video Editing</span>
           <span class="svc-desc" data-i18n="svc.video.d"></span>
           <span class="svc-go" aria-hidden="true">→</span>
         </a></li>
-        <li class="rv"><a class="svc" href="#marketing" data-img="public/images/services/digital-marketing.jpg">
+        <li class="rv"><a class="svc" href="#marketing" data-img="assets/sections/marketing-wide.webp">
           <span class="svc-n mono">04</span>
           <span class="svc-name" data-i18n="svc.marketing">Digital Marketing</span>
           <span class="svc-desc" data-i18n="svc.marketing.d"></span>
@@ -123,6 +119,12 @@
     <!-- 02 · Web: screens tilt up out of the sea and straighten -->
     <section class="scene web" id="web" data-scene="web" data-sea="0.45">
       <div class="sticky">
+        <div class="scene-bg" aria-hidden="true">
+          <picture>
+            <source media="(max-width: 760px)" srcset="assets/sections/web-tall.webp">
+            <img src="assets/sections/web-wide.webp" alt="" loading="lazy" decoding="async">
+          </picture>
+        </div>
         <div class="scene-text rv">
           <p class="mono idx"><b>02</b><span data-i18n="web.kicker">Web development</span></p>
           <h2 class="h2" data-i18n="web.title"></h2>
@@ -146,6 +148,12 @@
     <!-- 03 · Mobile: two phones pass each other -->
     <section class="scene mobile" id="mobile" data-scene="mobile" data-sea="0.35">
       <div class="sticky">
+        <div class="scene-bg" aria-hidden="true">
+          <picture>
+            <source media="(max-width: 760px)" srcset="assets/sections/mobile-tall.webp">
+            <img src="assets/sections/mobile-wide.webp" alt="" loading="lazy" decoding="async">
+          </picture>
+        </div>
         <div class="phones">
           <button class="phone p1" type="button" data-project="finance">
             <img src="assets/content/mobile-finance.jpg" alt="Home screen of a personal finance app." loading="lazy">
@@ -168,6 +176,12 @@
     <!-- 04 · Video: the frame opens up to fill the screen -->
     <section class="scene video" id="video" data-scene="video" data-sea="0">
       <div class="sticky">
+        <div class="scene-bg" aria-hidden="true">
+          <picture>
+            <source media="(max-width: 760px)" srcset="assets/sections/video-tall.webp">
+            <img src="assets/sections/video-wide.webp" alt="" loading="lazy" decoding="async">
+          </picture>
+        </div>
         <div class="film" id="film">
           <video src="assets/content/showreel-loop.mp4" poster="assets/content/showreel-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
         </div>
@@ -185,6 +199,12 @@
     <!-- 05 · Marketing: a sideways track while you scroll down -->
     <section class="scene marketing" id="marketing" data-scene="marketing" data-sea="0.5">
       <div class="sticky">
+        <div class="scene-bg" aria-hidden="true">
+          <picture>
+            <source media="(max-width: 760px)" srcset="assets/sections/marketing-tall.webp">
+            <img src="assets/sections/marketing-wide.webp" alt="" loading="lazy" decoding="async">
+          </picture>
+        </div>
         <div class="track" id="track">
           <article class="slide slide-intro">
             <p class="mono idx"><b>05</b><span data-i18n="mkt.kicker">Digital marketing</span></p>
@@ -230,19 +250,19 @@
       <!-- Add each person's role to data-i18n="team.role.*" in main.js when it is known. -->
       <ul class="people">
         <li class="person rv" data-speed="0">
-          <div class="person-img"><img src="assets/content/team-adem-halilovic.jpg" alt="Adem Halilović" loading="lazy"></div>
+          <div class="person-img"><img class="tone" src="assets/team/adem-halilovic.webp" alt="Adem Halilović" loading="lazy" width="720" height="960"><img class="color" src="assets/team/adem-halilovic-color.webp" alt="" loading="lazy" width="720" height="960"></div>
           <p class="person-name">Adem Halilović</p>
         </li>
         <li class="person rv" data-speed="0.08">
-          <div class="person-img"><img src="assets/content/team-kenan-cosic.jpg" alt="Kenan Čosić" loading="lazy"></div>
+          <div class="person-img"><img class="tone" src="assets/team/kenan-cosic.webp" alt="Kenan Čosić" loading="lazy" width="720" height="960"><img class="color" src="assets/team/kenan-cosic-color.webp" alt="" loading="lazy" width="720" height="960"></div>
           <p class="person-name">Kenan Čosić</p>
         </li>
         <li class="person rv" data-speed="0">
-          <div class="person-img"><img src="assets/content/team-ammar-kahrimanovic.jpg" alt="Ammar Kahrimanović" loading="lazy"></div>
+          <div class="person-img"><img class="tone" src="assets/team/ammar-kahrimanovic.webp" alt="Ammar Kahrimanović" loading="lazy" width="720" height="960"><img class="color" src="assets/team/ammar-kahrimanovic-color.webp" alt="" loading="lazy" width="720" height="960"></div>
           <p class="person-name">Ammar Kahrimanović</p>
         </li>
         <li class="person rv" data-speed="0.08">
-          <div class="person-img"><img src="assets/content/team-sumeja-halilovic.jpg" alt="Sumeja Halilović" loading="lazy"></div>
+          <div class="person-img"><img class="tone" src="assets/team/sumeja-halilovic.webp" alt="Sumeja Halilović" loading="lazy" width="720" height="960"><img class="color" src="assets/team/sumeja-halilovic-color.webp" alt="" loading="lazy" width="720" height="960"></div>
           <p class="person-name">Sumeja Halilović</p>
         </li>
       </ul>

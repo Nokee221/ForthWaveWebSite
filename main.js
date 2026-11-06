@@ -28,90 +28,88 @@ const TEXT = {
     "nav.contact": "Contact",
     "cta.talk": "Let's talk",
 
-    "hero.kicker": "Creative technology studio",
-    "hero.areas": "Web / Mobile / Video / Marketing",
-    "hero.title": ["Web, mobile", "and video.", "<em>One team.</em>"],
-    "hero.lede": "We design, build and edit under one roof, so your website, your app and your launch video look like they came from the same company.",
-    "hero.work": "See the work",
+    "hero.title": ["Websites, apps", "and video,", "<em>made in one room.</em>"],
+    "hero.lede": "FourthWave is a small studio of four. We design and code websites, build mobile apps, edit video and run campaigns, so everything you put out feels like it belongs together.",
+    "hero.work": "See our work",
     "hero.hint": "Scroll",
 
-    statement: "Four people, four crafts, *one* *wave.* We take your brand from the first line of code to the last frame of the edit.",
+    statement: "Most brands hire four agencies and end up with four different voices. We sit at one table, *so* *you* *get* *one.*",
 
     "svc.kicker": "What we do",
-    "svc.title": ["Digital solutions.", "Creative experiences.", "<em>Measurable impact.</em>"],
+    "svc.title": ["Four crafts.", "<em>One standard.</em>"],
     "svc.web": "Web Development",
-    "svc.web.d": "Fast, modern websites and web apps, built to perform.",
+    "svc.web.d": "Company sites, landing pages and web apps that load fast and are easy to keep up to date.",
     "svc.mobile": "Mobile Development",
-    "svc.mobile.d": "Intuitive iOS and Android apps people enjoy using.",
+    "svc.mobile.d": "iOS and Android apps, from the first sketch to the store listing.",
     "svc.video": "Video Editing",
-    "svc.video.d": "Edits that turn raw footage into stories worth watching.",
+    "svc.video.d": "Reels, ads and brand films, cut so people watch to the end.",
     "svc.marketing": "Digital Marketing",
-    "svc.marketing.d": "Campaigns that help brands reach and keep their audience.",
+    "svc.marketing.d": "Social content and campaigns with a plan behind every post.",
 
     "web.kicker": "Web development",
-    "web.title": ["Websites built", "to make an", "<em>impression.</em>"],
-    "web.lede": "Modern sites and web apps that combine careful design, speed and usability. Open a project to take a closer look.",
+    "web.title": ["Your website is", "the first", "<em>handshake.</em>"],
+    "web.lede": "We plan the structure, design every screen and write the code ourselves. What you get loads quickly, reads well on a phone and stays simple for your team to update.",
 
     "mobile.kicker": "Mobile development",
-    "mobile.title": ["Powerful", "experiences.", "<em>Made for mobile.</em>"],
-    "mobile.lede": "We build intuitive mobile applications designed around the people who use them.",
+    "mobile.title": ["Apps people", "<em>actually keep.</em>"],
+    "mobile.lede": "We start with how the app will really be used: on the move, in a hurry, with one thumb. Then we design back from there and build it for iOS and Android.",
     "mobile.chip": "Product design",
 
     "video.kicker": "Video editing & production",
-    "video.title": ["Stories that", "<em>move people.</em>"],
-    "video.lede": "From social content to cinematic brand commercials, we turn ideas into images people remember.",
+    "video.title": ["Raw footage in.", "<em>A story out.</em>"],
+    "video.lede": "Short edits for social, ads that hold attention in the first three seconds, longer films for launches. We cut, colour, add sound and hand over every format you need.",
     "video.play": "Play showreel",
 
     "mkt.kicker": "Digital marketing",
-    "mkt.title": ["Your next", "<em>big idea</em>", "starts here."],
-    "mkt.lede": "Creative thinking, strong content and a clear strategy, so your brand shows up online the way it should.",
+    "mkt.title": ["Posting is easy.", "<em>Being remembered</em>", "takes work."],
+    "mkt.lede": "We find out who you're really talking to, shape a look and a voice that suit you, and keep them steady week after week.",
     "mkt.s1": "Strategy",
-    "mkt.s1.d": "Define the direction, the audience and the message.",
+    "mkt.s1.d": "Who is it for, what should they feel, and where do they spend their time? We settle that before anything gets made.",
     "mkt.s2": "Create",
-    "mkt.s2.d": "Turn ideas into content that is worth stopping for.",
+    "mkt.s2.d": "Posts, short videos, ads and visuals, shot and designed in-house so they all look like you.",
     "mkt.s3": "Grow",
-    "mkt.s3.d": "Build a consistent, recognisable presence online.",
+    "mkt.s3.d": "We publish, read the numbers and adjust. Small improvements every week add up.",
     "mkt.areas": "Where we help",
     "mkt.a1": "Social media",
-    "mkt.a1.d": "Content and a consistent brand presence across platforms.",
+    "mkt.a1.d": "A feed that looks and sounds like one brand.",
     "mkt.a2": "Content creation",
-    "mkt.a2.d": "Visuals designed to communicate one idea clearly.",
+    "mkt.a2.d": "Photos, motion and design made for each platform.",
     "mkt.a3": "Paid advertising",
-    "mkt.a3.d": "Ad concepts and campaign support.",
+    "mkt.a3.d": "Ads with one clear message and a reason to click.",
     "mkt.a4": "Digital strategy",
-    "mkt.a4.d": "A clearer direction for how your brand talks and grows.",
+    "mkt.a4.d": "A plan for what to say, where, and how often.",
 
     "team.kicker": "The people behind FourthWave",
-    "team.title": ["Good ideas start", "with <em>good people.</em>"],
-    "team.lede": "Different skills, one way of working. Four people who design, code, film and grow brands together.",
+    "team.title": ["Four people.", "<em>One table.</em>"],
+    "team.lede": "We're small on purpose. You talk directly to the people doing the work, not to someone passing messages along.",
 
     "contact.kicker": "Let's work together",
-    "contact.title": ["Have a project", "<em>in mind?</em>"],
-    "contact.lede": "Tell us what you're building, what you need, or what you'd like to explore. We'd love to hear from you.",
+    "contact.title": ["Got something", "<em>in mind?</em>"],
+    "contact.lede": "Tell us a little about it. A rough idea is enough to start; we'll ask the right questions and get back to you.",
 
-    "form.name": "Full name",
-    "form.name.ph": "Your name",
+    "form.name": "Your name",
+    "form.name.ph": "First and last name",
     "form.name.err": "Please enter your name.",
-    "form.email": "Email address",
+    "form.email": "Email",
     "form.email.ph": "name@example.com",
-    "form.email.err": "Please enter a valid email address, like name@example.com.",
-    "form.service": "What can we help with?",
-    "form.multi": "Several",
-    "form.service.err": "Please choose what you're interested in.",
-    "form.message": "Project details",
-    "form.message.ph": "Briefly describe your idea, your goals, or what you need.",
-    "form.message.err": "Please tell us a little about your project (at least 20 characters).",
-    "form.send": "Send message",
-    "form.offline": "The contact form isn't connected to email yet, so your message could not be sent. Please try again later.",
-    "form.ready": "Your email app should open with the message ready. Just press send.",
+    "form.email.err": "That email doesn't look right. Try something like name@example.com.",
+    "form.service": "What do you need?",
+    "form.multi": "A bit of everything",
+    "form.service.err": "Pick one, even if you're not sure yet.",
+    "form.message": "About the project",
+    "form.message.ph": "What are you working on, and what would you like help with?",
+    "form.message.err": "A couple of sentences helps us a lot (at least 20 characters).",
+    "form.send": "Send",
+    "form.offline": "The form isn't connected to email yet, so this message wasn't sent. Please try again a little later.",
+    "form.ready": "Your email app should open with the message filled in. Just hit send.",
 
-    "footer.line": "We create digital experiences, products and content that help brands move forward.",
+    "footer.line": "A small studio for web, mobile, video and marketing.",
     "footer.explore": "Explore",
     "footer.follow": "Follow (soon)",
     "footer.top": "Back to the surface ↑",
 
     "project.visit": "Visit website",
-    "project.soon": "Project details will be added soon.",
+    "project.soon": "We're writing up this project. Check back soon.",
     "project.web": "Website",
     "project.app": "Mobile app",
     "project.finance": "Personal finance app",
@@ -122,92 +120,90 @@ const TEXT = {
     "nav.work": "Radovi",
     "nav.team": "Tim",
     "nav.contact": "Kontakt",
-    "cta.talk": "Razgovarajmo",
+    "cta.talk": "Javite se",
 
-    "hero.kicker": "Kreativni tehnološki studio",
-    "hero.areas": "Web / Mobile / Video / Marketing",
-    "hero.title": ["Web, mobile", "i video.", "<em>Jedan tim.</em>"],
-    "hero.lede": "Dizajniramo, razvijamo i montiramo pod jednim krovom, pa vaša web stranica, aplikacija i promo video izgledaju kao da dolaze iz iste firme.",
-    "hero.work": "Pogledajte radove",
+    "hero.title": ["Web, aplikacije", "i video,", "<em>iz jedne sobe.</em>"],
+    "hero.lede": "FourthWave je mali studio od četiri osobe. Dizajniramo i programiramo web stranice, pravimo mobilne aplikacije, montiramo video i vodimo kampanje, pa sve što objavite djeluje kao jedna cjelina.",
+    "hero.work": "Naši radovi",
     "hero.hint": "Skrolaj",
 
-    statement: "Četiri osobe, četiri zanata, *jedan* *val.* Vaš brend vodimo od prve linije koda do zadnjeg kadra montaže.",
+    statement: "Većina brendova angažuje četiri agencije i dobije četiri različita glasa. Mi sjedimo za istim stolom, *pa* *vi* *dobijete* *jedan.*",
 
     "svc.kicker": "Šta radimo",
-    "svc.title": ["Digitalna rješenja.", "Kreativna iskustva.", "<em>Mjerljiv učinak.</em>"],
+    "svc.title": ["Četiri zanata.", "<em>Jedan standard.</em>"],
     "svc.web": "Web razvoj",
-    "svc.web.d": "Brze, moderne web stranice i aplikacije, napravljene da rade.",
-    "svc.mobile": "Mobilni razvoj",
-    "svc.mobile.d": "Intuitivne iOS i Android aplikacije koje ljudi rado koriste.",
+    "svc.web.d": "Stranice firmi, landing stranice i web aplikacije koje se brzo učitavaju i lako održavaju.",
+    "svc.mobile": "Mobilne aplikacije",
+    "svc.mobile.d": "iOS i Android aplikacije, od prve skice do objave u trgovini.",
     "svc.video": "Video montaža",
-    "svc.video.d": "Montaža koja sirove snimke pretvara u priče vrijedne gledanja.",
+    "svc.video.d": "Reelsi, reklame i filmovi o brendu, montirani tako da se gledaju do kraja.",
     "svc.marketing": "Digitalni marketing",
-    "svc.marketing.d": "Kampanje koje brendu pomažu da dođe do publike i zadrži je.",
+    "svc.marketing.d": "Sadržaj za mreže i kampanje s planom iza svake objave.",
 
     "web.kicker": "Web razvoj",
-    "web.title": ["Web stranice", "koje ostavljaju", "<em>utisak.</em>"],
-    "web.lede": "Moderne stranice i web aplikacije koje spajaju promišljen dizajn, brzinu i jednostavnost. Otvorite projekat da ga pogledate izbliza.",
+    "web.title": ["Web stranica je", "vaš prvi", "<em>stisak ruke.</em>"],
+    "web.lede": "Sami planiramo strukturu, dizajniramo svaki ekran i pišemo kod. Dobijete stranicu koja se brzo otvara, lijepo se čita na mobitelu i koju vaš tim lako ažurira.",
 
-    "mobile.kicker": "Mobilni razvoj",
-    "mobile.title": ["Snažna", "iskustva.", "<em>Stvorena za mobitel.</em>"],
-    "mobile.lede": "Razvijamo intuitivne mobilne aplikacije osmišljene oko ljudi koji ih koriste.",
+    "mobile.kicker": "Mobilne aplikacije",
+    "mobile.title": ["Aplikacije koje", "<em>ljudi zadrže.</em>"],
+    "mobile.lede": "Krećemo od toga kako će se aplikacija stvarno koristiti: u hodu, na brzinu, jednim palcem. Od toga gradimo dizajn, a zatim je razvijamo za iOS i Android.",
     "mobile.chip": "Dizajn proizvoda",
 
     "video.kicker": "Video montaža i produkcija",
-    "video.title": ["Priče koje", "<em>pokreću ljude.</em>"],
-    "video.lede": "Od sadržaja za društvene mreže do filmskih reklama, ideje pretvaramo u slike koje se pamte.",
-    "video.play": "Pusti showreel",
+    "video.title": ["Sirovi snimci.", "<em>Gotova priča.</em>"],
+    "video.lede": "Kratke montaže za mreže, reklame koje zadrže pažnju u prve tri sekunde i duži filmovi za lansiranja. Montiramo, radimo boju i zvuk i predajemo sve formate koji vam trebaju.",
+    "video.play": "Pogledaj showreel",
 
     "mkt.kicker": "Digitalni marketing",
-    "mkt.title": ["Vaša sljedeća", "<em>velika ideja</em>", "počinje ovdje."],
-    "mkt.lede": "Kreativno razmišljanje, jak sadržaj i jasna strategija, da se vaš brend na internetu pokaže onakvim kakav jeste.",
+    "mkt.title": ["Objaviti je lako.", "<em>Ostati upamćen</em>", "je posao."],
+    "mkt.lede": "Saznamo kome se zaista obraćate, oblikujemo izgled i ton koji vam pristaju i držimo ih dosljednim iz sedmice u sedmicu.",
     "mkt.s1": "Strategija",
-    "mkt.s1.d": "Definišemo smjer, publiku i poruku.",
-    "mkt.s2": "Kreiranje",
-    "mkt.s2.d": "Ideje pretvaramo u sadržaj zbog kojeg se vrijedi zaustaviti.",
+    "mkt.s1.d": "Kome se obraćamo, šta treba da osjete i gdje provode vrijeme? To riješimo prije nego što išta napravimo.",
+    "mkt.s2": "Sadržaj",
+    "mkt.s2.d": "Objave, kratki videi, oglasi i vizuali, snimljeni i dizajnirani kod nas, da sve izgleda kao vi.",
     "mkt.s3": "Rast",
-    "mkt.s3.d": "Gradimo dosljedno i prepoznatljivo prisustvo na mreži.",
+    "mkt.s3.d": "Objavljujemo, pratimo brojke i prilagođavamo. Male promjene svake sedmice se saberu.",
     "mkt.areas": "Gdje pomažemo",
     "mkt.a1": "Društvene mreže",
-    "mkt.a1.d": "Sadržaj i dosljedan izgled brenda na svim platformama.",
+    "mkt.a1.d": "Profil koji izgleda i zvuči kao jedan brend.",
     "mkt.a2": "Kreiranje sadržaja",
-    "mkt.a2.d": "Vizuali koji jasno prenose jednu ideju.",
+    "mkt.a2.d": "Fotografije, animacije i dizajn za svaku platformu.",
     "mkt.a3": "Plaćeno oglašavanje",
-    "mkt.a3.d": "Koncepti oglasa i podrška kampanjama.",
+    "mkt.a3.d": "Oglasi s jednom jasnom porukom i razlogom za klik.",
     "mkt.a4": "Digitalna strategija",
-    "mkt.a4.d": "Jasniji smjer za to kako vaš brend komunicira i raste.",
+    "mkt.a4.d": "Plan šta reći, gdje i koliko često.",
 
     "team.kicker": "Ljudi iza FourthWave-a",
-    "team.title": ["Dobre ideje počinju", "s <em>dobrim ljudima.</em>"],
-    "team.lede": "Različite vještine, jedan način rada. Četiri osobe koje zajedno dizajniraju, programiraju, snimaju i grade brendove.",
+    "team.title": ["Četiri osobe.", "<em>Jedan sto.</em>"],
+    "team.lede": "Namjerno smo mali. Razgovarate direktno s ljudima koji rade posao, a ne s nekim ko samo prenosi poruke.",
 
     "contact.kicker": "Radimo zajedno",
-    "contact.title": ["Imate projekat", "<em>na umu?</em>"],
-    "contact.lede": "Recite nam šta gradite, šta vam treba ili šta biste željeli istražiti. Rado ćemo vas saslušati.",
+    "contact.title": ["Imate nešto", "<em>na umu?</em>"],
+    "contact.lede": "Napišite nam par rečenica. Gruba ideja je sasvim dovoljna za početak, a mi ćemo postaviti prava pitanja i javiti vam se.",
 
-    "form.name": "Ime i prezime",
-    "form.name.ph": "Vaše ime",
+    "form.name": "Ime",
+    "form.name.ph": "Ime i prezime",
     "form.name.err": "Molimo upišite svoje ime.",
-    "form.email": "Email adresa",
+    "form.email": "Email",
     "form.email.ph": "ime@primjer.com",
-    "form.email.err": "Molimo upišite ispravnu email adresu, npr. ime@primjer.com.",
-    "form.service": "U čemu vam možemo pomoći?",
-    "form.multi": "Više usluga",
-    "form.service.err": "Molimo odaberite šta vas zanima.",
-    "form.message": "Detalji projekta",
-    "form.message.ph": "Ukratko opišite ideju, ciljeve ili šta vam treba.",
-    "form.message.err": "Napišite nam nešto više o projektu (najmanje 20 znakova).",
-    "form.send": "Pošalji poruku",
-    "form.offline": "Kontakt forma još nije povezana s emailom, pa poruka nije poslana. Pokušajte ponovo kasnije.",
-    "form.ready": "Vaša email aplikacija bi se trebala otvoriti s pripremljenom porukom. Samo pritisnite pošalji.",
+    "form.email.err": "Ovaj email ne izgleda ispravno. Probajte nešto poput ime@primjer.com.",
+    "form.service": "Šta vam treba?",
+    "form.multi": "Pomalo od svega",
+    "form.service.err": "Odaberite jedno, čak i ako još niste sigurni.",
+    "form.message": "O projektu",
+    "form.message.ph": "Na čemu radite i u čemu vam možemo pomoći?",
+    "form.message.err": "Par rečenica nam mnogo znači (najmanje 20 znakova).",
+    "form.send": "Pošalji",
+    "form.offline": "Forma još nije povezana s emailom, pa ova poruka nije poslana. Pokušajte malo kasnije.",
+    "form.ready": "Vaša email aplikacija bi se trebala otvoriti s popunjenom porukom. Samo pritisnite pošalji.",
 
-    "footer.line": "Stvaramo digitalna iskustva, proizvode i sadržaj koji brendove pokreću naprijed.",
+    "footer.line": "Mali studio za web, mobilne aplikacije, video i marketing.",
     "footer.explore": "Istraži",
     "footer.follow": "Pratite nas (uskoro)",
     "footer.top": "Nazad na površinu ↑",
 
     "project.visit": "Posjeti stranicu",
-    "project.soon": "Detalji projekta bit će dodani uskoro.",
+    "project.soon": "Opis ovog projekta pripremamo. Navratite uskoro.",
     "project.web": "Web stranica",
     "project.app": "Mobilna aplikacija",
     "project.finance": "Aplikacija za lične finansije",
@@ -236,6 +232,9 @@ const PROJECTS = {
   const lerp = (a, b, t) => a + (b - a) * t;
   const easeOut = (x) => 1 - Math.pow(1 - x, 3);
   const easeInOut = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+  const easeInOutQuint = (x) => (x < 0.5 ? 16 * x ** 5 : 1 - Math.pow(-2 * x + 2, 5) / 2);
+  // Exponential smoothing that feels the same at 60 and 144 Hz.
+  const follow = (rate, dt) => 1 - Math.exp(-rate * dt);
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -289,11 +288,13 @@ const PROJECTS = {
   let scrollCur = window.scrollY;
   let scrollTgt = scrollCur;
   let gliding = false;
+  let introRunning = false;
   const maxScroll = () => document.documentElement.scrollHeight - window.innerHeight;
   const dialogOpen = () => Boolean($("dialog[open]"));
 
   if (!reduceMotion) {
     window.addEventListener("wheel", (e) => {
+      if (introRunning) { e.preventDefault(); return; }
       if (e.ctrlKey || dialogOpen()) return;
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (e.target.closest("textarea, select")) return;
@@ -351,9 +352,8 @@ const PROJECTS = {
   const heroLogo = $("#heroLogo");
   const heroLogoInner = $(".logo", heroLogo);
   const heroCopy = $("#heroCopy");
-  const heroMeta = $("#heroMeta");
   const hint = $("#hint");
-  const scenes = $$("[data-scene]").map((el) => ({ el, name: el.dataset.scene, p: -1 }));
+  const scenes = $$("[data-scene]").map((el) => ({ el, name: el.dataset.scene, p: -1, v: -1, vin: -1, pin: -1 }));
   const seaZones = $$("[data-sea]");
   const track = $("#track");
   const marketing = $(".marketing");
@@ -410,74 +410,87 @@ const PROJECTS = {
   let pmx = 0;
   let pmy = 0;
 
+  // 0..1: how assembled the logo is. Runs on its own clock when the page loads.
+  let assembled = 0;
+
   function renderHero(p, time) {
     const W = heroBox.start.w;
-    pmx += (mx - pmx) * 0.06;
-    pmy += (my - pmy) * 0.06;
+    pmx += (mx - pmx) * 0.05;
+    pmy += (my - pmy) * 0.05;
 
     for (const layer of layers) {
-      const begin = layer.i * 0.045;
-      const k = easeInOut(step(p, begin, begin + 0.25));
+      // Each layer has its own slice of the intro, overlapping the next.
+      const begin = layer.i * 0.085;
+      const k = easeInOutQuint(step(assembled, begin, begin + 0.46));
       const left = 1 - k;
       const s = layer.s;
       const floatY = Math.sin(time * 0.0007 + layer.i * 1.7) * 14 * left;
       const floatX = Math.cos(time * 0.0005 + layer.i) * 8 * left;
-      const depth = (s.z + 1600) / 2400;
       const spread = narrow ? 0.62 : 1;
-      const x = s.x * spread * W * left + floatX + pmx * 40 * depth * left;
-      const y = s.y * spread * W * left + floatY + pmy * 30 * depth * left;
+      const x = s.x * spread * W * left + floatX;
+      const y = s.y * spread * W * left + floatY;
+      const z = s.z * left;
       // Ink drawings are light while they drift in the dark, true colour once in place.
       if (layer.ink) layer.el.style.filter = left > 0.002 ? `invert(${(left * 0.92).toFixed(3)})` : "";
-      const z = s.z * left;
       layer.el.style.transform =
         `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${z.toFixed(1)}px) ` +
         `rotateX(${(s.rx * left).toFixed(2)}deg) rotateY(${(s.ry * left).toFixed(2)}deg) rotateZ(${(s.rz * left).toFixed(2)}deg)`;
-      layer.el.style.opacity = lerp(s.o * (layer.name === "band" ? 0.85 : 0.92), 1, k).toFixed(3);
+      layer.el.style.opacity = clamp(k * 1.6).toFixed(3);
     }
 
-    // The assembled logo leans toward the pointer.
-    const done = step(p, 0.4, 0.55);
+    // The finished logo leans gently toward the pointer.
+    const done = step(assembled, 0.85, 1);
     heroLogoInner.style.transform =
-      `rotateY(${(pmx * 7 * done).toFixed(2)}deg) rotateX(${(-pmy * 5 * done).toFixed(2)}deg)`;
+      `rotateY(${(pmx * 6 * done).toFixed(2)}deg) rotateX(${(-pmy * 4 * done).toFixed(2)}deg)`;
 
-    // Then it moves aside to make room for the headline.
-    const m = easeInOut(step(p, 0.5, 0.8));
+    // Scrolling moves it aside to make room for the headline.
+    const m = easeInOut(step(p, 0, 0.75));
     const { start, end } = heroBox;
     const w = lerp(start.w, end.w, m);
     const cx = lerp(start.cx, end.cx, m);
     const cy = lerp(start.cy, end.cy, m);
-    heroLogo.style.transform = `translate3d(${(cx - w / 2).toFixed(1)}px, ${(cy - (w * RATIO) / 2).toFixed(1)}px, 0) scale(${(w / start.w).toFixed(4)})`;
+    // A slow breath while it waits at the centre.
+    const breathe = 1 + Math.sin(time * 0.0012) * 0.006 * done * (1 - m);
+    heroLogo.style.transform = `translate3d(${(cx - w / 2).toFixed(1)}px, ${(cy - (w * RATIO) / 2).toFixed(1)}px, 0) scale(${((w / start.w) * breathe).toFixed(4)})`;
 
-    heroCopy.style.setProperty("--c", step(p, 0.6, 0.95).toFixed(3));
-    heroCopy.style.visibility = p < 0.58 ? "hidden" : "visible";
-    hint.style.opacity = (1 - step(p, 0, 0.08)).toFixed(3);
-    heroMeta.style.opacity = (1 - step(p, 0.55, 0.7)).toFixed(3);
+    heroCopy.style.setProperty("--c", step(p, 0.22, 0.92).toFixed(4));
+    heroCopy.style.visibility = p < 0.2 ? "hidden" : "visible";
+    hint.style.opacity = (done * (1 - step(p, 0, 0.12))).toFixed(3);
   }
 
   /* ---- Scenes */
 
-  function sceneProgress(el) {
-    const r = el.getBoundingClientRect();
+  function sceneProgress(r) {
     const travel = r.height - vh;
     return travel > 0 ? clamp(-r.top / travel) : r.top < 0 ? 1 : 0;
   }
 
   let videoPlaying = false;
 
-  function renderScenes(time) {
+  function renderScenes(time, dt) {
+    const k = reduceMotion ? 1 : follow(9, dt);
     for (const s of scenes) {
-      const p = reduceMotion ? 1 : sceneProgress(s.el);
+      const r = s.el.getBoundingClientRect();
+      const target = reduceMotion ? 1 : sceneProgress(r);
+      const enter = reduceMotion ? 1 : clamp(1 - r.top / vh);
+      // A second, lighter smoothing on top of the scroll keeps every scene
+      // silky, also when scrolling by touch or keyboard.
+      s.v = s.v < 0 ? target : s.v + (target - s.v) * k;
+      s.vin = s.vin < 0 ? enter : s.vin + (enter - s.vin) * k;
+      if (Math.abs(target - s.v) < 0.0004) s.v = target;
+      const p = s.v;
       if (s.name === "hero") { renderHero(p, time); continue; }
-      if (Math.abs(p - s.p) < 0.0005) continue;
+      if (Math.abs(p - s.p) < 0.0002 && Math.abs(s.vin - s.pin) < 0.0002) continue;
       s.p = p;
+      s.pin = s.vin;
       s.el.style.setProperty("--p", p.toFixed(4));
+      s.el.style.setProperty("--in", easeOut(s.vin).toFixed(4));
 
       if (s.name === "web") {
         s.el.style.setProperty("--e", easeOut(step(p, 0, 0.55)).toFixed(4));
         s.el.style.setProperty("--e2", easeOut(step(p, 0.12, 0.7)).toFixed(4));
       } else if (s.name === "video") {
-        s.el.style.setProperty("--e", easeInOut(step(p, 0.05, 0.6)).toFixed(4));
-        const r = s.el.getBoundingClientRect();
+        s.el.style.setProperty("--e", easeInOut(step(p, 0.08, 0.62)).toFixed(4));
         const onScreen = r.top < vh && r.bottom > 0;
         if (onScreen !== videoPlaying) {
           videoPlaying = onScreen;
@@ -612,13 +625,17 @@ const PROJECTS = {
 
   /* ---- The loop */
 
+  let lastTime = 0;
+
   function frame(time) {
+    const dt = Math.min(0.05, lastTime ? (time - lastTime) / 1000 : 1 / 60);
+    lastTime = time;
     if (gliding) {
-      scrollCur += (scrollTgt - scrollCur) * 0.1;
-      if (Math.abs(scrollTgt - scrollCur) < 0.5) { scrollCur = scrollTgt; gliding = false; }
+      scrollCur += (scrollTgt - scrollCur) * follow(6.5, dt);
+      if (Math.abs(scrollTgt - scrollCur) < 0.4) { scrollCur = scrollTgt; gliding = false; }
       window.scrollTo(0, scrollCur);
     }
-    renderScenes(time);
+    renderScenes(time, dt);
     renderChrome();
     drawSea(time);
     if (!reduceMotion) requestAnimationFrame(frame);
@@ -634,7 +651,7 @@ const PROJECTS = {
   window.addEventListener("resize", () => {
     measure();
     scenes.forEach((s) => { s.p = -1; });
-    if (reduceMotion) frame(0);
+    if (reduceMotion) frame(performance.now());
   });
 
   measure();
@@ -643,8 +660,38 @@ const PROJECTS = {
     if (target) window.scrollTo(0, anchorTop(target));
   }
   requestAnimationFrame(frame);
+  playIntro();
   // Fonts change text widths; the marketing track needs measuring again.
   document.fonts?.ready.then(() => measure());
+
+  /* ---- Intro: the logo puts itself together while the page loads */
+
+  function playIntro() {
+    const pieces = layers.filter((l) => l.el.tagName === "IMG").map((l) => l.el);
+    const loaded = Promise.all(pieces.map((img) => (img.decode ? img.decode().catch(() => {}) : Promise.resolve())));
+    const timeout = new Promise((resolve) => setTimeout(resolve, 2500));
+
+    if (reduceMotion || window.scrollY > 40) {
+      assembled = 1;
+      heroLogo.classList.add("ready");
+      return;
+    }
+
+    introRunning = true;
+    root.style.overflow = "hidden";
+    Promise.race([loaded, timeout]).then(() => {
+      heroLogo.classList.add("ready");
+      const duration = 1900;
+      const begin = performance.now();
+      const run = (now) => {
+        assembled = clamp((now - begin) / duration);
+        if (assembled < 1) { requestAnimationFrame(run); return; }
+        introRunning = false;
+        root.style.overflow = "";
+      };
+      requestAnimationFrame(run);
+    });
+  }
 
   /* ===================================== 4. Reveals and service previews */
 
