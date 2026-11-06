@@ -361,20 +361,19 @@ const PROJECTS = {
   const navLinks = $$(".bar-nav a");
   const people = $$(".person[data-speed]");
 
-  // Where each layer waits before the logo comes together:
-  // x, y as a share of the logo width, z in px, rotations in degrees.
-  const SCATTER = {
-    wave:        { x: 0.26, y: -0.24, z: -700, rx: 0,  ry: -28, rz: 10,  o: 1 },
-    band:        { x: 0.02, y: 0.6,   z: -1300, rx: 72, ry: 0,  rz: -3,  o: 0.9 },
-    box:         { x: -0.36, y: -0.28, z: -480, rx: 0, ry: 38,  rz: -12, o: 1 },
-    ripples:     { x: -0.42, y: 0.16,  z: 260,  rx: 0, ry: 0,   rz: 9,   o: 1 },
-    fourth:      { x: -0.18, y: 0.36,  z: 300,  rx: 18, ry: 0,  rz: -8,  o: 1 },
-    "word-wave": { x: 0.36, y: 0.3,   z: 380,  rx: -14, ry: 0, rz: 10,  o: 1 },
-    dot:         { x: 0.52, y: -0.42, z: 600,  rx: 0, ry: 0,    rz: 0,   o: 1 },
+  const layer = (name) => $(`[data-layer="${name}"]`);
+  const L = {
+    band: layer("band"),
+    box: layer("box"),
+    ripples: layer("ripples"),
+    wave: layer("wave"),
+    fourth: layer("fourth"),
+    wordWave: layer("word-wave"),
+    dot: layer("dot"),
   };
-  const ORDER = ["wave", "band", "box", "ripples", "fourth", "word-wave", "dot"];
-  const INK = ["wave", "ripples", "dot"];
-  const layers = ORDER.map((name, i) => ({ name, i, el: $(`[data-layer="${name}"]`), s: SCATTER[name], ink: INK.includes(name) }));
+  const glow = $("#heroGlow");
+  const horizonLine = $("#heroLine");
+  const flash = $("#heroFlash");
 
   let vw = window.innerWidth;
   let vh = window.innerHeight;
@@ -410,36 +409,152 @@ const PROJECTS = {
   let pmx = 0;
   let pmy = 0;
 
-  // 0..1: how assembled the logo is. Runs on its own clock when the page loads.
+  /*
+   * The intro, on its own clock (ms since the logo images have loaded):
+   *
+   *    0 -  950   a spark: the full stop lights up in the dark and beats twice
+   *  850 - 1250   it tears open into a yellow horizon line; the sea erupts from it
+   * 1150 - 1650   the yellow plate unfolds out of that line
+   * 1400 - 2200   the wave surges up from below and crashes onto the plate
+   * 1950 - 2400   the blue block slices in from the left
+   * 2250 - 2900   "fourth" and "wave" punch up out of the block
+   * 2800 - 3250   the full stop flies back in an arc and lands: flash, shock, shine
+   *
+   * Every landing sends a ring through the sea and shakes the logo.
+   */
+  const T_DOT = [0, 950];
+  const T_LINE = [850, 1250];
+  const T_BAND = [1150, 1650];
+  const T_WAVE = [1400, 2200];
+  const T_BOX = [1950, 2400];
+  const T_FOURTH = [2250, 2750];
+  const T_WORD = [2400, 2900];
+  const T_LAND = [2800, 3250];
+  const FINAL_AT = T_LAND[0] + (T_LAND[1] - T_LAND[0]) * 0.55;
+  const INTRO_END = 3500;
+  const DOT_X = 0.5 - (0.860485 + 0.0086305); // from its place to the logo centre, share of width
+  const DOT_Y = 0.5 - (0.6627 + 0.024620);    // share of height
+
+  let introStart = -1; // -1 waiting for images; 0 skipped
+  let introT = 0;
   let assembled = 0;
+  let shakeAmp = 0;
+  let glowAmp = 0;
+  let flashAmp = 0;
+  let camera = 1;
+  const hits = new Set();
+  const shocks = [];
+
+  const span = ([a, b]) => clamp((introT - a) / (b - a));
+  // Damped spring 0 -> 1 with one clear overshoot.
+  const spring = (t, k = 6.2, w = 10.5) => (t <= 0 ? 0 : t >= 1 ? 1 : 1 - Math.exp(-k * t) * Math.cos(w * t));
+  const expoOut = (x) => (x >= 1 ? 1 : 1 - Math.pow(2, -10 * x));
+
+  function shock(strength, time, at = 0.5) {
+    const { start } = heroBox;
+    shocks.push({ t0: time, x: start.cx + (at - 0.5) * start.w, y: start.cy, s: strength });
+    shakeAmp = Math.max(shakeAmp, 11 * strength);
+    glowAmp = Math.max(glowAmp, 0.6 * strength);
+    swell += 0.7 * strength;
+  }
+
+  // Fires once per name when the moment comes (only while the intro really plays).
+  function hit(name, when, strength, time, at) {
+    if (hits.has(name) || introT < when) return;
+    hits.add(name);
+    if (introStart > 0) shock(strength, time, at);
+  }
 
   function renderHero(p, time) {
     const W = heroBox.start.w;
+    const H = W * RATIO;
     pmx += (mx - pmx) * 0.05;
     pmy += (my - pmy) * 0.05;
+    const ink = (el, away) => { el.style.filter = away > 0.002 ? `invert(${Math.min(0.92, away).toFixed(3)})` : ""; };
 
-    for (const layer of layers) {
-      // Each layer has its own slice of the intro, overlapping the next.
-      const begin = layer.i * 0.085;
-      const k = easeInOutQuint(step(assembled, begin, begin + 0.46));
-      const left = 1 - k;
-      const s = layer.s;
-      const floatY = Math.sin(time * 0.0007 + layer.i * 1.7) * 14 * left;
-      const floatX = Math.cos(time * 0.0005 + layer.i) * 8 * left;
-      const spread = narrow ? 0.62 : 1;
-      const x = s.x * spread * W * left + floatX;
-      const y = s.y * spread * W * left + floatY;
-      const z = s.z * left;
-      // Ink drawings are light while they drift in the dark, true colour once in place.
-      if (layer.ink) layer.el.style.filter = left > 0.002 ? `invert(${(left * 0.92).toFixed(3)})` : "";
-      layer.el.style.transform =
-        `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${z.toFixed(1)}px) ` +
-        `rotateX(${(s.rx * left).toFixed(2)}deg) rotateY(${(s.ry * left).toFixed(2)}deg) rotateZ(${(s.rz * left).toFixed(2)}deg)`;
-      layer.el.style.opacity = clamp(k * 1.6).toFixed(3);
+    // 1. Spark, then the dot flies home in an arc at the very end.
+    const born = spring(span([0, 520]), 5, 9);
+    const beat = Math.max(0, Math.sin(clamp((introT - 420) / 520) * Math.PI * 2)) * 0.45;
+    const tear = easeInOut(span([780, 980]));         // the spark stretches into the line
+    const home = spring(span(T_LAND), 5.5, 9.5);
+    const arc = Math.sin(clamp(span(T_LAND) * 1.4) * Math.PI) * -0.55; // lifts on the way
+    const waiting = introT < T_LAND[0];
+    const dotX = waiting ? DOT_X * W : DOT_X * W * (1 - home);
+    const dotY = waiting ? DOT_Y * H : (DOT_Y * H + arc * H) * (1 - home);
+    const dotScale = waiting ? (born * 3.2 + beat * 2) * (1 - tear) : 0.4 + 0.6 * home;
+    L.dot.style.transform = `translate3d(${dotX.toFixed(1)}px, ${dotY.toFixed(1)}px, 40px) scale(${Math.max(0, dotScale).toFixed(3)})`;
+    L.dot.style.opacity = waiting ? (1 - tear).toFixed(3) : clamp(span(T_LAND) * 6).toFixed(3);
+    ink(L.dot, waiting ? 0.92 : 0.92 * (1 - home));
+
+    // 2. The horizon line tears out of the spark, then becomes the plate.
+    const lineOut = expoOut(span(T_LINE));
+    const lineGone = easeOut(span([T_BAND[0] + 80, T_BAND[0] + 380]));
+    horizonLine.style.transform = `scaleX(${lineOut.toFixed(4)})`;
+    horizonLine.style.opacity = (Math.min(1, lineOut * 3) * (1 - lineGone)).toFixed(3);
+    hit("line", T_LINE[0] + 60, 0.9, time);
+
+    // 3. The plate unfolds from the line.
+    const band = spring(span(T_BAND), 6.5, 11);
+    L.band.style.transform = `scaleY(${Math.max(0.004, band).toFixed(4)}) scaleX(${(0.55 + 0.45 * easeOut(span(T_BAND))).toFixed(4)})`;
+    L.band.style.opacity = introT > T_BAND[0] ? "1" : "0";
+    hit("band", T_BAND[0] + 180, 1, time);
+
+    // 4. The wave surges up from below and crashes into place.
+    const surge = spring(span(T_WAVE), 5.2, 9);
+    const wLeft = 1 - surge;
+    L.wave.style.transform =
+      `translate3d(${(wLeft * 0.12 * W).toFixed(1)}px, ${(wLeft * 1.1 * H).toFixed(1)}px, ${(wLeft * 260).toFixed(1)}px) ` +
+      `rotateZ(${(wLeft * -14).toFixed(2)}deg) scale(${(1 + wLeft * 0.9).toFixed(4)})`;
+    L.wave.style.opacity = clamp(span(T_WAVE) * 5).toFixed(3);
+    ink(L.wave, Math.max(0, wLeft) * 1.3);
+    hit("wave", T_WAVE[0] + 220, 1.15, time, 0.6);
+
+    const rip = expoOut(span([T_WAVE[0] + 150, T_WAVE[1]]));
+    L.ripples.style.transform = `translate3d(${((1 - rip) * -0.35 * W).toFixed(1)}px, 0, 0)`;
+    L.ripples.style.opacity = rip.toFixed(3);
+    ink(L.ripples, (1 - rip) * 0.9);
+
+    // 5. The blue block slices in from the left.
+    const cut = expoOut(span(T_BOX));
+    const squash = spring(span(T_BOX), 7, 12);
+    L.box.style.clipPath = `inset(0 ${((1 - cut) * 100).toFixed(2)}% 0 0)`;
+    L.box.style.transform = `scaleY(${(0.6 + 0.4 * squash).toFixed(4)})`;
+    L.box.style.opacity = introT > T_BOX[0] ? "1" : "0";
+    hit("box", T_BOX[0] + 120, 0.55, time, 0.35);
+
+    // 6. The words punch up out of the block.
+    for (const [el, t, name, at] of [[L.fourth, T_FOURTH, "fourth", 0.33], [L.wordWave, T_WORD, "word", 0.68]]) {
+      const u = spring(span(t), 6, 11);
+      const lift = 1 - u;
+      el.style.transform = `translate3d(0, ${(lift * 0.55 * H).toFixed(1)}px, 0) skewY(${(lift * 9).toFixed(2)}deg) scale(${(1 + lift * 0.25).toFixed(4)})`;
+      el.style.clipPath = `inset(${(Math.max(0, lift) * -40).toFixed(1)}% -10% ${(Math.max(0, lift) * 100).toFixed(1)}% -10%)`;
+      el.style.opacity = clamp(span(t) * 6).toFixed(3);
+      hit(name, t[0] + 140, 0.5, time, at);
     }
 
+    // 7. Home: flash, the biggest ring, a sweep of light.
+    if (!hits.has("final") && introT >= FINAL_AT) {
+      hits.add("final");
+      if (introStart > 0) {
+        shock(1.6, time, 0.87);
+        flashAmp = 0.55;
+        heroLogoInner.classList.add("shine");
+      }
+    }
+    const since = introT - FINAL_AT;
+    const punch = since < 0 || introStart <= 0 ? 0 : 0.06 * Math.exp(-since / 240) * Math.cos(since / 62);
+
+    // Camera: starts close and settles back while everything lands.
+    camera = 1 + 0.16 * (1 - easeOut(clamp(introT / 3300)));
+    shakeAmp *= 0.86;
+    glowAmp *= 0.95;
+    flashAmp *= 0.88;
+    flash.style.opacity = flashAmp.toFixed(3);
+    const shakeX = shakeAmp * Math.sin(time * 0.11);
+    const shakeY = shakeAmp * 0.6 * Math.cos(time * 0.137);
+
     // The finished logo leans gently toward the pointer.
-    const done = step(assembled, 0.85, 1);
+    const done = step(assembled, 0.93, 1);
     heroLogoInner.style.transform =
       `rotateY(${(pmx * 6 * done).toFixed(2)}deg) rotateX(${(-pmy * 4 * done).toFixed(2)}deg)`;
 
@@ -447,11 +562,11 @@ const PROJECTS = {
     const m = easeInOut(step(p, 0, 0.75));
     const { start, end } = heroBox;
     const w = lerp(start.w, end.w, m);
-    const cx = lerp(start.cx, end.cx, m);
-    const cy = lerp(start.cy, end.cy, m);
-    // A slow breath while it waits at the centre.
-    const breathe = 1 + Math.sin(time * 0.0012) * 0.006 * done * (1 - m);
+    const cx = lerp(start.cx, end.cx, m) + shakeX;
+    const cy = lerp(start.cy, end.cy, m) + shakeY;
+    const breathe = (1 + Math.sin(time * 0.0012) * 0.006 * done * (1 - m) + punch) * lerp(camera, 1, m);
     heroLogo.style.transform = `translate3d(${(cx - w / 2).toFixed(1)}px, ${(cy - (w * RATIO) / 2).toFixed(1)}px, 0) scale(${((w / start.w) * breathe).toFixed(4)})`;
+    glow.style.opacity = ((glowAmp + 0.22 * done + born * 0.35 * (1 - tear)) * (1 - m * 0.7)).toFixed(3);
 
     heroCopy.style.setProperty("--c", step(p, 0.22, 0.92).toFixed(4));
     heroCopy.style.visibility = p < 0.2 ? "hidden" : "visible";
@@ -583,6 +698,9 @@ const PROJECTS = {
     const T = time * 0.001;
     const W = seaW;
     const H = seaH;
+    const rise = easeOut(clamp((introT - 850) / 1100));
+    const reveal = expoOut(clamp((introT - 900) / 900)) * W * 0.56;
+    for (let j = shocks.length - 1; j >= 0; j--) if (time - shocks[j].t0 > 2400) shocks.splice(j, 1);
     const lines = narrow ? 26 : 36;
     const horizon = H * 0.5;
     const stepX = narrow ? 8 : 6;
@@ -594,11 +712,12 @@ const PROJECTS = {
     for (let i = 0; i < lines; i++) {
       const z = i / (lines - 1);
       const base = horizon + (H - horizon + 80) * Math.pow(z, 1.75);
-      const amp = (3 + 52 * z * z) * swell;
+      const amp = (3 + 52 * z * z) * swell * (0.08 + 0.92 * rise);
       const f = 0.0032 * (1.6 - z);
       const crest = i === Math.round(lines * 0.62);
 
       ctx.beginPath();
+      let started = false;
       for (let x = -stepX; x <= W + stepX; x += stepX) {
         let n =
           Math.sin(x * f + T * 0.5 + i * 0.42 + phase) * 0.55 +
@@ -608,15 +727,23 @@ const PROJECTS = {
           const d = x - px;
           n += Math.exp(-(d * d) / 26000) * Math.sin(T * 3 - Math.abs(d) * 0.028) * 1.1 * pEnergy * z;
         }
+        // Rings spreading out from where the logo landed (squashed by perspective).
+        for (const sh of shocks) {
+          const age = time - sh.t0;
+          const d = Math.hypot(x - sh.x, (base - sh.y) * 2.4);
+          const ring = (d - age * 0.95) / 80;
+          n += Math.exp(-ring * ring) * sh.s * 1.7 * Math.exp(-age / 850) * (0.35 + z);
+        }
         const yy = base + n * amp;
-        if (x === -stepX) ctx.moveTo(x, yy);
+        if (crest && Math.abs(x - W / 2) > reveal) { started = false; continue; }
+        if (!started) { ctx.moveTo(x, yy); started = true; }
         else ctx.lineTo(x, yy);
       }
       if (crest) {
-        ctx.strokeStyle = `rgba(255, 181, 0, ${0.55 * z})`;
+        ctx.strokeStyle = `rgba(255, 181, 0, ${(0.55 * z + 0.4 * glowAmp).toFixed(3)})`;
         ctx.lineWidth = 1.3;
       } else {
-        ctx.strokeStyle = `rgba(0, 150, 255, ${(0.04 + 0.42 * Math.pow(z, 1.4)).toFixed(3)})`;
+        ctx.strokeStyle = `rgba(0, 150, 255, ${((0.04 + 0.42 * Math.pow(z, 1.4)) * rise).toFixed(3)})`;
         ctx.lineWidth = 1;
       }
       ctx.stroke();
@@ -634,6 +761,14 @@ const PROJECTS = {
       scrollCur += (scrollTgt - scrollCur) * follow(6.5, dt);
       if (Math.abs(scrollTgt - scrollCur) < 0.4) { scrollCur = scrollTgt; gliding = false; }
       window.scrollTo(0, scrollCur);
+    }
+    if (introStart > 0) {
+      introT = time - introStart;
+      assembled = clamp(introT / INTRO_END);
+      if (introRunning && introT >= INTRO_END - 200) {
+        introRunning = false;
+        root.style.overflow = "";
+      }
     }
     renderScenes(time, dt);
     renderChrome();
@@ -667,11 +802,13 @@ const PROJECTS = {
   /* ---- Intro: the logo puts itself together while the page loads */
 
   function playIntro() {
-    const pieces = layers.filter((l) => l.el.tagName === "IMG").map((l) => l.el);
+    const pieces = Object.values(L).filter((el) => el.tagName === "IMG");
     const loaded = Promise.all(pieces.map((img) => (img.decode ? img.decode().catch(() => {}) : Promise.resolve())));
     const timeout = new Promise((resolve) => setTimeout(resolve, 2500));
 
     if (reduceMotion || window.scrollY > 40) {
+      introStart = 0;
+      introT = 1e9;
       assembled = 1;
       heroLogo.classList.add("ready");
       return;
@@ -681,15 +818,7 @@ const PROJECTS = {
     root.style.overflow = "hidden";
     Promise.race([loaded, timeout]).then(() => {
       heroLogo.classList.add("ready");
-      const duration = 1900;
-      const begin = performance.now();
-      const run = (now) => {
-        assembled = clamp((now - begin) / duration);
-        if (assembled < 1) { requestAnimationFrame(run); return; }
-        introRunning = false;
-        root.style.overflow = "";
-      };
-      requestAnimationFrame(run);
+      requestAnimationFrame((now) => { introStart = now; });
     });
   }
 

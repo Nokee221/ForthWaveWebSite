@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <!--
@@ -47,7 +47,9 @@
     <section class="scene hero" id="top" data-scene="hero" data-sea="1">
       <div class="sticky">
         <div class="hero-logo" id="heroLogo">
+          <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
           <div class="logo" role="img" aria-label="fourthwave.">
+            <span class="hero-line" id="heroLine" aria-hidden="true"></span>
             <span class="layer band" data-layer="band"></span>
             <span class="layer box" data-layer="box"></span>
             <img class="layer ripples" data-layer="ripples" src="assets/logo/layer-2.webp" alt="">
@@ -69,6 +71,8 @@
             </div>
           </div>
         </div>
+
+        <div class="hero-flash" id="heroFlash" aria-hidden="true"></div>
 
         <p class="hint mono" id="hint" aria-hidden="true"><span data-i18n="hero.hint">Scroll</span><i></i></p>
       </div>
@@ -355,6 +359,6 @@
     <video id="videoPlayer" src="assets/content/showreel-loop.mp4" poster="assets/content/showreel-poster.jpg" controls loop playsinline preload="none"></video>
   </dialog>
 
-  <script src="main.js"></script>
+  <script src="main.js?v=4"></script>
 </body>
 </html>
