@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FourthWave</title>
+  <meta name="description" content="FourthWave — web, mobile and video. One team.">
+  <link rel="icon" href="assets/logo/logo.png">
+  <link rel="preload" as="image" href="assets/logo/layer-3.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!--
+    One scroll story, then an ordinary footer. The stage stays in view while
+    the tall section scrolls past. Every chapter adds one layer to the logo
+    and swaps the content beside it. main.js turns the scroll position into
+    that progress; each chapter also has its own address (#web, #team, …).
+  -->
+  <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#intro">fourthwave<span>.</span></a>
+    <div class="topbar-end">
+      <a class="skip" id="skip" href="#contact">Skip to contact <span aria-hidden="true">↓</span></a>
+      <span class="counter" aria-hidden="true"><b id="counter">01</b> / 08</span>
+    </div>
+  </header>
+
+  <nav class="chapters" id="chapters" aria-label="Chapters">
+    <a href="#intro">Intro</a>
+    <a href="#services">Services</a>
+    <a href="#web">Web</a>
+    <a href="#mobile">Mobile</a>
+    <a href="#video">Video</a>
+    <a href="#marketing">Marketing</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main class="scroller" id="scroller">
+    <div class="stage">
+      <div class="logo-wrap" id="logoWrap">
+        <div class="logo" role="img" aria-label="fourthwave.">
+          <span class="layer band" data-layer="band"></span>
+          <span class="layer box" data-layer="box"></span>
+          <img class="layer ripples" data-layer="ripples" src="assets/logo/layer-2.webp" alt="">
+          <img class="layer wave" data-layer="wave" src="assets/logo/layer-3.webp" alt="">
+          <img class="layer fourth" data-layer="fourth" src="assets/logo/layer-5.webp" alt="">
+          <img class="layer word-wave" data-layer="word-wave" src="assets/logo/layer-6.webp" alt="">
+          <img class="layer dot" data-layer="dot" src="assets/logo/layer-7.webp" alt="">
+        </div>
+      </div>
+
+      <div class="panels">
+        <!-- 01 · the big wave alone -->
+        <section class="panel" data-chapter="intro">
+          <p class="eyebrow">Creative Technology Company</p>
+          <h1 class="title">Web, mobile and video. <mark>One&nbsp;team.</mark></h1>
+          <p class="body">We design, build and edit under one roof, so your website, your app and your launch video look like they came from the same company.</p>
+        </section>
+
+        <!-- 02 · + ripples: the wave is complete -->
+        <section class="panel" data-chapter="services">
+          <p class="eyebrow">What We Do</p>
+          <h2 class="title">Digital solutions. Creative experiences. <mark>Measurable&nbsp;impact.</mark></h2>
+          <ol class="services">
+            <li><b>01</b><span>Web Development</span></li>
+            <li><b>02</b><span>Mobile Development</span></li>
+            <li><b>03</b><span>Video Editing</span></li>
+            <li><b>04</b><span>Digital Marketing</span></li>
+          </ol>
+        </section>
+
+        <!-- 03 · + yellow band -->
+        <section class="panel" data-chapter="web">
+          <p class="eyebrow">Web Development</p>
+          <h2 class="title">Websites built to make an <mark class="blue">impression.</mark></h2>
+          <div class="browsers media">
+            <button class="browser" type="button" data-project="perfectcv" aria-label="Open project: PerfectCV">
+              <i aria-hidden="true"></i>
+              <img src="assets/content/web-perfectcv.jpg" alt="Home page of the PerfectCV website.">
+              <span class="tag">PerfectCV</span>
+            </button>
+            <button class="browser" type="button" data-project="shift" aria-label="Open project: SHIFT">
+              <i aria-hidden="true"></i>
+              <img src="assets/content/web-shift.jpg" alt="Home page of the SHIFT website.">
+              <span class="tag">SHIFT</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- 04 · + blue block -->
+        <section class="panel" data-chapter="mobile">
+          <p class="eyebrow">Mobile Development</p>
+          <h2 class="title">Powerful experiences. <mark>Made for mobile.</mark></h2>
+          <div class="phones media">
+            <button class="phone" type="button" data-project="finance" aria-label="Open project: personal finance app">
+              <img src="assets/content/mobile-finance.jpg" alt="Home screen of a personal finance app.">
+            </button>
+            <button class="phone" type="button" data-project="shift-app" aria-label="Open project: SHIFT app">
+              <img src="assets/content/mobile-shift.jpg" alt="Check-in screen of the SHIFT app.">
+            </button>
+            <p class="body">We build intuitive mobile applications designed around the people who use them.</p>
+          </div>
+        </section>
+
+        <!-- 05 · + "fourth" -->
+        <section class="panel" data-chapter="video">
+          <p class="eyebrow">Video Editing &amp; Production</p>
+          <h2 class="title">Stories that <mark>move people.</mark></h2>
+          <button class="film media" type="button" data-video aria-label="Play the showreel preview">
+            <video src="assets/content/showreel-loop.mp4" poster="assets/content/showreel-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+            <span class="play" aria-hidden="true"></span>
+            <span class="caption">From engaging social content to cinematic brand commercials.</span>
+          </button>
+        </section>
+
+        <!-- 06 · + "wave" -->
+        <section class="panel" data-chapter="marketing">
+          <p class="eyebrow">Digital Marketing</p>
+          <h2 class="title">Your next <mark>big idea</mark> starts here.</h2>
+          <ol class="steps">
+            <li><b>01</b>Strategy<span>Define the direction, audience, and message.</span></li>
+            <li><b>02</b>Create<span>Turn ideas into compelling digital content.</span></li>
+            <li><b>03</b>Grow<span>Build a consistent and recognizable online presence.</span></li>
+          </ol>
+        </section>
+
+        <!-- 07 · + the full stop -->
+        <section class="panel" data-chapter="team">
+          <p class="eyebrow">The people behind FourthWave</p>
+          <h2 class="title">Good ideas start with <mark>good people.</mark></h2>
+          <!-- Add each person's role in data-role when it is known. -->
+          <ul class="team media">
+            <li data-role=""><img src="assets/content/team-adem-halilovic.jpg" alt=""><span class="name">Adem Halilović</span></li>
+            <li data-role=""><img src="assets/content/team-kenan-cosic.jpg" alt=""><span class="name">Kenan Čosić</span></li>
+            <li data-role=""><img src="assets/content/team-ammar-kahrimanovic.jpg" alt=""><span class="name">Ammar Kahrimanović</span></li>
+            <li data-role=""><img src="assets/content/team-sumeja-halilovic.jpg" alt=""><span class="name">Sumeja Halilović</span></li>
+          </ul>
+        </section>
+
+        <!-- 08 · the finished logo -->
+        <section class="panel final" data-chapter="contact">
+          <h2 class="title">Have a project <mark>in mind?</mark></h2>
+          <button class="btn" type="button" data-contact>Let's Talk <span aria-hidden="true">→</span></button>
+        </section>
+      </div>
+
+      <p class="cue" id="cue" aria-hidden="true"><span class="cue-line"><span></span></span>Scroll</p>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo/logo.png" alt="fourthwave.">
+        <p>We create digital experiences, products, and content that help brands move forward.</p>
+      </div>
+      <nav class="footer-col" aria-label="Footer">
+        <h2>Explore</h2>
+        <a href="#services">Services</a>
+        <a href="#web">Web</a>
+        <a href="#mobile">Mobile</a>
+        <a href="#video">Video</a>
+        <a href="#marketing">Marketing</a>
+        <a href="#team">Team</a>
+      </nav>
+      <div class="footer-col">
+        <h2>Follow us</h2>
+        <!-- Replace with real profile links when the accounts exist. -->
+        <span class="soon">Instagram <small>Coming soon</small></span>
+        <span class="soon">TikTok <small>Coming soon</small></span>
+        <span class="soon">YouTube <small>Coming soon</small></span>
+      </div>
+      <div class="footer-col">
+        <h2>Start a project</h2>
+        <button class="btn btn-small" type="button" data-contact>Let's Talk <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+    <p class="footer-bottom">© <span id="year">2026</span> FourthWave. All rights reserved.</p>
+  </footer>
+
+  <!-- Project details -->
+  <dialog class="dialog" id="projectDialog" aria-labelledby="projectTitle">
+    <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
+    <div class="project">
+      <div class="project-media" id="projectMedia"></div>
+      <div class="project-text">
+        <p class="eyebrow" id="projectCategory"></p>
+        <h2 class="dialog-title" id="projectTitle"></h2>
+        <p class="body" id="projectDescription"></p>
+        <a class="btn btn-small" id="projectLink" target="_blank" rel="noopener noreferrer" hidden>Visit website <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Showreel preview -->
+  <dialog class="dialog dialog-video" id="videoDialog" aria-label="Showreel preview">
+    <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
+    <video id="videoPlayer" src="assets/content/showreel-loop.mp4" poster="assets/content/showreel-poster.jpg" controls loop playsinline preload="none"></video>
+  </dialog>
+
+  <!-- Contact -->
+  <dialog class="dialog dialog-contact" id="contactDialog" aria-labelledby="contactTitle">
+    <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
+    <form class="contact" id="contactForm" novalidate>
+      <p class="eyebrow">Let's work together</p>
+      <h2 class="dialog-title" id="contactTitle">Have a project <mark>in mind?</mark></h2>
+      <p class="body">Tell us what you're building, what you need, or what you'd like to explore. We'd love to hear from you.</p>
+
+      <div class="fields">
+        <label class="field">
+          <span>Full name</span>
+          <input name="name" type="text" autocomplete="name" placeholder="Your name" required minlength="2">
+          <em class="error" hidden>Please enter your name.</em>
+        </label>
+        <label class="field">
+          <span>Email address</span>
+          <input name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+          <em class="error" hidden>Please enter a valid email address, like name@example.com.</em>
+        </label>
+        <label class="field">
+          <span>What service are you interested in?</span>
+          <select name="service" required>
+            <option value="">Choose a service</option>
+            <option>Web Development</option>
+            <option>Mobile Development</option>
+            <option>Video Editing</option>
+            <option>Digital Marketing</option>
+            <option>Multiple Services</option>
+            <option>Other</option>
+          </select>
+          <em class="error" hidden>Please choose the service you're interested in.</em>
+        </label>
+        <label class="field field-wide">
+          <span>Project details</span>
+          <textarea name="message" rows="4" placeholder="Briefly describe your idea, your goals, or what you need." required minlength="20"></textarea>
+          <em class="error" hidden>Please tell us a little about your project (at least 20 characters).</em>
+        </label>
+      </div>
+
+      <p class="notice" id="contactNotice" role="status" hidden></p>
+      <button class="btn" type="submit">Send message <span aria-hidden="true">→</span></button>
+    </form>
+  </dialog>
+
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>

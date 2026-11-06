@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example B — Color blocks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Example B: the logo taken apart into full-width blocks. Every section
+     is one of the logo's colors: yellow, blue, ink, paper. Loud and simple. */
+  :root { --paper: #f5f2ec; --ink: #141414; --yellow: #ffb500; --blue: #0096ff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font: 400 18px/1.6 Inter, system-ui, sans-serif; }
+  .slab { font-family: "Roboto Slab", Georgia, serif; font-weight: 900; letter-spacing: -.02em; }
+  .wrap { width: min(1240px, 100% - 48px); margin: 0 auto; }
+  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+  .pill { display: inline-flex; align-items: center; height: 56px; padding: 0 30px; border-radius: 99px; font-weight: 700; text-decoration: none; }
+
+  header { position: absolute; inset: 0 0 auto; z-index: 5; }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; height: 88px; }
+  header img { height: 36px; }
+  nav { display: flex; gap: 28px; font-weight: 600; font-size: 15px; }
+
+  .hero { background: var(--yellow); padding: 170px 0 0; overflow: hidden; }
+  .hero h1 { font-size: clamp(56px, 10vw, 150px); line-height: .92; }
+  .hero h1 .blue { background: var(--blue); color: #fff; padding: 0 .12em; }
+  .hero .row { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-top: 36px; flex-wrap: wrap; }
+  .hero p { max-width: 520px; font-size: 20px; font-weight: 500; }
+  .hero .pill { background: var(--ink); color: var(--yellow); }
+  .hero .wave { display: block; width: min(1100px, 120%); margin: 40px 0 -6px auto; }
+
+  .blue-sec { background: var(--blue); color: #fff; padding: 110px 0; }
+  .blue-sec h2 { font-size: clamp(40px, 5.4vw, 80px); line-height: 1; margin-top: 16px; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+  .card { background: #fff; color: var(--ink); border-radius: 28px; padding: 28px; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; transition: transform .3s; }
+  .card:hover { transform: translateY(-8px) rotate(-1deg); }
+  .card:nth-child(2) { background: var(--yellow); }
+  .card:nth-child(3) { background: var(--ink); color: #fff; }
+  .card .n { font-family: "Roboto Slab"; font-weight: 900; font-size: 56px; line-height: 1; }
+  .card h3 { font-family: "Roboto Slab"; font-size: 28px; line-height: 1.1; }
+  .card p { font-size: 16px; opacity: .8; margin-top: 10px; }
+
+  .work { padding: 110px 0; }
+  .work h2 { font-size: clamp(40px, 5.4vw, 80px); line-height: 1; margin-top: 16px; }
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .project { border-radius: 32px; overflow: hidden; padding: 32px 32px 0; }
+  .project.y { background: var(--yellow); } .project.b { background: var(--blue); color: #fff; }
+  .project h3 { font-family: "Roboto Slab"; font-size: 36px; font-weight: 900; }
+  .project img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; border-radius: 16px 16px 0 0; margin-top: 28px; box-shadow: 0 -2px 0 rgb(0 0 0 / .08); }
+
+  .ink { background: var(--ink); color: var(--paper); padding: 110px 0; text-align: center; }
+  .ink h2 { font-size: clamp(48px, 8vw, 128px); line-height: .95; }
+  .ink h2 span { color: var(--yellow); }
+  .ink .pill { background: var(--yellow); color: var(--ink); margin-top: 40px; }
+  footer { background: var(--ink); color: rgb(245 242 236 / .6); border-top: 1px solid #2a2a2a; padding: 32px 0; font-size: 14px; }
+
+  @media (max-width: 900px) { nav { display: none; } .cards { grid-template-columns: 1fr 1fr; } .projects { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header><div class="wrap"><img src="../assets/logo/logo.png" alt="fourthwave."><nav><span>Services</span><span>Work</span><span>About</span><span>Contact</span></nav></div></header>
+
+<main>
+  <div class="hero"><div class="wrap">
+    <p class="eyebrow">Creative Technology Company</p>
+    <h1 class="slab" style="margin-top:20px">Web, mobile and video. <span class="blue">One team.</span></h1>
+    <div class="row">
+      <p>We design, build and edit under one roof, so your website, your app and your launch video look like they came from the same company.</p>
+      <a class="pill" href="#contact">Let's Talk →</a>
+    </div>
+    <img class="wave" src="../assets/logo/layer-3.webp" alt="">
+  </div></div>
+
+  <section class="blue-sec"><div class="wrap">
+    <p class="eyebrow">What We Do</p>
+    <h2 class="slab">Digital solutions. Creative experiences. Measurable impact.</h2>
+    <div class="cards">
+      <div class="card"><span class="n">01</span><div><h3>Web Development</h3><p>Fast, modern websites and web apps, built to perform.</p></div></div>
+      <div class="card"><span class="n">02</span><div><h3>Mobile Development</h3><p>Intuitive iOS and Android apps people enjoy using.</p></div></div>
+      <div class="card"><span class="n">03</span><div><h3>Video Editing</h3><p>Edits that turn raw footage into stories worth watching.</p></div></div>
+      <div class="card"><span class="n">04</span><div><h3>Digital Marketing</h3><p>Campaigns that help brands reach and engage their audience.</p></div></div>
+    </div>
+  </div></section>
+
+  <section class="work"><div class="wrap">
+    <p class="eyebrow" style="color:#5e5a52">What We Build</p>
+    <h2 class="slab">Websites built to make an impression.</h2>
+    <div class="projects">
+      <div class="project y"><h3>PerfectCV</h3><img src="../public/images/portfolio/web-development/project-01.png" alt=""></div>
+      <div class="project b"><h3>SHIFT</h3><img src="../public/images/portfolio/web-development/project-02-cropped.jpg" alt=""></div>
+    </div>
+  </div></section>
+
+  <section class="ink"><div class="wrap">
+    <p class="eyebrow" style="color:rgb(245 242 236 / .6)">Let's work together</p>
+    <h2 class="slab" style="margin-top:20px">Have a project <span>in mind?</span></h2>
+    <a class="pill" href="#contact">Let's Talk →</a>
+  </div></section>
+</main>
+<footer><div class="wrap">© 2026 FourthWave. All rights reserved.</div></footer>
+</body>
+</html>
