@@ -4,183 +4,315 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FourthWave</title>
-  <meta name="description" content="FourthWave — web, mobile and video. One team.">
+  <meta name="description" content="FourthWave — web, mobile, video and digital marketing. One team.">
+  <meta name="theme-color" content="#04070b">
   <link rel="icon" href="assets/logo/logo.png">
   <link rel="preload" as="image" href="assets/logo/layer-3.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!--
-    One scroll story, then an ordinary footer. The stage stays in view while
-    the tall section scrolls past. Every chapter adds one layer to the logo
-    and swaps the content beside it. main.js turns the scroll position into
-    that progress; each chapter also has its own address (#web, #team, …).
+    Structure: a fixed sea of wave lines (canvas) sits behind everything.
+    Sections marked data-scene are tall; their .sticky child stays on screen
+    while main.js turns the scroll position into --p (0..1) and --e (eased).
+    CSS reads those numbers to move things. Texts live in main.js (EN / BS).
   -->
-  <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+  <canvas class="sea" id="sea" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
 
-  <header class="topbar" id="topbar">
-    <a class="brand" href="#intro">fourthwave<span>.</span></a>
-    <div class="topbar-end">
-      <a class="skip" id="skip" href="#contact">Skip to contact <span aria-hidden="true">↓</span></a>
-      <span class="counter" aria-hidden="true"><b id="counter">01</b> / 08</span>
+  <header class="bar" id="bar">
+    <a class="bar-logo" href="#top" aria-label="FourthWave — back to top">
+      <img src="assets/logo/logo.png" alt="" width="1200" height="417">
+    </a>
+    <nav class="bar-nav" aria-label="Main">
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#web" data-i18n="nav.work">Work</a>
+      <a href="#team" data-i18n="nav.team">Team</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="bar-end">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="bs" aria-pressed="false">BS</button>
+      </div>
+      <a class="pill" href="#contact"><span data-i18n="cta.talk">Let's talk</span></a>
     </div>
   </header>
 
-  <nav class="chapters" id="chapters" aria-label="Chapters">
-    <a href="#intro">Intro</a>
-    <a href="#services">Services</a>
-    <a href="#web">Web</a>
-    <a href="#mobile">Mobile</a>
-    <a href="#video">Video</a>
-    <a href="#marketing">Marketing</a>
-    <a href="#team">Team</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <main>
+    <!-- 00 · Hero: the logo's layers drift in space and assemble on scroll -->
+    <section class="scene hero" id="top" data-scene="hero" data-sea="1">
+      <div class="sticky">
+        <div class="hero-logo" id="heroLogo">
+          <div class="logo" role="img" aria-label="fourthwave.">
+            <span class="layer band" data-layer="band"></span>
+            <span class="layer box" data-layer="box"></span>
+            <img class="layer ripples" data-layer="ripples" src="assets/logo/layer-2.webp" alt="">
+            <img class="layer wave" data-layer="wave" src="assets/logo/layer-3.webp" alt="">
+            <img class="layer fourth" data-layer="fourth" src="assets/logo/layer-5.webp" alt="">
+            <img class="layer word-wave" data-layer="word-wave" src="assets/logo/layer-6.webp" alt="">
+            <img class="layer dot" data-layer="dot" src="assets/logo/layer-7.webp" alt="">
+          </div>
+        </div>
 
-  <main class="scroller" id="scroller">
-    <div class="stage">
-      <div class="logo-wrap" id="logoWrap">
-        <div class="logo" role="img" aria-label="fourthwave.">
-          <span class="layer band" data-layer="band"></span>
-          <span class="layer box" data-layer="box"></span>
-          <img class="layer ripples" data-layer="ripples" src="assets/logo/layer-2.webp" alt="">
-          <img class="layer wave" data-layer="wave" src="assets/logo/layer-3.webp" alt="">
-          <img class="layer fourth" data-layer="fourth" src="assets/logo/layer-5.webp" alt="">
-          <img class="layer word-wave" data-layer="word-wave" src="assets/logo/layer-6.webp" alt="">
-          <img class="layer dot" data-layer="dot" src="assets/logo/layer-7.webp" alt="">
+        <div class="hero-meta mono" id="heroMeta">
+          <p data-i18n="hero.kicker">Creative technology studio</p>
+          <p data-i18n="hero.areas">Web / Mobile / Video / Marketing</p>
+        </div>
+
+        <div class="hero-copy" id="heroCopy">
+          <h1 class="display" data-i18n="hero.title">Web, mobile and video. One team.</h1>
+          <div class="hero-side">
+            <p class="lede" data-i18n="hero.lede"></p>
+            <div class="actions">
+              <a class="btn" href="#contact"><span data-i18n="cta.talk">Let's talk</span><i aria-hidden="true">→</i></a>
+              <a class="btn ghost" href="#web"><span data-i18n="hero.work">See the work</span><i aria-hidden="true">↓</i></a>
+            </div>
+          </div>
+        </div>
+
+        <p class="hint mono" id="hint" aria-hidden="true"><span data-i18n="hero.hint">Scroll</span><i></i></p>
+      </div>
+    </section>
+
+    <!-- Statement: words light up as you scroll -->
+    <section class="scene statement" data-scene="statement" data-sea="0.25">
+      <div class="sticky">
+        <p class="statement-text" id="statement" data-i18n="statement"></p>
+      </div>
+    </section>
+
+    <!-- 01 · Services -->
+    <section class="services" id="services" data-sea="0.3">
+      <header class="sec-head rv">
+        <p class="mono idx"><b>01</b><span data-i18n="svc.kicker">What we do</span></p>
+        <h2 class="h2" data-i18n="svc.title"></h2>
+      </header>
+      <ol class="svc-list">
+        <li class="rv"><a class="svc" href="#web" data-img="public/images/services/web-development.jpg">
+          <span class="svc-n mono">01</span>
+          <span class="svc-name" data-i18n="svc.web">Web Development</span>
+          <span class="svc-desc" data-i18n="svc.web.d"></span>
+          <span class="svc-go" aria-hidden="true">→</span>
+        </a></li>
+        <li class="rv"><a class="svc" href="#mobile" data-img="public/images/services/mobile-development.jpg">
+          <span class="svc-n mono">02</span>
+          <span class="svc-name" data-i18n="svc.mobile">Mobile Development</span>
+          <span class="svc-desc" data-i18n="svc.mobile.d"></span>
+          <span class="svc-go" aria-hidden="true">→</span>
+        </a></li>
+        <li class="rv"><a class="svc" href="#video" data-img="public/images/services/video-editing.jpg">
+          <span class="svc-n mono">03</span>
+          <span class="svc-name" data-i18n="svc.video">Video Editing</span>
+          <span class="svc-desc" data-i18n="svc.video.d"></span>
+          <span class="svc-go" aria-hidden="true">→</span>
+        </a></li>
+        <li class="rv"><a class="svc" href="#marketing" data-img="public/images/services/digital-marketing.jpg">
+          <span class="svc-n mono">04</span>
+          <span class="svc-name" data-i18n="svc.marketing">Digital Marketing</span>
+          <span class="svc-desc" data-i18n="svc.marketing.d"></span>
+          <span class="svc-go" aria-hidden="true">→</span>
+        </a></li>
+      </ol>
+      <div class="svc-preview" id="svcPreview" aria-hidden="true"><img alt=""></div>
+    </section>
+
+    <!-- 02 · Web: screens tilt up out of the sea and straighten -->
+    <section class="scene web" id="web" data-scene="web" data-sea="0.45">
+      <div class="sticky">
+        <div class="scene-text rv">
+          <p class="mono idx"><b>02</b><span data-i18n="web.kicker">Web development</span></p>
+          <h2 class="h2" data-i18n="web.title"></h2>
+          <p class="lede" data-i18n="web.lede"></p>
+        </div>
+        <div class="screens">
+          <button class="screen s1" type="button" data-project="perfectcv">
+            <span class="screen-bar" aria-hidden="true"><i></i><i></i><i></i><b>perfectcv</b></span>
+            <img src="assets/content/web-perfectcv.jpg" alt="Home page of the PerfectCV website." loading="lazy">
+            <span class="screen-tag mono">PerfectCV <i aria-hidden="true">↗</i></span>
+          </button>
+          <button class="screen s2" type="button" data-project="shift">
+            <span class="screen-bar" aria-hidden="true"><i></i><i></i><i></i><b>shift</b></span>
+            <img src="assets/content/web-shift.jpg" alt="Home page of the SHIFT website." loading="lazy">
+            <span class="screen-tag mono">SHIFT <i aria-hidden="true">↗</i></span>
+          </button>
         </div>
       </div>
+    </section>
 
-      <div class="panels">
-        <!-- 01 · the big wave alone -->
-        <section class="panel" data-chapter="intro">
-          <p class="eyebrow">Creative Technology Company</p>
-          <h1 class="title">Web, mobile and video. <mark>One&nbsp;team.</mark></h1>
-          <p class="body">We design, build and edit under one roof, so your website, your app and your launch video look like they came from the same company.</p>
-        </section>
-
-        <!-- 02 · + ripples: the wave is complete -->
-        <section class="panel" data-chapter="services">
-          <p class="eyebrow">What We Do</p>
-          <h2 class="title">Digital solutions. Creative experiences. <mark>Measurable&nbsp;impact.</mark></h2>
-          <ol class="services">
-            <li><b>01</b><span>Web Development</span></li>
-            <li><b>02</b><span>Mobile Development</span></li>
-            <li><b>03</b><span>Video Editing</span></li>
-            <li><b>04</b><span>Digital Marketing</span></li>
-          </ol>
-        </section>
-
-        <!-- 03 · + yellow band -->
-        <section class="panel" data-chapter="web">
-          <p class="eyebrow">Web Development</p>
-          <h2 class="title">Websites built to make an <mark class="blue">impression.</mark></h2>
-          <div class="browsers media">
-            <button class="browser" type="button" data-project="perfectcv" aria-label="Open project: PerfectCV">
-              <i aria-hidden="true"></i>
-              <img src="assets/content/web-perfectcv.jpg" alt="Home page of the PerfectCV website.">
-              <span class="tag">PerfectCV</span>
-            </button>
-            <button class="browser" type="button" data-project="shift" aria-label="Open project: SHIFT">
-              <i aria-hidden="true"></i>
-              <img src="assets/content/web-shift.jpg" alt="Home page of the SHIFT website.">
-              <span class="tag">SHIFT</span>
-            </button>
-          </div>
-        </section>
-
-        <!-- 04 · + blue block -->
-        <section class="panel" data-chapter="mobile">
-          <p class="eyebrow">Mobile Development</p>
-          <h2 class="title">Powerful experiences. <mark>Made for mobile.</mark></h2>
-          <div class="phones media">
-            <button class="phone" type="button" data-project="finance" aria-label="Open project: personal finance app">
-              <img src="assets/content/mobile-finance.jpg" alt="Home screen of a personal finance app.">
-            </button>
-            <button class="phone" type="button" data-project="shift-app" aria-label="Open project: SHIFT app">
-              <img src="assets/content/mobile-shift.jpg" alt="Check-in screen of the SHIFT app.">
-            </button>
-            <p class="body">We build intuitive mobile applications designed around the people who use them.</p>
-          </div>
-        </section>
-
-        <!-- 05 · + "fourth" -->
-        <section class="panel" data-chapter="video">
-          <p class="eyebrow">Video Editing &amp; Production</p>
-          <h2 class="title">Stories that <mark>move people.</mark></h2>
-          <button class="film media" type="button" data-video aria-label="Play the showreel preview">
-            <video src="assets/content/showreel-loop.mp4" poster="assets/content/showreel-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
-            <span class="play" aria-hidden="true"></span>
-            <span class="caption">From engaging social content to cinematic brand commercials.</span>
+    <!-- 03 · Mobile: two phones pass each other -->
+    <section class="scene mobile" id="mobile" data-scene="mobile" data-sea="0.35">
+      <div class="sticky">
+        <div class="phones">
+          <button class="phone p1" type="button" data-project="finance">
+            <img src="assets/content/mobile-finance.jpg" alt="Home screen of a personal finance app." loading="lazy">
           </button>
-        </section>
-
-        <!-- 06 · + "wave" -->
-        <section class="panel" data-chapter="marketing">
-          <p class="eyebrow">Digital Marketing</p>
-          <h2 class="title">Your next <mark>big idea</mark> starts here.</h2>
-          <ol class="steps">
-            <li><b>01</b>Strategy<span>Define the direction, audience, and message.</span></li>
-            <li><b>02</b>Create<span>Turn ideas into compelling digital content.</span></li>
-            <li><b>03</b>Grow<span>Build a consistent and recognizable online presence.</span></li>
-          </ol>
-        </section>
-
-        <!-- 07 · + the full stop -->
-        <section class="panel" data-chapter="team">
-          <p class="eyebrow">The people behind FourthWave</p>
-          <h2 class="title">Good ideas start with <mark>good people.</mark></h2>
-          <!-- Add each person's role in data-role when it is known. -->
-          <ul class="team media">
-            <li data-role=""><img src="assets/content/team-adem-halilovic.jpg" alt=""><span class="name">Adem Halilović</span></li>
-            <li data-role=""><img src="assets/content/team-kenan-cosic.jpg" alt=""><span class="name">Kenan Čosić</span></li>
-            <li data-role=""><img src="assets/content/team-ammar-kahrimanovic.jpg" alt=""><span class="name">Ammar Kahrimanović</span></li>
-            <li data-role=""><img src="assets/content/team-sumeja-halilovic.jpg" alt=""><span class="name">Sumeja Halilović</span></li>
+          <button class="phone p2" type="button" data-project="shift-app">
+            <img src="assets/content/mobile-shift.jpg" alt="Check-in screen of the SHIFT app." loading="lazy">
+          </button>
+        </div>
+        <div class="scene-text rv">
+          <p class="mono idx"><b>03</b><span data-i18n="mobile.kicker">Mobile development</span></p>
+          <h2 class="h2" data-i18n="mobile.title"></h2>
+          <p class="lede" data-i18n="mobile.lede"></p>
+          <ul class="chips mono">
+            <li>iOS</li><li>Android</li><li>NFC</li><li data-i18n="mobile.chip">Product design</li>
           </ul>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <!-- 08 · the finished logo -->
-        <section class="panel final" data-chapter="contact">
-          <h2 class="title">Have a project <mark>in mind?</mark></h2>
-          <button class="btn" type="button" data-contact>Let's Talk <span aria-hidden="true">→</span></button>
-        </section>
+    <!-- 04 · Video: the frame opens up to fill the screen -->
+    <section class="scene video" id="video" data-scene="video" data-sea="0">
+      <div class="sticky">
+        <div class="film" id="film">
+          <video src="assets/content/showreel-loop.mp4" poster="assets/content/showreel-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+        </div>
+        <div class="film-text">
+          <p class="mono idx"><b>04</b><span data-i18n="video.kicker">Video editing &amp; production</span></p>
+          <h2 class="h2 huge" data-i18n="video.title"></h2>
+        </div>
+        <div class="film-foot">
+          <p class="lede" data-i18n="video.lede"></p>
+          <button class="btn" type="button" data-video><span data-i18n="video.play">Play showreel</span><i aria-hidden="true">▶</i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Marketing: a sideways track while you scroll down -->
+    <section class="scene marketing" id="marketing" data-scene="marketing" data-sea="0.5">
+      <div class="sticky">
+        <div class="track" id="track">
+          <article class="slide slide-intro">
+            <p class="mono idx"><b>05</b><span data-i18n="mkt.kicker">Digital marketing</span></p>
+            <h2 class="h2" data-i18n="mkt.title"></h2>
+            <p class="lede" data-i18n="mkt.lede"></p>
+          </article>
+          <article class="slide step">
+            <span class="step-n mono">01</span>
+            <h3 data-i18n="mkt.s1">Strategy</h3>
+            <p data-i18n="mkt.s1.d"></p>
+          </article>
+          <article class="slide step">
+            <span class="step-n mono">02</span>
+            <h3 data-i18n="mkt.s2">Create</h3>
+            <p data-i18n="mkt.s2.d"></p>
+          </article>
+          <article class="slide step">
+            <span class="step-n mono">03</span>
+            <h3 data-i18n="mkt.s3">Grow</h3>
+            <p data-i18n="mkt.s3.d"></p>
+          </article>
+          <article class="slide slide-areas">
+            <p class="mono" data-i18n="mkt.areas">Where we help</p>
+            <ul>
+              <li><b data-i18n="mkt.a1">Social media</b><span data-i18n="mkt.a1.d"></span></li>
+              <li><b data-i18n="mkt.a2">Content creation</b><span data-i18n="mkt.a2.d"></span></li>
+              <li><b data-i18n="mkt.a3">Paid advertising</b><span data-i18n="mkt.a3.d"></span></li>
+              <li><b data-i18n="mkt.a4">Digital strategy</b><span data-i18n="mkt.a4.d"></span></li>
+            </ul>
+          </article>
+        </div>
+        <div class="track-rail" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <!-- 06 · Team -->
+    <section class="team" id="team" data-sea="0.25">
+      <header class="sec-head rv">
+        <p class="mono idx"><b>06</b><span data-i18n="team.kicker">The people behind FourthWave</span></p>
+        <h2 class="h2" data-i18n="team.title"></h2>
+        <p class="lede" data-i18n="team.lede"></p>
+      </header>
+      <!-- Add each person's role to data-i18n="team.role.*" in main.js when it is known. -->
+      <ul class="people">
+        <li class="person rv" data-speed="0">
+          <div class="person-img"><img src="assets/content/team-adem-halilovic.jpg" alt="Adem Halilović" loading="lazy"></div>
+          <p class="person-name">Adem Halilović</p>
+        </li>
+        <li class="person rv" data-speed="0.08">
+          <div class="person-img"><img src="assets/content/team-kenan-cosic.jpg" alt="Kenan Čosić" loading="lazy"></div>
+          <p class="person-name">Kenan Čosić</p>
+        </li>
+        <li class="person rv" data-speed="0">
+          <div class="person-img"><img src="assets/content/team-ammar-kahrimanovic.jpg" alt="Ammar Kahrimanović" loading="lazy"></div>
+          <p class="person-name">Ammar Kahrimanović</p>
+        </li>
+        <li class="person rv" data-speed="0.08">
+          <div class="person-img"><img src="assets/content/team-sumeja-halilovic.jpg" alt="Sumeja Halilović" loading="lazy"></div>
+          <p class="person-name">Sumeja Halilović</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 07 · Contact -->
+    <section class="contact" id="contact" data-sea="1">
+      <div class="contact-head rv">
+        <p class="mono idx"><b>07</b><span data-i18n="contact.kicker">Let's work together</span></p>
+        <h2 class="h2 huge" data-i18n="contact.title"></h2>
+        <p class="lede" data-i18n="contact.lede"></p>
       </div>
 
-      <p class="cue" id="cue" aria-hidden="true"><span class="cue-line"><span></span></span>Scroll</p>
-    </div>
+      <form class="form rv" id="contactForm" novalidate>
+        <label class="field">
+          <span data-i18n="form.name">Full name</span>
+          <input name="name" type="text" autocomplete="name" required minlength="2" data-i18n-ph="form.name.ph">
+          <em class="error" data-i18n="form.name.err" hidden></em>
+        </label>
+        <label class="field">
+          <span data-i18n="form.email">Email address</span>
+          <input name="email" type="email" autocomplete="email" required data-i18n-ph="form.email.ph">
+          <em class="error" data-i18n="form.email.err" hidden></em>
+        </label>
+        <fieldset class="field field-wide choice">
+          <legend data-i18n="form.service">What can we help with?</legend>
+          <div class="choices">
+            <label><input type="radio" name="service" value="Web" required><span data-i18n="svc.web">Web</span></label>
+            <label><input type="radio" name="service" value="Mobile"><span data-i18n="svc.mobile">Mobile</span></label>
+            <label><input type="radio" name="service" value="Video"><span data-i18n="svc.video">Video</span></label>
+            <label><input type="radio" name="service" value="Marketing"><span data-i18n="svc.marketing">Marketing</span></label>
+            <label><input type="radio" name="service" value="Multiple"><span data-i18n="form.multi">Several</span></label>
+          </div>
+          <em class="error" data-i18n="form.service.err" hidden></em>
+        </fieldset>
+        <label class="field field-wide">
+          <span data-i18n="form.message">Project details</span>
+          <textarea name="message" rows="4" required minlength="20" data-i18n-ph="form.message.ph"></textarea>
+          <em class="error" data-i18n="form.message.err" hidden></em>
+        </label>
+        <div class="form-end field-wide">
+          <p class="notice" id="contactNotice" role="status" hidden></p>
+          <button class="btn" type="submit"><span data-i18n="form.send">Send message</span><i aria-hidden="true">→</i></button>
+        </div>
+      </form>
+    </section>
   </main>
 
-  <footer class="footer" id="footer">
+  <footer class="footer" data-sea="1">
     <div class="footer-top">
-      <div class="footer-brand">
-        <img src="assets/logo/logo.png" alt="fourthwave.">
-        <p>We create digital experiences, products, and content that help brands move forward.</p>
-      </div>
-      <nav class="footer-col" aria-label="Footer">
-        <h2>Explore</h2>
-        <a href="#services">Services</a>
-        <a href="#web">Web</a>
-        <a href="#mobile">Mobile</a>
-        <a href="#video">Video</a>
-        <a href="#marketing">Marketing</a>
-        <a href="#team">Team</a>
+      <img class="footer-logo" src="assets/logo/logo.png" alt="fourthwave." width="1200" height="417" loading="lazy">
+      <p class="footer-line" data-i18n="footer.line"></p>
+    </div>
+    <div class="footer-cols">
+      <nav aria-label="Footer">
+        <p class="mono" data-i18n="footer.explore">Explore</p>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#web" data-i18n="nav.work">Work</a>
+        <a href="#team" data-i18n="nav.team">Team</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
-      <div class="footer-col">
-        <h2>Follow us</h2>
+      <div>
+        <p class="mono" data-i18n="footer.follow">Follow</p>
         <!-- Replace with real profile links when the accounts exist. -->
-        <span class="soon">Instagram <small>Coming soon</small></span>
-        <span class="soon">TikTok <small>Coming soon</small></span>
-        <span class="soon">YouTube <small>Coming soon</small></span>
-      </div>
-      <div class="footer-col">
-        <h2>Start a project</h2>
-        <button class="btn btn-small" type="button" data-contact>Let's Talk <span aria-hidden="true">→</span></button>
+        <span class="soon">Instagram</span>
+        <span class="soon">TikTok</span>
+        <span class="soon">YouTube</span>
       </div>
     </div>
-    <p class="footer-bottom">© <span id="year">2026</span> FourthWave. All rights reserved.</p>
+    <p class="footer-bottom mono"><span>© <span id="year">2026</span> FourthWave</span><a href="#top" data-i18n="footer.top">Back to the surface ↑</a></p>
   </footer>
 
   <!-- Project details -->
@@ -189,65 +321,19 @@
     <div class="project">
       <div class="project-media" id="projectMedia"></div>
       <div class="project-text">
-        <p class="eyebrow" id="projectCategory"></p>
+        <p class="mono" id="projectCategory"></p>
         <h2 class="dialog-title" id="projectTitle"></h2>
-        <p class="body" id="projectDescription"></p>
-        <a class="btn btn-small" id="projectLink" target="_blank" rel="noopener noreferrer" hidden>Visit website <span aria-hidden="true">↗</span></a>
+        <p class="lede" id="projectDescription"></p>
+        <a class="btn" id="projectLink" target="_blank" rel="noopener noreferrer" hidden><span data-i18n="project.visit">Visit website</span><i aria-hidden="true">↗</i></a>
       </div>
     </div>
   </dialog>
 
-  <!-- Showreel preview -->
-  <dialog class="dialog dialog-video" id="videoDialog" aria-label="Showreel preview">
+  <!-- Showreel -->
+  <dialog class="dialog dialog-video" id="videoDialog" aria-label="Showreel">
     <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
     <video id="videoPlayer" src="assets/content/showreel-loop.mp4" poster="assets/content/showreel-poster.jpg" controls loop playsinline preload="none"></video>
   </dialog>
-
-  <!-- Contact -->
-  <dialog class="dialog dialog-contact" id="contactDialog" aria-labelledby="contactTitle">
-    <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
-    <form class="contact" id="contactForm" novalidate>
-      <p class="eyebrow">Let's work together</p>
-      <h2 class="dialog-title" id="contactTitle">Have a project <mark>in mind?</mark></h2>
-      <p class="body">Tell us what you're building, what you need, or what you'd like to explore. We'd love to hear from you.</p>
-
-      <div class="fields">
-        <label class="field">
-          <span>Full name</span>
-          <input name="name" type="text" autocomplete="name" placeholder="Your name" required minlength="2">
-          <em class="error" hidden>Please enter your name.</em>
-        </label>
-        <label class="field">
-          <span>Email address</span>
-          <input name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
-          <em class="error" hidden>Please enter a valid email address, like name@example.com.</em>
-        </label>
-        <label class="field">
-          <span>What service are you interested in?</span>
-          <select name="service" required>
-            <option value="">Choose a service</option>
-            <option>Web Development</option>
-            <option>Mobile Development</option>
-            <option>Video Editing</option>
-            <option>Digital Marketing</option>
-            <option>Multiple Services</option>
-            <option>Other</option>
-          </select>
-          <em class="error" hidden>Please choose the service you're interested in.</em>
-        </label>
-        <label class="field field-wide">
-          <span>Project details</span>
-          <textarea name="message" rows="4" placeholder="Briefly describe your idea, your goals, or what you need." required minlength="20"></textarea>
-          <em class="error" hidden>Please tell us a little about your project (at least 20 characters).</em>
-        </label>
-      </div>
-
-      <p class="notice" id="contactNotice" role="status" hidden></p>
-      <button class="btn" type="submit">Send message <span aria-hidden="true">→</span></button>
-    </form>
-  </dialog>
-
-  <div class="cursor" id="cursor" aria-hidden="true"></div>
 
   <script src="main.js"></script>
 </body>
