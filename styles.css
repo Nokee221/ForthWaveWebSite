@@ -8,13 +8,13 @@
  */
 
 :root {
-  --abyss: #04070b;
-  --deep: #08121c;
-  --surface: #0d1a26;
+  --abyss: #0c1c2d;
+  --deep: #13283e;
+  --surface: #1a3450;
   --text: #e8edf1;
-  --mute: #8696a3;
-  --faint: #4b5a66;
-  --line: rgba(150, 190, 220, 0.14);
+  --mute: #a9b8c5;
+  --faint: #72869a;
+  --line: rgba(170, 205, 235, 0.2);
   --yellow: #ffb500;
   --blue: #0096ff;
   --gutter: clamp(20px, 4vw, 64px);
@@ -32,7 +32,7 @@ html {
   background: var(--abyss);
   -webkit-text-size-adjust: 100%;
   scrollbar-width: thin;
-  scrollbar-color: #1d2c39 var(--abyss);
+  scrollbar-color: #2c4560 var(--abyss);
 }
 
 body {
@@ -111,7 +111,7 @@ main, .footer { position: relative; z-index: 1; }
 }
 
 .bar.solid {
-  background: rgba(4, 7, 11, 0.72);
+  background: rgba(12, 28, 45, 0.72);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-bottom-color: var(--line);
@@ -616,19 +616,19 @@ main, .footer { position: relative; z-index: 1; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(4, 7, 11, 0.92) 0%, rgba(4, 7, 11, 0.62) 42%, rgba(4, 7, 11, 0.28) 100%),
-    linear-gradient(to bottom, rgba(4, 7, 11, 0.7), rgba(4, 7, 11, 0) 22%, rgba(4, 7, 11, 0) 70%, rgba(4, 7, 11, 0.95));
+    linear-gradient(90deg, rgba(12, 28, 45, 0.82) 0%, rgba(12, 28, 45, 0.4) 40%, rgba(12, 28, 45, 0.04) 100%),
+    linear-gradient(to bottom, rgba(12, 28, 45, 0.45), rgba(12, 28, 45, 0) 20%, rgba(12, 28, 45, 0) 74%, rgba(12, 28, 45, 0.9));
 }
 
 .mobile .scene-bg::after {
   background:
-    linear-gradient(270deg, rgba(4, 7, 11, 0.92) 0%, rgba(4, 7, 11, 0.6) 45%, rgba(4, 7, 11, 0.3) 100%),
-    linear-gradient(to bottom, rgba(4, 7, 11, 0.7), rgba(4, 7, 11, 0) 22%, rgba(4, 7, 11, 0) 70%, rgba(4, 7, 11, 0.95));
+    linear-gradient(270deg, rgba(12, 28, 45, 0.82) 0%, rgba(12, 28, 45, 0.4) 42%, rgba(12, 28, 45, 0.05) 100%),
+    linear-gradient(to bottom, rgba(12, 28, 45, 0.45), rgba(12, 28, 45, 0) 20%, rgba(12, 28, 45, 0) 74%, rgba(12, 28, 45, 0.9));
 }
 
 .marketing .scene-bg::after {
   background:
-    linear-gradient(to bottom, rgba(4, 7, 11, 0.75), rgba(4, 7, 11, 0.35) 40%, rgba(4, 7, 11, 0.85));
+    linear-gradient(to bottom, rgba(12, 28, 45, 0.55), rgba(12, 28, 45, 0.15) 40%, rgba(12, 28, 45, 0.7));
 }
 
 .web { height: 300vh; }
@@ -796,14 +796,13 @@ main, .footer { position: relative; z-index: 1; }
   height: 100%;
   object-fit: cover;
   transform: scale(calc(1.25 - var(--e, 0) * 0.25));
-  opacity: 0.85;
 }
 
 .film::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(4, 7, 11, 0.85), rgba(4, 7, 11, 0) 45%, rgba(4, 7, 11, 0.35));
+  background: linear-gradient(to top, rgba(12, 28, 45, 0.75), rgba(12, 28, 45, 0) 45%, rgba(12, 28, 45, 0.2));
 }
 
 .film-text {
@@ -894,12 +893,12 @@ main, .footer { position: relative; z-index: 1; }
 
 .step:nth-child(3) { background: var(--blue); border-color: var(--blue); }
 .step:nth-child(3) .step-n,
-.step:nth-child(3) p { color: rgba(4, 7, 11, 0.75); }
+.step:nth-child(3) p { color: rgba(12, 28, 45, 0.75); }
 .step:nth-child(3) h3 { color: var(--abyss); }
 
 .step:nth-child(4) { background: var(--yellow); border-color: var(--yellow); }
 .step:nth-child(4) .step-n,
-.step:nth-child(4) p { color: rgba(4, 7, 11, 0.72); }
+.step:nth-child(4) p { color: rgba(12, 28, 45, 0.72); }
 .step:nth-child(4) h3 { color: var(--abyss); }
 
 .slide-areas { width: min(40vw, 600px); }
@@ -1330,7 +1329,7 @@ main, .footer { position: relative; z-index: 1; }
   padding: clamp(22px, 3vw, 40px);
   border: 1px solid var(--line);
   border-radius: 16px;
-  background: rgba(4, 7, 11, 0.7);
+  background: rgba(12, 28, 45, 0.7);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   transition: opacity 1.6s var(--ease), transform 1.6s var(--ease);
@@ -1410,7 +1409,7 @@ main, .footer { position: relative; z-index: 1; }
 .footer {
   padding: 10vh var(--gutter) 28px;
   border-top: 1px solid var(--line);
-  background: linear-gradient(to bottom, rgba(4, 7, 11, 0.4), var(--abyss) 60%);
+  background: linear-gradient(to bottom, rgba(12, 28, 45, 0.4), var(--abyss) 60%);
 }
 
 .footer-top {

@@ -15,11 +15,11 @@ os.makedirs(OUT_T, exist_ok=True)
 
 # Shadows -> deep water -> brand blue -> warm highlight.
 STOPS = [
-    (0.00, (3, 6, 10)),
-    (0.30, (6, 26, 46)),
-    (0.62, (0, 98, 178)),
-    (0.86, (40, 168, 255)),
-    (1.00, (255, 222, 160)),
+    (0.00, (16, 34, 54)),
+    (0.28, (26, 66, 104)),
+    (0.60, (24, 136, 220)),
+    (0.84, (110, 200, 255)),
+    (1.00, (255, 232, 184)),
 ]
 
 
@@ -103,7 +103,7 @@ for name, s in SECTIONS.items():
     for box in s["blur"]:
         im = soften(im, box)
     im = crop_frac(im, *s["region"])
-    graded = grade(im, keep=0.08)
+    graded = grade(im, keep=0.16)
     save(fit(graded, 16 / 9, *s["wide"]), f"{name}-wide.webp", 1920)
     save(fit(graded, 9 / 14, *s["tall"]), f"{name}-tall.webp", 900)
     print(name, "ok")
@@ -123,6 +123,6 @@ for name, s in TEAM.items():
     im = crop_frac(im, *s["box"])
     im = fit(im, 3 / 4, 0.5, 0.5)
     im = im.resize((600, 800), Image.LANCZOS)
-    grade(im, keep=0.12, contrast=1.1).save(os.path.join(OUT_T, f"{name}.webp"), "WEBP", quality=82, method=6)
+    grade(im, keep=0.2, contrast=1.05).save(os.path.join(OUT_T, f"{name}.webp"), "WEBP", quality=82, method=6)
     ImageEnhance.Color(im).enhance(0.9).save(os.path.join(OUT_T, f"{name}-color.webp"), "WEBP", quality=82, method=6)
     print(name, "ok")
