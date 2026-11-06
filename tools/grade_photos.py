@@ -108,19 +108,21 @@ for name, s in SECTIONS.items():
     save(fit(graded, 9 / 14, *s["tall"]), f"{name}-tall.webp", 900)
     print(name, "ok")
 
-# Team: same head-and-shoulders crop, same tone; a colour version for hover.
+# Team: the matching studio portraits (same wall, same t-shirt) in
+# public/images/team/generated/, cut from one 2x2 grid. Same 3:4 crop and
+# tone for all four; a colour version for hover.
 TEAM = {
-    "adem-halilovic": dict(src="adem-halilovic.jpeg", box=(0.30, 0.225, 0.95, 0.52)),
-    "kenan-cosic": dict(src="kenan-cosic.jpg", box=(0.06, 0.40, 0.56, 0.78)),
-    "ammar-kahrimanovic": dict(src="ammar-kahrimanovic.jpeg", box=(0.10, 0.02, 0.66, 0.78)),
-    "sumeja-halilovic": dict(src="sumeja-halilovic.jpeg", box=(0.36, 0.07, 0.96, 0.87)),
+    "adem-halilovic": dict(src="generated/adem-halilovic.jpg", box=(0, 0, 1, 1)),
+    "kenan-cosic": dict(src="generated/kenan-cosic.jpg", box=(0, 0, 1, 1)),
+    "ammar-kahrimanovic": dict(src="generated/ammar-kahrimanovic.jpg", box=(0, 0, 1, 1)),
+    "sumeja-halilovic": dict(src="generated/sumeja-halilovic.jpg", box=(0, 0, 1, 1)),
 }
 
 for name, s in TEAM.items():
     im = Image.open(os.path.join(SRC, "team", s["src"])).convert("RGB")
     im = crop_frac(im, *s["box"])
-    im = fit(im, 3 / 4, 0.5, 0.45)
-    im = im.resize((720, 960), Image.LANCZOS)
+    im = fit(im, 3 / 4, 0.5, 0.5)
+    im = im.resize((600, 800), Image.LANCZOS)
     grade(im, keep=0.12, contrast=1.1).save(os.path.join(OUT_T, f"{name}.webp"), "WEBP", quality=82, method=6)
     ImageEnhance.Color(im).enhance(0.9).save(os.path.join(OUT_T, f"{name}-color.webp"), "WEBP", quality=82, method=6)
     print(name, "ok")
