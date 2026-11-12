@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
   <!--
@@ -188,7 +188,54 @@
           </picture>
         </div>
         <div class="film" id="film">
-          <video src="assets/content/showreel-loop.mp4" poster="assets/content/showreel-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+          <video src="assets/content/reel-loop.mp4?v=2" poster="assets/content/reel-poster.jpg?v=2" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+        </div>
+
+        <!-- The reel shown like an edit in progress: crop marks, a live
+             timecode and the real cuts of the reel on a timeline. -->
+        <div class="film-ui">
+          <span class="crop tl" aria-hidden="true"></span><span class="crop tr" aria-hidden="true"></span>
+          <span class="crop bl" aria-hidden="true"></span><span class="crop br" aria-hidden="true"></span>
+          <p class="film-tag mono" aria-hidden="true"><i></i><span data-i18n="video.tag">Our best edits</span><b id="reelClip">01 / 29</b></p>
+          <div class="timeline">
+            <div class="timeline-head mono" aria-hidden="true">
+              <span>V1</span><b id="reelTc">00:00:00:00</b><span id="reelDur">00:00:42:14</span>
+            </div>
+            <div class="reel-wrap">
+              <ol class="reel-track" id="reelTrack">
+              <li style="--w:1.00"><button type="button" aria-label="Clip 1" data-t="0.00"><img src="assets/content/reel/01.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.38"><button type="button" aria-label="Clip 2" data-t="1.00"><img src="assets/content/reel/02.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:2.09"><button type="button" aria-label="Clip 3" data-t="2.38"><img src="assets/content/reel/03.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:0.83"><button type="button" aria-label="Clip 4" data-t="4.46"><img src="assets/content/reel/04.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.25"><button type="button" aria-label="Clip 5" data-t="5.30"><img src="assets/content/reel/05.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:2.25"><button type="button" aria-label="Clip 6" data-t="6.55"><img src="assets/content/reel/06.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.75"><button type="button" aria-label="Clip 7" data-t="8.80"><img src="assets/content/reel/07.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:2.09"><button type="button" aria-label="Clip 8" data-t="10.55"><img src="assets/content/reel/08.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.50"><button type="button" aria-label="Clip 9" data-t="12.64"><img src="assets/content/reel/09.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:0.71"><button type="button" aria-label="Clip 10" data-t="14.14"><img src="assets/content/reel/10.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.38"><button type="button" aria-label="Clip 11" data-t="14.85"><img src="assets/content/reel/11.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.25"><button type="button" aria-label="Clip 12" data-t="16.22"><img src="assets/content/reel/12.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.00"><button type="button" aria-label="Clip 13" data-t="17.48"><img src="assets/content/reel/13.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.00"><button type="button" aria-label="Clip 14" data-t="18.48"><img src="assets/content/reel/14.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:2.21"><button type="button" aria-label="Clip 15" data-t="19.48"><img src="assets/content/reel/15.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:3.13"><button type="button" aria-label="Clip 16" data-t="21.69"><img src="assets/content/reel/16.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:2.75"><button type="button" aria-label="Clip 17" data-t="24.82"><img src="assets/content/reel/17.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.38"><button type="button" aria-label="Clip 18" data-t="27.57"><img src="assets/content/reel/18.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.17"><button type="button" aria-label="Clip 19" data-t="28.95"><img src="assets/content/reel/19.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.25"><button type="button" aria-label="Clip 20" data-t="30.11"><img src="assets/content/reel/20.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:0.83"><button type="button" aria-label="Clip 21" data-t="31.36"><img src="assets/content/reel/21.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.00"><button type="button" aria-label="Clip 22" data-t="32.20"><img src="assets/content/reel/22.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.08"><button type="button" aria-label="Clip 23" data-t="33.20"><img src="assets/content/reel/23.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.17"><button type="button" aria-label="Clip 24" data-t="34.28"><img src="assets/content/reel/24.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.17"><button type="button" aria-label="Clip 25" data-t="35.45"><img src="assets/content/reel/25.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:2.34"><button type="button" aria-label="Clip 26" data-t="36.62"><img src="assets/content/reel/26.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.08"><button type="button" aria-label="Clip 27" data-t="38.96"><img src="assets/content/reel/27.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.08"><button type="button" aria-label="Clip 28" data-t="40.04"><img src="assets/content/reel/28.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              <li style="--w:1.46"><button type="button" aria-label="Clip 29" data-t="41.12"><img src="assets/content/reel/29.webp" alt="" width="128" height="96" loading="lazy" decoding="async"></button></li>
+              </ol>
+              <span class="playhead" id="reelHead" aria-hidden="true"></span>
+            </div>
+          </div>
         </div>
         <div class="film-text">
           <p class="mono idx"><b>04</b><span data-i18n="video.kicker">Video editing &amp; production</span></p>
@@ -196,7 +243,7 @@
         </div>
         <div class="film-foot">
           <p class="lede" data-i18n="video.lede"></p>
-          <button class="btn" type="button" data-video><span data-i18n="video.play">Play showreel</span><i aria-hidden="true">▶</i></button>
+          <button class="btn" type="button" data-video><span data-i18n="video.play">Watch with sound</span><i aria-hidden="true">▶</i></button>
         </div>
       </div>
     </section>
@@ -425,9 +472,9 @@
   <!-- Showreel -->
   <dialog class="dialog dialog-video" id="videoDialog" aria-label="Showreel">
     <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
-    <video id="videoPlayer" src="assets/content/showreel-loop.mp4" poster="assets/content/showreel-poster.jpg" controls loop playsinline preload="none"></video>
+    <video id="videoPlayer" src="assets/content/reel-full.mp4" poster="assets/content/reel-poster.jpg?v=2" controls loop playsinline preload="none"></video>
   </dialog>
 
-  <script src="main.js?v=6"></script>
+  <script src="main.js?v=7"></script>
 </body>
 </html>

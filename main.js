@@ -58,7 +58,8 @@ const TEXT = {
     "video.kicker": "Video editing & production",
     "video.title": ["Raw footage in.", "<em>A story out.</em>"],
     "video.lede": "Short edits for social, ads that hold attention in the first three seconds, longer films for launches. We cut, colour, add sound and hand over every format you need.",
-    "video.play": "Play showreel",
+    "video.play": "Watch with sound",
+    "video.tag": "Our best edits",
 
     "mkt.kicker": "Digital marketing",
     "mkt.title": ["Posting is easy.", "<em>Being remembered</em>", "takes work."],
@@ -168,7 +169,8 @@ const TEXT = {
     "video.kicker": "Video montaža i produkcija",
     "video.title": ["Sirovi snimci.", "<em>Gotova priča.</em>"],
     "video.lede": "Kratke montaže za mreže, reklame koje zadrže pažnju u prve tri sekunde i duži filmovi za lansiranja. Montiramo, radimo boju i zvuk i predajemo sve formate koji vam trebaju.",
-    "video.play": "Pogledaj showreel",
+    "video.play": "Pogledaj sa zvukom",
+    "video.tag": "Naši najbolji editi",
 
     "mkt.kicker": "Digitalni marketing",
     "mkt.title": ["Objaviti je lako.", "<em>Ostati upamćen</em>", "je posao."],
@@ -660,6 +662,51 @@ const PROJECTS = {
 
   let videoPlaying = false;
 
+  /* ---- The reel: timecode, playhead and the clip under it */
+
+  const reelTrack = $("#reelTrack");
+  const reelClips = $$("#reelTrack button");
+  const reelStarts = reelClips.map((b) => Number(b.dataset.t));
+  const reelHead = $("#reelHead");
+  const reelTc = $("#reelTc");
+  const reelClip = $("#reelClip");
+  const FPS = 24;
+  let reelOn = -1;
+  let reelLoop = false;
+
+  const pad = (n) => String(n).padStart(2, "0");
+  const timecode = (t) => {
+    const f = Math.floor(t * FPS);
+    return `00:${pad(Math.floor(f / (FPS * 60)))}:${pad(Math.floor(f / FPS) % 60)}:${pad(f % FPS)}`;
+  };
+
+  function reelTick() {
+    const d = filmVideo.duration || 1;
+    const t = filmVideo.currentTime;
+    reelHead.style.setProperty("--t", (t / d).toFixed(4));
+    reelTc.textContent = timecode(t);
+    let i = reelStarts.length - 1;
+    while (i > 0 && reelStarts[i] > t) i--;
+    if (i !== reelOn) {
+      if (reelOn >= 0) reelClips[reelOn].classList.remove("on");
+      reelClips[i].classList.add("on");
+      reelOn = i;
+      reelClip.textContent = `${pad(i + 1)} / ${pad(reelClips.length)}`;
+    }
+    if (reelLoop) requestAnimationFrame(reelTick);
+  }
+
+  if (reelTrack) {
+    filmVideo.addEventListener("loadedmetadata", () => { $("#reelDur").textContent = timecode(filmVideo.duration); reelTick(); });
+    filmVideo.addEventListener("play", () => { if (!reelLoop) { reelLoop = true; requestAnimationFrame(reelTick); } });
+    filmVideo.addEventListener("pause", () => { reelLoop = false; });
+    filmVideo.addEventListener("seeked", reelTick);
+    reelClips.forEach((b) => b.addEventListener("click", () => {
+      filmVideo.currentTime = Number(b.dataset.t) + 0.02;
+      filmVideo.play().catch(() => {});
+    }));
+  }
+
   function renderScenes(time, dt) {
     const k = reduceMotion ? 1 : follow(9, dt);
     for (const s of scenes) {
@@ -984,7 +1031,11 @@ const PROJECTS = {
   const videoDialog = $("#videoDialog");
   $("[data-video]").addEventListener("click", () => {
     openDialog(videoDialog);
-    $("#videoPlayer").play().catch(() => {});
+    const player = $("#videoPlayer");
+    player.currentTime = 0;
+    player.play().catch(() => {});
+    filmVideo.pause();
+    videoPlaying = false;
   });
 
   const form = $("#contactForm");

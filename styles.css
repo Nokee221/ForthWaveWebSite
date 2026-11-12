@@ -802,7 +802,7 @@ main, .footer { position: relative; z-index: 1; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(12, 28, 45, 0.75), rgba(12, 28, 45, 0) 45%, rgba(12, 28, 45, 0.2));
+  background: linear-gradient(to top, rgba(6, 14, 24, 0.88), rgba(6, 14, 24, 0.35) 30%, rgba(6, 14, 24, 0) 55%, rgba(6, 14, 24, 0.25));
 }
 
 .film-text {
@@ -826,7 +826,7 @@ main, .footer { position: relative; z-index: 1; }
   position: absolute;
   left: var(--gutter);
   right: var(--gutter);
-  bottom: clamp(28px, 7vh, 72px);
+  bottom: calc(5vh + clamp(34px, 5.2vh, 52px) + 64px);
   display: flex;
   justify-content: space-between;
   align-items: end;
@@ -835,7 +835,129 @@ main, .footer { position: relative; z-index: 1; }
   transform: translateY(calc((1 - clamp(0, var(--e, 0) * 3 - 2, 1)) * 30px));
 }
 
-.film-foot .lede { color: #c5d0d8; }
+.film-foot .lede { color: #e6edf2; text-shadow: 0 1px 14px rgba(0, 0, 0, 0.6); }
+
+/* Edit UI over the reel. It arrives once the frame has opened (--e). */
+.film-ui {
+  --ui: clamp(0, var(--e, 0) * 4 - 3, 1);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--ui);
+}
+
+.crop {
+  position: absolute;
+  width: clamp(18px, 2.2vw, 34px);
+  height: clamp(18px, 2.2vw, 34px);
+  border: 0 solid rgba(255, 255, 255, 0.75);
+  transition: transform 0.9s var(--ease);
+}
+.crop.tl { left: var(--gutter); top: calc(var(--bar) + 2vh); border-width: 1.5px 0 0 1.5px; }
+.crop.tr { right: var(--gutter); top: calc(var(--bar) + 2vh); border-width: 1.5px 1.5px 0 0; }
+.crop.bl { left: var(--gutter); bottom: 2.4vh; border-width: 0 0 1.5px 1.5px; }
+.crop.br { right: var(--gutter); bottom: 2.4vh; border-width: 0 1.5px 1.5px 0; }
+
+.film-tag {
+  position: absolute;
+  right: calc(var(--gutter) + 46px);
+  top: calc(var(--bar) + 2vh + 8px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.film-tag i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff3b30;
+  box-shadow: 0 0 12px #ff3b30;
+  animation: blink 1.6s steps(1) infinite;
+}
+.film-tag b { color: var(--yellow); font-weight: 500; }
+
+@keyframes blink { 50% { opacity: 0.25; } }
+
+.timeline {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 5vh;
+  padding: 0 clamp(18px, 2.4vw, 40px);
+  pointer-events: auto;
+  transform: translateY(calc((1 - var(--ui)) * 24px));
+}
+
+.timeline-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.timeline-head b {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.timeline-head span:last-child { margin-left: auto; }
+
+.reel-wrap { position: relative; }
+
+.reel-track {
+  display: flex;
+  gap: 2px;
+  height: clamp(34px, 5.2vh, 52px);
+  padding: 3px;
+  border-radius: 8px;
+  background: rgba(4, 10, 18, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.reel-track li { flex: var(--w) 1 0; min-width: 0; }
+
+.reel-track button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #0f2236;
+  opacity: 0.5;
+  transition: opacity 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.reel-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reel-track button:hover { opacity: 0.85; }
+.reel-track button.on { opacity: 1; box-shadow: inset 0 0 0 2px var(--yellow); }
+
+.playhead {
+  position: absolute;
+  bottom: -6px;
+  left: calc(3px + (100% - 6px) * var(--t, 0));
+  height: calc(100% + 12px);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--yellow);
+  box-shadow: 0 0 14px rgba(255, 181, 0, 0.8);
+  pointer-events: none;
+}
+.playhead::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -5px;
+  border: 6px solid transparent;
+  border-top: 7px solid var(--yellow);
+}
 
 /* ----------------------------------------------------------- Marketing */
 
