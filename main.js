@@ -397,14 +397,15 @@ const PROJECTS = {
    * The intro, on its own clock (ms since the logo images have loaded):
    *
    *    0 -  950   a spark: the full stop lights up in the dark and beats twice
-   *  850 - 1250   it tears open into a yellow horizon line; the sea erupts from it
+   *  850 - 1250   it tears open into a yellow horizon line over a calm sea
    * 1150 - 1650   the yellow plate unfolds out of that line
    * 1400 - 2200   the wave surges up from below and crashes onto the plate
    * 1950 - 2400   the blue block slices in from the left
    * 2250 - 2900   "fourth" and "wave" punch up out of the block
    * 2800 - 3250   the full stop flies back in an arc and lands: flash, shock, shine
    *
-   * Every landing sends a ring through the sea and shakes the logo.
+   * The logo's wave is the only wave: the sea stays calm until it lands, then
+ * each landing sends a ring through it and shakes the logo.
    */
   const T_DOT = [0, 950];
   const T_LINE = [850, 1250];
@@ -439,7 +440,6 @@ const PROJECTS = {
     shocks.push({ t0: time, x: start.cx + (at - 0.5) * start.w, y: start.cy, s: strength });
     shakeAmp = Math.max(shakeAmp, 11 * strength);
     glowAmp = Math.max(glowAmp, 0.6 * strength);
-    swell += 0.7 * strength;
   }
 
   // Fires once per name when the moment comes (only while the intro really plays).
@@ -475,19 +475,19 @@ const PROJECTS = {
     const lineGone = easeOut(span([T_BAND[0] + 80, T_BAND[0] + 380]));
     horizonLine.style.transform = `scaleX(${lineOut.toFixed(4)})`;
     horizonLine.style.opacity = (Math.min(1, lineOut * 3) * (1 - lineGone)).toFixed(3);
-    hit("line", T_LINE[0] + 60, 0.9, time);
 
     // 3. The plate unfolds from the line.
     const band = spring(span(T_BAND), 6.5, 11);
     L.band.style.transform = `scaleY(${Math.max(0.004, band).toFixed(4)}) scaleX(${(0.55 + 0.45 * easeOut(span(T_BAND))).toFixed(4)})`;
     L.band.style.opacity = introT > T_BAND[0] ? "1" : "0";
-    hit("band", T_BAND[0] + 180, 1, time);
 
     // 4. The wave surges up from below and crashes into place.
     const surge = spring(span(T_WAVE), 5.2, 9);
     const wLeft = 1 - surge;
+    // Never behind the plate, even when the spring overshoots (3D depth sorting).
+    const wZ = 1 + Math.max(0, wLeft) * 260;
     L.wave.style.transform =
-      `translate3d(${(wLeft * 0.12 * W).toFixed(1)}px, ${(wLeft * 1.1 * H).toFixed(1)}px, ${(wLeft * 260).toFixed(1)}px) ` +
+      `translate3d(${(wLeft * 0.12 * W).toFixed(1)}px, ${(wLeft * 1.1 * H).toFixed(1)}px, ${wZ.toFixed(1)}px) ` +
       `rotateZ(${(wLeft * -14).toFixed(2)}deg) scale(${(1 + wLeft * 0.9).toFixed(4)})`;
     L.wave.style.opacity = clamp(span(T_WAVE) * 5).toFixed(3);
     ink(L.wave, Math.max(0, wLeft) * 1.3);
@@ -505,7 +505,7 @@ const PROJECTS = {
     for (const [el, t, name, at] of [[L.fourth, T_FOURTH, "fourth", 0.33], [L.wordWave, T_WORD, "word", 0.68]]) {
       const u = spring(span(t), 6, 11);
       const lift = 1 - u;
-      el.style.transform = `translate3d(0, ${(lift * 0.55 * H).toFixed(1)}px, 0) skewY(${(lift * 9).toFixed(2)}deg) scale(${(1 + lift * 0.25).toFixed(4)})`;
+      el.style.transform = `translate3d(0, ${(lift * 0.55 * H).toFixed(1)}px, 2px) skewY(${(lift * 9).toFixed(2)}deg) scale(${(1 + lift * 0.25).toFixed(4)})`;
       el.style.clipPath = `inset(${(Math.max(0, lift) * -40).toFixed(1)}% -10% ${(Math.max(0, lift) * 100).toFixed(1)}% -10%)`;
       el.style.opacity = clamp(span(t) * 6).toFixed(3);
       hit(name, t[0] + 140, 0.5, time, at);
@@ -764,7 +764,7 @@ const PROJECTS = {
     const T = time * 0.001;
     const W = seaW;
     const H = seaH;
-    const rise = easeOut(clamp((introT - 850) / 1100));
+    const rise = easeInOut(clamp((introT - 850) / 1600));
     const reveal = expoOut(clamp((introT - 900) / 900)) * W * 0.56;
     for (let j = shocks.length - 1; j >= 0; j--) if (time - shocks[j].t0 > 2400) shocks.splice(j, 1);
     const lines = narrow ? 26 : 36;
