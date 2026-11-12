@@ -31,7 +31,6 @@ const TEXT = {
     "hero.title": ["Web, apps", "and video.", "<em>All from</em>", "<em>one room.</em>"],
     "hero.lede": "FourthWave is a studio of four. We design and code websites, build mobile apps, edit video and run campaigns. No middlemen and no broken telephone, from the first call to launch you work directly with the people building your product.",
     "hero.work": "See our work",
-    "hero.hint": "Scroll",
 
 
     "svc.title": ["What we", "<em>work on.</em>"],
@@ -129,7 +128,6 @@ const TEXT = {
     "hero.title": ["Web, aplikacije", "i video.", "<em>Sve iz</em>", "<em>jedne sobe.</em>"],
     "hero.lede": "FourthWave je studio od četvero ljudi. Dizajniramo i kodiramo web stranice, pravimo mobilne aplikacije, montiramo video i vodimo kampanje. Bez posrednika i gluhe telefonije, od prvog poziva do objave radite direktno s ljudima koji prave vaš proizvod.",
     "hero.work": "Pogledajte radove",
-    "hero.hint": "Skrolaj",
 
 
     "svc.title": ["Čime se", "<em>bavimo.</em>"],
@@ -320,6 +318,8 @@ const PROJECTS = {
     gliding = true;
   }
 
+  const heroTravel = () => { const h = document.querySelector(".hero"); return h ? h.offsetHeight - window.innerHeight : 0; };
+
   // In-page links land where each scene looks finished.
   function anchorTop(el) {
     const top = el.getBoundingClientRect().top + window.scrollY;
@@ -380,7 +380,6 @@ const PROJECTS = {
   const heroLogo = $("#heroLogo");
   const heroLogoInner = $(".logo", heroLogo);
   const heroCopy = $("#heroCopy");
-  const hint = $("#hint");
   const scenes = $$("[data-scene]").map((el) => ({ el, name: el.dataset.scene, p: -1, v: -1, vin: -1, pin: -1 }));
   const seaZones = $$("[data-sea]");
   const filmVideo = $(".film video");
@@ -586,7 +585,6 @@ const PROJECTS = {
 
     if (p > 0.3) heroCopy.classList.add("in");
     else if (p < 0.18) heroCopy.classList.remove("in");
-    hint.style.opacity = (done * (1 - step(p, 0, 0.12))).toFixed(3);
   }
 
   /* ---- Scenes */
@@ -871,6 +869,8 @@ const PROJECTS = {
       if (introRunning && introT >= INTRO_END - 200) {
         introRunning = false;
         root.style.overflow = "";
+        // The logo is together: carry on down to where the headline is in.
+        if (window.scrollY < 40) glideTo(heroTravel() * 0.8);
       }
     }
     renderScenes(time, dt);

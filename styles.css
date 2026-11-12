@@ -481,39 +481,6 @@ main, .footer { position: relative; z-index: 1; }
 
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
-.hint {
-  position: absolute;
-  left: 50%;
-  bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  color: var(--mute);
-  transform: translateX(-50%);
-}
-
-.hint i {
-  position: relative;
-  width: 1px;
-  height: 46px;
-  overflow: hidden;
-  background: var(--line);
-}
-
-.hint i::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--yellow);
-  animation: drip 2s var(--ease) infinite;
-}
-
-@keyframes drip {
-  0% { transform: translateY(-100%); }
-  60%, 100% { transform: translateY(100%); }
-}
-
 /* ------------------------------------------------------------ Services */
 
 .services {
@@ -1747,7 +1714,6 @@ main, .footer { position: relative; z-index: 1; }
 @media (prefers-reduced-motion: reduce) {
   .btn:hover::before, .btn:focus-visible::before { animation: none; }
   .grain { animation: none; }
-  .hint i::after { animation: none; }
   .scene { height: auto !important; }
   .scene .sticky { position: relative; height: auto; min-height: 100vh; overflow: visible; }
   .hero .sticky { min-height: 100vh; }
