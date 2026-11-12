@@ -1663,6 +1663,87 @@ main, .footer { position: relative; z-index: 1; }
 
 /* ------------------------------------------------------ Reduced motion */
 
+/* ---------------------------------------------------- Section jump wave */
+
+.jump {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow: hidden;
+  pointer-events: none;
+  visibility: hidden;
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
+  transition: backdrop-filter 0.5s var(--ease-soft), -webkit-backdrop-filter 0.5s var(--ease-soft), visibility 0s 0.9s;
+}
+.jump.in,
+.jump.out { visibility: visible; pointer-events: auto; transition: backdrop-filter 0.5s var(--ease-soft), -webkit-backdrop-filter 0.5s var(--ease-soft); }
+.jump.in { -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+
+/* Each layer is a tall sheet with a wavy top and bottom edge. */
+.jump-l {
+  --wv-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='28' viewBox='0 0 120 28'%3E%3Cpath d='M0 16C18 16 22 3 40 3s22 13 40 13 22-13 40-13v25H0z'/%3E%3C/svg%3E");
+  --wv-bot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='28' viewBox='0 0 120 28'%3E%3Cpath d='M0 12C18 12 22 25 40 25s22-13 40-13 22 13 40 13V0H0z'/%3E%3C/svg%3E");
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -28px;
+  height: calc(100% + 56px);
+  display: grid;
+  place-items: center;
+  -webkit-mask:
+    var(--wv-top) 0 0 / 120px 28px repeat-x,
+    linear-gradient(#000 0 0) 0 27px / 100% calc(100% - 54px) no-repeat,
+    var(--wv-bot) 0 100% / 120px 28px repeat-x;
+  mask:
+    var(--wv-top) 0 0 / 120px 28px repeat-x,
+    linear-gradient(#000 0 0) 0 27px / 100% calc(100% - 54px) no-repeat,
+    var(--wv-bot) 0 100% / 120px 28px repeat-x;
+  transform: translateY(102%);
+}
+.jump-l.y { background: var(--yellow); }
+.jump-l.b { background: var(--blue); }
+.jump-l.d { background: var(--abyss); }
+
+.jump.in .jump-l,
+.jump.out .jump-l { animation: jump-swell 0.9s linear infinite; }
+
+/* In: yellow leads, blue follows, the dark sheet closes the screen. */
+.jump.in .jump-l { transform: translateY(0); transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1); }
+.jump.in .jump-l.b { transition-delay: 0.06s; }
+.jump.in .jump-l.d { transition-delay: 0.12s; }
+
+/* Out: the sheets keep rolling upward, the dark one first. */
+.jump.out .jump-l { transform: translateY(-104%); transition: transform 0.6s cubic-bezier(0.6, 0, 0.25, 1); }
+.jump.out .jump-l.b { transition-delay: 0.06s; }
+.jump.out .jump-l.y { transition-delay: 0.12s; }
+
+/* The logo bobs in the middle while the page moves. */
+.jump-l img {
+  width: min(44vw, 340px);
+  box-shadow: 6px 6px 0 var(--blue);
+  opacity: 0;
+  transform: scale(0.8) rotate(-12deg);
+  transition: opacity 0.3s, transform 0.5s var(--ease);
+}
+.jump.in .jump-l img {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.3s;
+  animation: jump-rock 1.2s var(--ease-soft) 0.3s infinite alternate;
+}
+
+@keyframes jump-swell {
+  to {
+    -webkit-mask-position: 120px 0, 0 27px, -120px 100%;
+    mask-position: 120px 0, 0 27px, -120px 100%;
+  }
+}
+@keyframes jump-rock {
+  from { transform: rotate(-2.5deg) translateY(5px); }
+  to { transform: rotate(2.5deg) translateY(-5px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .btn:hover::before, .btn:focus-visible::before { animation: none; }
   .grain { animation: none; }

@@ -283,13 +283,14 @@ const PROJECTS = {
   let scrollCur = window.scrollY;
   let scrollTgt = scrollCur;
   let gliding = false;
+  let jumping = false;
   let introRunning = false;
   const maxScroll = () => document.documentElement.scrollHeight - window.innerHeight;
   const dialogOpen = () => Boolean($("dialog[open]"));
 
   if (!reduceMotion) {
     window.addEventListener("wheel", (e) => {
-      if (introRunning) { e.preventDefault(); return; }
+      if (introRunning || jumping) { e.preventDefault(); return; }
       if (e.ctrlKey || dialogOpen()) return;
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (e.target.closest("textarea, select")) return;
@@ -337,8 +338,40 @@ const PROJECTS = {
     const target = document.getElementById(link.getAttribute("href").slice(1));
     if (!target) return;
     e.preventDefault();
-    glideTo(anchorTop(target));
+    jumpTo(anchorTop(target));
   });
+
+  // Gliding past several heavy scenes stutters, so a far jump hides the move
+  // behind the wave: roll in, move while covered, roll on off the top.
+  const jump = document.getElementById("jump");
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  // Resolves when el's transform transition ends, or after ms at the latest.
+  const settled = (el, ms) => new Promise((r) => {
+    const done = (e) => { if (!e || e.propertyName === "transform") { el.removeEventListener("transitionend", done); r(); } };
+    el.addEventListener("transitionend", done);
+    setTimeout(done, ms);
+  });
+
+  async function jumpTo(y) {
+    const top = clamp(y, 0, maxScroll());
+    if (reduceMotion || !jump || Math.abs(top - window.scrollY) < window.innerHeight * 1.3) {
+      glideTo(top);
+      return;
+    }
+    if (jumping) return;
+    jumping = true;
+    gliding = false;
+    jump.classList.remove("out");
+    jump.classList.add("in");
+    await settled(jump.querySelector(".d"), 900); // the dark sheet covers last
+    window.scrollTo(0, top);
+    scrollCur = scrollTgt = top;
+    await wait(150); // let the scenes draw their new state under the cover
+    jump.classList.replace("in", "out");
+    await settled(jump.querySelector(".y"), 1000); // the yellow sheet leaves last
+    jump.classList.remove("out");
+    jumping = false;
+  }
 
   /* ==================================================== 3. Frame loop */
 
