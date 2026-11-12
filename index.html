@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wght@400;500&family=Roboto+Slab:wght@700..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
   <!--
@@ -62,7 +62,7 @@
 
 
         <div class="hero-copy" id="heroCopy">
-          <h1 class="display" data-i18n="hero.title">Websites, apps and video, made in one room.</h1>
+          <h1 class="display" data-i18n="hero.title">Web, apps and video. All from one room.</h1>
           <div class="hero-side">
             <p class="lede" data-i18n="hero.lede"></p>
             <div class="actions">
@@ -160,7 +160,7 @@
           <h2 class="h2" data-i18n="mobile.title"></h2>
           <p class="lede" data-i18n="mobile.lede"></p>
           <ul class="chips mono">
-            <li>iOS</li><li>Android</li><li>NFC</li><li data-i18n="mobile.chip">Product design</li>
+            <li>iOS</li><li>Android</li><li data-i18n="mobile.nfc">NFC integrations</li><li data-i18n="mobile.chip">UI/UX design</li>
           </ul>
         </div>
       </div>
@@ -245,9 +245,10 @@
             <img src="assets/sanko/icon.webp" alt="" width="192" height="192">
             <div>
               <h2 class="h2">Šanko</h2>
-              <p data-i18n="prod.tag">A bar book for cafés and bars</p>
+              <p data-i18n="prod.tag">Digital bar book</p>
             </div>
           </div>
+          <p class="product-head" data-i18n="prod.head">See a shortage the moment it happens.</p>
           <p class="lede" data-i18n="prod.lede"></p>
 
           <ol class="product-steps">
@@ -257,11 +258,19 @@
             <li><span class="mono">04</span><div><b data-i18n="prod.s4"></b><p data-i18n="prod.s4.d"></p></div></li>
           </ol>
 
-          <div class="product-foot">
-            <a class="btn" href="sanko/"><span data-i18n="prod.more">Everything about Šanko</span><i aria-hidden="true">→</i></a>
-            <ul class="product-platforms mono">
-              <li>Android</li><li>Windows</li><li>Web</li><li data-i18n="prod.offline">Works offline</li>
+          <div class="product-why">
+            <p class="mono" data-i18n="prod.why">Why venues choose Šanko</p>
+            <ul>
+              <li data-i18n="prod.w1">Runs on Android, Windows and the web</li>
+              <li data-i18n="prod.w2">Works even when the internet goes down</li>
+              <li data-i18n="prod.w3">Staff training takes 15 minutes</li>
+              <li data-i18n="prod.w4">A simple monthly subscription per venue</li>
             </ul>
+          </div>
+
+          <div class="product-foot actions">
+            <a class="btn" href="#contact" data-pick="Šanko"><span data-i18n="prod.demo">Ask for a free demo</span><i aria-hidden="true">→</i></a>
+            <a class="btn ghost" href="sanko/"><span data-i18n="prod.more">Everything about Šanko</span><i aria-hidden="true">↗</i></a>
           </div>
         </div>
 
@@ -302,36 +311,6 @@
         </div>
 
         <div class="product-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      </div>
-    </section>
-
-    <!-- 06 · Šanko in short: the ad on a loop, what matters most, and the way
-         to the full page (sanko/). The ad goes in as assets/sanko/reklama.mp4
-         (poster: reklama.jpg); until the file exists the frame says it's coming. -->
-    <section class="sanko-short" id="sanko-short" data-sea="0.3">
-      <div class="ss-ad" id="sankoAd">
-        <video muted loop playsinline preload="metadata" poster="assets/sanko/reklama.jpg" aria-label="Šanko">
-          <source src="assets/sanko/reklama.mp4" type="video/mp4">
-        </video>
-        <div class="ss-soon" aria-hidden="true">
-          <img src="assets/sanko/icon.webp" alt="" width="192" height="192">
-          <p class="mono" data-i18n="short.soon">Šanko ad, coming soon</p>
-        </div>
-      </div>
-
-      <div class="ss-copy rv">
-        <h2 class="h2" data-i18n="short.title"></h2>
-        <p class="lede" data-i18n="short.lede"></p>
-        <ul class="chips mono">
-          <li data-i18n="short.c1">Android · Windows · Web</li>
-          <li data-i18n="short.c2">Works offline</li>
-          <li data-i18n="short.c3">Telegram alerts</li>
-          <li data-i18n="short.c4">15-minute training</li>
-        </ul>
-        <div class="actions">
-          <a class="btn" href="sanko/"><span data-i18n="short.more">Everything about Šanko</span><i aria-hidden="true">→</i></a>
-          <a class="btn ghost" href="#contact" data-pick="Šanko"><span data-i18n="short.demo">Ask for a demo</span><i aria-hidden="true">↓</i></a>
-        </div>
       </div>
     </section>
 
@@ -381,10 +360,10 @@
         <fieldset class="field field-wide choice">
           <legend data-i18n="form.service">What can we help with?</legend>
           <div class="choices">
-            <label><input type="radio" name="service" value="Web" required><span data-i18n="svc.web">Web</span></label>
-            <label><input type="radio" name="service" value="Mobile"><span data-i18n="svc.mobile">Mobile</span></label>
-            <label><input type="radio" name="service" value="Video"><span data-i18n="svc.video">Video</span></label>
-            <label><input type="radio" name="service" value="Marketing"><span data-i18n="svc.marketing">Marketing</span></label>
+            <label><input type="radio" name="service" value="Web" required><span data-i18n="form.c.web">Web development</span></label>
+            <label><input type="radio" name="service" value="Mobile"><span data-i18n="form.c.mobile">Mobile app</span></label>
+            <label><input type="radio" name="service" value="Video"><span data-i18n="form.c.video">Video editing</span></label>
+            <label><input type="radio" name="service" value="Marketing"><span data-i18n="form.c.marketing">Marketing</span></label>
             <label><input type="radio" name="service" value="Šanko"><span>Šanko</span></label>
             <label><input type="radio" name="service" value="Multiple"><span data-i18n="form.multi">Several</span></label>
           </div>
@@ -446,6 +425,6 @@
     <video id="videoPlayer" src="assets/content/reel-full.mp4" poster="assets/content/reel-poster.jpg?v=2" controls loop playsinline preload="none"></video>
   </dialog>
 
-  <script src="main.js?v=12"></script>
+  <script src="main.js?v=14"></script>
 </body>
 </html>

@@ -28,86 +28,88 @@ const TEXT = {
     "nav.contact": "Contact",
     "cta.talk": "Contact us",
 
-    "hero.title": ["Websites, apps", "and video,", "<em>made in one room.</em>"],
-    "hero.lede": "FourthWave is a studio of four. We design and code websites, build mobile apps, edit video and run social campaigns. You work with the same people from the first call to launch.",
+    "hero.title": ["Web, apps", "and video.", "<em>All from</em>", "<em>one room.</em>"],
+    "hero.lede": "FourthWave is a studio of four. We design and code websites, build mobile apps, edit video and run campaigns. No middlemen and no broken telephone — from the first call to launch you work directly with the people building your product.",
     "hero.work": "See our work",
     "hero.hint": "Scroll",
 
 
     "svc.title": ["What we", "<em>work on.</em>"],
     "svc.web": "Web Development",
-    "svc.web.d": "Company sites, landing pages and web apps that load fast and are easy to keep up to date.",
+    "svc.web.d": "Websites and web apps that open in a second, look great on every screen and don't need a developer for every text change.",
     "svc.mobile": "Mobile Development",
-    "svc.mobile.d": "iOS and Android apps, from the first sketch to the store listing.",
+    "svc.mobile.d": "iOS and Android apps — from the first sketch on paper to launch on the App Store and Google Play.",
     "svc.video": "Video Editing",
-    "svc.video.d": "Reels, ads and brand films, edited and colour-graded.",
+    "svc.video.d": "Reels, ads and promo videos that hold attention. We turn raw footage into a story ready for every platform.",
     "svc.marketing": "Digital Marketing",
-    "svc.marketing.d": "Social content and paid campaigns.",
+    "svc.marketing.d": "Social media content and paid campaigns that bring real enquiries, not just likes.",
 
-    "web.title": ["Websites that", "load fast and", "<em>are easy to edit.</em>"],
-    "web.lede": "We plan the structure, design each page and write the code ourselves. Your team can change text and photos without calling us.",
+    "web.title": ["Fast sites", "you control", "<em>yourselves.</em>"],
+    "web.lede": "We plan the structure, design and write the code ourselves — no sluggish templates. When we're done, you get a system where your team can change text, images and offers in a few clicks, without calling us and waiting.",
 
-    "mobile.title": ["Apps for iOS", "<em>and Android.</em>"],
-    "mobile.lede": "First we look at how the app will be used, usually standing up and with one hand, and design the screens around that. Then we build it and help you publish it on the App Store and Google Play.",
-    "mobile.chip": "Product design",
+    "mobile.title": ["Apps built", "<em>for real life.</em>"],
+    "mobile.lede": "Before we write the first line of code, we look at how the app will be used — usually on the move, in a hurry and with one hand. We draw the screens around that. Once everything falls into place, we build the app, test it and guide you through the whole store launch.",
+    "mobile.chip": "UI/UX design",
+    "mobile.nfc": "NFC integrations",
 
-    "video.title": ["We edit reels,", "ads and", "<em>brand films.</em>"],
-    "video.lede": "Send us the footage and tell us where it will run. We cut it, grade the colour, mix the sound and send back a version for each platform, vertical included.",
+    "video.title": ["We edit reels,", "ads and", "<em>promo</em>", "<em>videos.</em>"],
+    "video.lede": "You send us the footage and tell us where it will be posted. We take care of the rest — we cut the excess, smooth out colour and sound, add pace and send back finished formats ready for Instagram, TikTok, YouTube or TV.",
     "video.play": "Watch with sound",
-    "video.tag": "Our best edits",
+    "video.tag": "Our best work",
 
 
-    "prod.tag": "A bar book for cafés and bars",
-    "prod.lede": "Waiters run their shift on a phone, the owner sees every number on a laptop, and nobody counts from a notebook anymore. We built it ourselves and it's in use every day.",
-    "prod.s1": "The shift, without the notebook",
-    "prod.s1.d": "The waiter logs deliveries, write-offs and stock on the phone. The owner sees the full settlement the moment it's entered.",
+    "prod.tag": "Digital bar book",
+    "prod.head": "See a shortage the moment it happens.",
+    "prod.lede": "The waiter runs the shift on a phone, the owner sees every number live on a laptop, and paper and notebooks retire. Our own product, already used in venues every day.",
+    "prod.s1": "A shift without the notebook",
+    "prod.s1.d": "Quick entry and a clear view of stock without paper or a calculator.",
     "prod.s2": "Counting with pictures",
-    "prod.s2.d": "Every item has its photo, so stocktaking goes quickly. The whole price list comes in from a single Excel file.",
+    "prod.s2.d": "No confusion about items; a new worker finds their way straight away.",
     "prod.s3": "A shortage shows up straight away",
-    "prod.s3.d": "At handover the app compares what should be in the till with what is, and shows whose shift it was.",
-    "prod.s4": "A message when the shift closes",
-    "prod.s4.d": "The owner gets the totals on Telegram, even on days they're not in the café.",
-    "prod.offline": "Works offline",
+    "prod.s3.d": "An exact view of the till and the stock at any moment.",
+    "prod.s4": "A report on Telegram",
+    "prod.s4.d": "As soon as the shift is closed, the owner gets the exact settlement and any shortage on their phone, even when they're not in the venue.",
+    "prod.why": "Why venues choose Šanko",
+    "prod.w1": "Runs on Android, Windows and the web",
+    "prod.w2": "Works even when the internet goes down",
+    "prod.w3": "Staff training takes 15 minutes",
+    "prod.w4": "A simple monthly subscription per venue",
+    "prod.demo": "Ask for a free demo",
     "prod.toast.now": "now",
     "prod.toast.title": "Korzo: shift 2 closed",
     "prod.toast.due": "To hand over",
     "prod.toast.short": "Short",
     "prod.more": "Everything about Šanko",
-    "short.title": ["See a shortage", "<em>the moment it happens.</em>"],
-    "short.lede": "Waiters run the shift on a phone, the owner sees the settlement, the shortage and whose shift it was, and gets a Telegram message when the shift closes. A monthly subscription per café.",
-    "short.c1": "Android · Windows · Web",
-    "short.c2": "Works offline",
-    "short.c3": "Telegram alerts",
-    "short.c4": "15-minute training",
-    "short.more": "Everything about Šanko",
-    "short.demo": "Ask for a demo",
-    "short.soon": "Šanko ad, coming soon",
 
     "team.title": ["Who you'll", "<em>work with.</em>"],
-    "team.lede": "There are four of us and no account managers. Whoever answers your email also does the work.",
+    "team.lede": "There are four of us, and we have no account managers who just pass messages along. Whoever answers your email and has the first coffee with you is the one who sits down at the computer and works on your project.",
 
-    "contact.title": ["Got something", "<em>in mind?</em>"],
-    "contact.lede": "Tell us what you're working on. A rough idea is enough. We'll reply with a few questions or a time to talk.",
+    "contact.title": ["Got an", "idea?", "<em>Let's talk.</em>"],
+    "contact.lede": "Write briefly what you're working on. You don't need a finished plan — a rough idea is quite enough. We get back quickly with a few concrete questions or a suggestion for a short call.",
 
     "form.name": "Your name",
     "form.name.ph": "First and last name",
     "form.name.err": "Please enter your name.",
-    "form.email": "Email",
+    "form.email": "Your email",
     "form.email.ph": "name@example.com",
     "form.email.err": "That email doesn't look right. Try something like name@example.com.",
     "form.service": "What do you need?",
+    "form.c.web": "Web development",
+    "form.c.mobile": "Mobile app",
+    "form.c.video": "Video editing",
+    "form.c.marketing": "Marketing",
     "form.multi": "A bit of everything",
     "form.service.err": "Pick one, even if you're not sure yet.",
     "form.message": "About the project",
-    "form.message.ph": "What are you working on, and what would you like help with?",
+    "form.message.ph": "Briefly describe what you want to achieve...",
     "form.message.err": "A couple of sentences helps us a lot (at least 20 characters).",
     "form.send": "Send message",
     "form.offline": "The form isn't connected to email yet, so this message wasn't sent. Please try again a little later.",
     "form.ready": "Your email app should open with the message filled in. Just hit send.",
 
-    "footer.line": "A small studio for web, mobile, video and marketing.",
-    "footer.explore": "Pages",
-    "footer.follow": "Follow (soon)",
+    "footer.line": "FourthWave — A small studio for big ideas. Web, apps, video and marketing.",
+    "footer.explore": "Navigation",
+    "footer.follow": "Social media (soon)",
     "footer.top": "Back to top",
 
     "project.visit": "Visit website",
@@ -124,86 +126,88 @@ const TEXT = {
     "nav.contact": "Kontakt",
     "cta.talk": "Pišite nam",
 
-    "hero.title": ["Web, aplikacije", "i video,", "<em>iz jedne sobe.</em>"],
-    "hero.lede": "FourthWave je studio od četiri osobe. Dizajniramo i programiramo web stranice, pravimo mobilne aplikacije, montiramo video i vodimo kampanje na mrežama. Od prvog razgovora do objave radite s istim ljudima.",
-    "hero.work": "Naši radovi",
+    "hero.title": ["Web, aplikacije", "i video.", "<em>Sve iz</em>", "<em>jedne sobe.</em>"],
+    "hero.lede": "FourthWave je studio od četvero ljudi. Dizajniramo i kodiramo web stranice, pravimo mobilne aplikacije, montiramo video i vodimo kampanje. Bez posrednika i gluhe telefonije — od prvog poziva do objave radite direktno s ljudima koji prave vaš proizvod.",
+    "hero.work": "Pogledajte radove",
     "hero.hint": "Skrolaj",
 
 
     "svc.title": ["Čime se", "<em>bavimo.</em>"],
     "svc.web": "Web razvoj",
-    "svc.web.d": "Stranice firmi, landing stranice i web aplikacije koje se brzo učitavaju i lako održavaju.",
+    "svc.web.d": "Web stranice i aplikacije koje se otvaraju u sekundi, izgledaju odlično na svakom ekranu i ne traže programera za svaku izmjenu teksta.",
     "svc.mobile": "Mobilne aplikacije",
-    "svc.mobile.d": "iOS i Android aplikacije, od prve skice do objave u trgovini.",
+    "svc.mobile.d": "iOS i Android aplikacije — od prve skice na papiru do objave na App Store i Google Play.",
     "svc.video": "Video montaža",
-    "svc.video.d": "Reelsi, reklame i filmovi o brendu, s montažom i obradom boje.",
+    "svc.video.d": "Reelsi, reklame i promo videi koji drže pažnju. Od sirovog materijala pravimo priču spremnu za svaku mrežu.",
     "svc.marketing": "Digitalni marketing",
-    "svc.marketing.d": "Sadržaj za mreže i plaćene kampanje.",
+    "svc.marketing.d": "Sadržaj za društvene mreže i plaćene kampanje koje donose konkretne upite, a ne samo lajkove.",
 
-    "web.title": ["Stranice koje se", "brzo otvaraju i", "<em>lako mijenjaju.</em>"],
-    "web.lede": "Sami planiramo strukturu, dizajniramo svaku stranicu i pišemo kod. Vaš tim može mijenjati tekst i slike bez da nas zove.",
+    "web.title": ["Brze", "stranice koje", "sami", "<em>kontrolišete.</em>"],
+    "web.lede": "Sami planiramo strukturu, dizajniramo i pišemo kod — bez tromih šablona. Kad završimo, dobijate sistem u kojem vaš tim može sam mijenjati tekst, slike i ponude u par klikova, bez da nas zovete i čekate.",
 
-    "mobile.title": ["Aplikacije za", "<em>iOS i Android.</em>"],
-    "mobile.lede": "Prvo gledamo kako će se aplikacija koristiti, najčešće u hodu i jednom rukom, i po tome crtamo ekrane. Onda je napravimo i pomognemo vam da je objavite na App Store i Google Play.",
-    "mobile.chip": "Dizajn proizvoda",
+    "mobile.title": ["Aplikacije", "pravljene", "<em>za stvarni</em>", "<em>život.</em>"],
+    "mobile.lede": "Prije nego napišemo prvu liniju koda, gledamo kako će se aplikacija koristiti — najčešće u hodu, na brzinu i jednom rukom. Po tome crtamo ekrane. Kada sve sjedne na svoje mjesto, aplikaciju razvijamo, testiramo i vodimo vas kroz cijeli proces objave na trgovinama.",
+    "mobile.chip": "UI/UX dizajn",
+    "mobile.nfc": "NFC integracije",
 
-    "video.title": ["Montiramo reelse,", "reklame i", "<em>filmove o brendu.</em>"],
-    "video.lede": "Pošaljete nam snimke i kažete gdje će se prikazivati. Mi ih montiramo, sredimo boju i zvuk i vratimo verziju za svaku platformu, i vertikalnu.",
+    "video.title": ["Montiramo", "reelse,", "reklame i", "<em>promo videe.</em>"],
+    "video.lede": "Vi nam pošaljete snimke i kažete gdje ih objavljujete. Mi preuzimamo ostalo — režemo višak, peglamo boju i zvuk, dodajemo dinamiku i vraćamo vam gotove formate spremne za Instagram, TikTok, YouTube ili TV.",
     "video.play": "Pogledaj sa zvukom",
-    "video.tag": "Naši najbolji editi",
+    "video.tag": "Naši najbolji radovi",
 
 
-    "prod.tag": "Šankerska knjiga za kafiće i barove",
-    "prod.lede": "Konobar vodi smjenu na telefonu, gazda vidi svaki broj na laptopu, a sveska više nikome ne treba. Napravili smo je sami i koristi se svaki dan.",
+    "prod.tag": "Digitalna šankerska knjiga",
+    "prod.head": "Manjak se vidi istog trenutka.",
+    "prod.lede": "Konobar vodi smjenu na telefonu, gazda vidi svaki broj uživo na laptopu, a papiri i sveske odlaze u penziju. Naš vlastiti proizvod koji se već koristi u lokalima svaki dan.",
     "prod.s1": "Smjena bez sveske",
-    "prod.s1.d": "Konobar na telefonu unosi ulaz, rashod i stanje. Gazda vidi cijeli obračun čim je unesen.",
+    "prod.s1.d": "Brzo kucanje i pregled stanja bez papira i digitrona.",
     "prod.s2": "Popis sa slikama",
-    "prod.s2.d": "Svaki artikal ima svoju sliku, pa popis ide brzo. Cijeli cjenovnik se ubaci iz jednog Excel fajla.",
+    "prod.s2.d": "Nema zabune oko artikala, novi radnik se snalazi odmah.",
     "prod.s3": "Manjak se vidi odmah",
-    "prod.s3.d": "Pri predaji aplikacija uporedi koliko treba biti u kasi i koliko jeste, i pokaže u čijoj je smjeni.",
-    "prod.s4": "Poruka kad se smjena zatvori",
-    "prod.s4.d": "Gazda dobije iznose na Telegram, i kad nije u kafiću.",
-    "prod.offline": "Radi i bez interneta",
+    "prod.s3.d": "Tačan uvid u stanje kase i robe u svakom trenutku.",
+    "prod.s4": "Izvještaj na Telegram",
+    "prod.s4.d": "Čim se smjena zaključi, gazdi na mobitel stiže tačan obračun i eventualni manjak, čak i kad nije u lokalu.",
+    "prod.why": "Zašto ugostitelji biraju Šanko",
+    "prod.w1": "Radi na Androidu, Windowsu i Webu",
+    "prod.w2": "Radi i kad nestane interneta",
+    "prod.w3": "Obuka osoblja traje 15 minuta",
+    "prod.w4": "Jednostavna mjesečna pretplata po lokalu",
+    "prod.demo": "Zatražite besplatan demo",
     "prod.toast.now": "sada",
     "prod.toast.title": "Korzo: smjena 2 zatvorena",
     "prod.toast.due": "Za predaju",
     "prod.toast.short": "Manjak",
     "prod.more": "Sve o Šanku",
-    "short.title": ["Manjak se vidi", "<em>istog trenutka.</em>"],
-    "short.lede": "Konobar vodi smjenu na telefonu, a gazda vidi obračun, manjak i u čijoj je smjeni, i dobije poruku na Telegram kad se smjena zaključi. Mjesečna pretplata po lokalu.",
-    "short.c1": "Android · Windows · Web",
-    "short.c2": "Radi i bez interneta",
-    "short.c3": "Poruka na Telegram",
-    "short.c4": "Obuka za 15 minuta",
-    "short.more": "Sve o Šanku",
-    "short.demo": "Zatražite demo",
-    "short.soon": "Reklama za Šanko uskoro",
 
     "team.title": ["S kim ćete", "<em>raditi.</em>"],
-    "team.lede": "Nas je četvero i nemamo account managere. Ko vam odgovori na email, taj radi i posao.",
+    "team.lede": "Nas je četvero i kod nas nema account managera koji samo prosljeđuju poruke. Ko vam odgovori na mail i s kim popijete prvu kafu — taj sjeda za računar i radi vaš projekat.",
 
-    "contact.title": ["Imate nešto", "<em>na umu?</em>"],
-    "contact.lede": "Napišite na čemu radite. Gruba ideja je dovoljna. Odgovorit ćemo s par pitanja ili terminom za razgovor.",
+    "contact.title": ["Imate", "ideju?", "<em>Hajde da</em>", "<em>pričamo.</em>"],
+    "contact.lede": "Napišite ukratko na čemu radite. Ne morate imati spreman plan — i gruba ideja je sasvim dovoljna. Javljamo se brzo s par konkretnih pitanja ili prijedlogom za kratki poziv.",
 
-    "form.name": "Ime",
+    "form.name": "Vaše ime",
     "form.name.ph": "Ime i prezime",
     "form.name.err": "Molimo upišite svoje ime.",
-    "form.email": "Email",
+    "form.email": "Vaš email",
     "form.email.ph": "ime@primjer.com",
     "form.email.err": "Ovaj email ne izgleda ispravno. Probajte nešto poput ime@primjer.com.",
     "form.service": "Šta vam treba?",
+    "form.c.web": "Web razvoj",
+    "form.c.mobile": "Mobilna aplikacija",
+    "form.c.video": "Video montaža",
+    "form.c.marketing": "Marketing",
     "form.multi": "Pomalo od svega",
     "form.service.err": "Odaberite jedno, čak i ako još niste sigurni.",
     "form.message": "O projektu",
-    "form.message.ph": "Na čemu radite i u čemu vam možemo pomoći?",
+    "form.message.ph": "Ukratko opišite šta želite postići...",
     "form.message.err": "Par rečenica nam mnogo znači (najmanje 20 znakova).",
     "form.send": "Pošalji poruku",
     "form.offline": "Forma još nije povezana s emailom, pa ova poruka nije poslana. Pokušajte malo kasnije.",
     "form.ready": "Vaša email aplikacija bi se trebala otvoriti s popunjenom porukom. Samo pritisnite pošalji.",
 
-    "footer.line": "Mali studio za web, mobilne aplikacije, video i marketing.",
-    "footer.explore": "Stranice",
-    "footer.follow": "Pratite nas (uskoro)",
+    "footer.line": "FourthWave — Mali studio za velike ideje. Web, aplikacije, video i marketing.",
+    "footer.explore": "Navigacija",
+    "footer.follow": "Društvene mreže (uskoro)",
     "footer.top": "Na vrh",
 
     "project.visit": "Posjeti stranicu",
@@ -699,11 +703,11 @@ const PROJECTS = {
 
     const mid = vh * 0.5;
     let section = "";
-    for (const id of ["services", "web", "mobile", "video", "sanko", "sanko-short", "team", "contact"]) {
+    for (const id of ["services", "web", "mobile", "video", "sanko", "team", "contact"]) {
       const r = document.getElementById(id).getBoundingClientRect();
       if (r.top <= mid && r.bottom > mid) section = id;
     }
-    const nav = ["web", "mobile", "video"].includes(section) ? "web" : section === "sanko-short" ? "sanko" : section;
+    const nav = ["web", "mobile", "video"].includes(section) ? "web" : section;
     if (nav !== currentNav) {
       currentNav = nav;
       navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === `#${nav}`));
@@ -929,23 +933,7 @@ const PROJECTS = {
 
   $("#year").textContent = new Date().getFullYear();
 
-  /* ---- Šanko in short: the looping ad, and "ask for a demo" */
-
-  // The ad plays only while it's on screen. Until assets/sanko/reklama.mp4
-  // exists, the frame shows "coming soon" instead of a black box.
-  const ad = $("#sankoAd");
-  if (ad) {
-    const adVideo = $("video", ad);
-    const empty = () => ad.classList.add("empty");
-    $("source", adVideo).addEventListener("error", empty);
-    adVideo.addEventListener("error", empty);
-    if (adVideo.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) empty();
-    new IntersectionObserver(([entry]) => {
-      if (ad.classList.contains("empty")) return;
-      if (entry.isIntersecting && !reduceMotion) adVideo.play().catch(() => {});
-      else adVideo.pause();
-    }, { threshold: 0.35 }).observe(ad);
-  }
+  /* ---- Šanko: "ask for a demo" */
 
   // "Ask for a demo" lands on the form with Šanko already chosen; the Šanko
   // page links here with ?service=sanko#contact.
