@@ -29,7 +29,7 @@ const TEXT = {
     "cta.talk": "Contact us",
 
     "hero.title": ["Web, apps", "and video.", "<em>All from</em>", "<em>one room.</em>"],
-    "hero.lede": "FourthWave is a studio of four. We design and code websites, build mobile apps, edit video and run campaigns. No middlemen and no broken telephone — from the first call to launch you work directly with the people building your product.",
+    "hero.lede": "FourthWave is a studio of four. We design and code websites, build mobile apps, edit video and run campaigns. No middlemen and no broken telephone, from the first call to launch you work directly with the people building your product.",
     "hero.work": "See our work",
     "hero.hint": "Scroll",
 
@@ -38,22 +38,22 @@ const TEXT = {
     "svc.web": "Web Development",
     "svc.web.d": "Websites and web apps that open in a second, look great on every screen and don't need a developer for every text change.",
     "svc.mobile": "Mobile Development",
-    "svc.mobile.d": "iOS and Android apps — from the first sketch on paper to launch on the App Store and Google Play.",
+    "svc.mobile.d": "iOS and Android apps, from the first sketch on paper to launch on the App Store and Google Play.",
     "svc.video": "Video Editing",
     "svc.video.d": "Reels, ads and promo videos that hold attention. We turn raw footage into a story ready for every platform.",
     "svc.marketing": "Digital Marketing",
     "svc.marketing.d": "Social media content and paid campaigns that bring real enquiries, not just likes.",
 
     "web.title": ["Fast sites", "you control", "<em>yourselves.</em>"],
-    "web.lede": "We plan the structure, design and write the code ourselves — no sluggish templates. When we're done, you get a system where your team can change text, images and offers in a few clicks, without calling us and waiting.",
+    "web.lede": "We plan the structure, design and write the code ourselves, no sluggish templates. When we're done, you get a system where your team can change text, images and offers in a few clicks, without calling us and waiting.",
 
     "mobile.title": ["Apps built", "<em>for real life.</em>"],
-    "mobile.lede": "Before we write the first line of code, we look at how the app will be used — usually on the move, in a hurry and with one hand. We draw the screens around that. Once everything falls into place, we build the app, test it and guide you through the whole store launch.",
+    "mobile.lede": "Before we write the first line of code, we look at how the app will be used, usually on the move, in a hurry and with one hand. We draw the screens around that. Once everything falls into place, we build the app, test it and guide you through the whole store launch.",
     "mobile.chip": "UI/UX design",
     "mobile.nfc": "NFC integrations",
 
     "video.title": ["We edit reels,", "ads and", "<em>promo</em>", "<em>videos.</em>"],
-    "video.lede": "You send us the footage and tell us where it will be posted. We take care of the rest — we cut the excess, smooth out colour and sound, add pace and send back finished formats ready for Instagram, TikTok, YouTube or TV.",
+    "video.lede": "You send us the footage and tell us where it will be posted. We take care of the rest, we cut the excess, smooth out colour and sound, add pace and send back finished formats ready for Instagram, TikTok, YouTube or TV.",
     "video.play": "Watch with sound",
     "video.tag": "Our best work",
 
@@ -85,7 +85,7 @@ const TEXT = {
     "team.lede": "There are four of us, and we have no account managers who just pass messages along. Whoever answers your email and has the first coffee with you is the one who sits down at the computer and works on your project.",
 
     "contact.title": ["Got an", "idea?", "<em>Let's talk.</em>"],
-    "contact.lede": "Write briefly what you're working on. You don't need a finished plan — a rough idea is quite enough. We get back quickly with a few concrete questions or a suggestion for a short call.",
+    "contact.lede": "Write briefly what you're working on. You don't need a finished plan, a rough idea is quite enough. We get back quickly with a few concrete questions or a suggestion for a short call.",
 
     "form.name": "Your name",
     "form.name.ph": "First and last name",
@@ -107,7 +107,7 @@ const TEXT = {
     "form.offline": "The form isn't connected to email yet, so this message wasn't sent. Please try again a little later.",
     "form.ready": "Your email app should open with the message filled in. Just hit send.",
 
-    "footer.line": "FourthWave — A small studio for big ideas. Web, apps, video and marketing.",
+    "footer.line": "FourthWave, a small studio for big ideas. Web, apps, video and marketing.",
     "footer.explore": "Navigation",
     "footer.follow": "Social media (soon)",
     "footer.top": "Back to top",
@@ -127,7 +127,7 @@ const TEXT = {
     "cta.talk": "Pišite nam",
 
     "hero.title": ["Web, aplikacije", "i video.", "<em>Sve iz</em>", "<em>jedne sobe.</em>"],
-    "hero.lede": "FourthWave je studio od četvero ljudi. Dizajniramo i kodiramo web stranice, pravimo mobilne aplikacije, montiramo video i vodimo kampanje. Bez posrednika i gluhe telefonije — od prvog poziva do objave radite direktno s ljudima koji prave vaš proizvod.",
+    "hero.lede": "FourthWave je studio od četvero ljudi. Dizajniramo i kodiramo web stranice, pravimo mobilne aplikacije, montiramo video i vodimo kampanje. Bez posrednika i gluhe telefonije, od prvog poziva do objave radite direktno s ljudima koji prave vaš proizvod.",
     "hero.work": "Pogledajte radove",
     "hero.hint": "Skrolaj",
 
@@ -136,22 +136,22 @@ const TEXT = {
     "svc.web": "Web razvoj",
     "svc.web.d": "Web stranice i aplikacije koje se otvaraju u sekundi, izgledaju odlično na svakom ekranu i ne traže programera za svaku izmjenu teksta.",
     "svc.mobile": "Mobilne aplikacije",
-    "svc.mobile.d": "iOS i Android aplikacije — od prve skice na papiru do objave na App Store i Google Play.",
+    "svc.mobile.d": "iOS i Android aplikacije, od prve skice na papiru do objave na App Store i Google Play.",
     "svc.video": "Video montaža",
     "svc.video.d": "Reelsi, reklame i promo videi koji drže pažnju. Od sirovog materijala pravimo priču spremnu za svaku mrežu.",
     "svc.marketing": "Digitalni marketing",
     "svc.marketing.d": "Sadržaj za društvene mreže i plaćene kampanje koje donose konkretne upite, a ne samo lajkove.",
 
     "web.title": ["Brze", "stranice koje", "sami", "<em>kontrolišete.</em>"],
-    "web.lede": "Sami planiramo strukturu, dizajniramo i pišemo kod — bez tromih šablona. Kad završimo, dobijate sistem u kojem vaš tim može sam mijenjati tekst, slike i ponude u par klikova, bez da nas zovete i čekate.",
+    "web.lede": "Sami planiramo strukturu, dizajniramo i pišemo kod, bez tromih šablona. Kad završimo, dobijate sistem u kojem vaš tim može sam mijenjati tekst, slike i ponude u par klikova, bez da nas zovete i čekate.",
 
     "mobile.title": ["Aplikacije", "pravljene", "<em>za stvarni</em>", "<em>život.</em>"],
-    "mobile.lede": "Prije nego napišemo prvu liniju koda, gledamo kako će se aplikacija koristiti — najčešće u hodu, na brzinu i jednom rukom. Po tome crtamo ekrane. Kada sve sjedne na svoje mjesto, aplikaciju razvijamo, testiramo i vodimo vas kroz cijeli proces objave na trgovinama.",
+    "mobile.lede": "Prije nego napišemo prvu liniju koda, gledamo kako će se aplikacija koristiti, najčešće u hodu, na brzinu i jednom rukom. Po tome crtamo ekrane. Kada sve sjedne na svoje mjesto, aplikaciju razvijamo, testiramo i vodimo vas kroz cijeli proces objave na trgovinama.",
     "mobile.chip": "UI/UX dizajn",
     "mobile.nfc": "NFC integracije",
 
     "video.title": ["Montiramo", "reelse,", "reklame i", "<em>promo videe.</em>"],
-    "video.lede": "Vi nam pošaljete snimke i kažete gdje ih objavljujete. Mi preuzimamo ostalo — režemo višak, peglamo boju i zvuk, dodajemo dinamiku i vraćamo vam gotove formate spremne za Instagram, TikTok, YouTube ili TV.",
+    "video.lede": "Vi nam pošaljete snimke i kažete gdje ih objavljujete. Mi preuzimamo ostalo, režemo višak, peglamo boju i zvuk, dodajemo dinamiku i vraćamo vam gotove formate spremne za Instagram, TikTok, YouTube ili TV.",
     "video.play": "Pogledaj sa zvukom",
     "video.tag": "Naši najbolji radovi",
 
@@ -180,10 +180,10 @@ const TEXT = {
     "prod.more": "Sve o Šanku",
 
     "team.title": ["S kim ćete", "<em>raditi.</em>"],
-    "team.lede": "Nas je četvero i kod nas nema account managera koji samo prosljeđuju poruke. Ko vam odgovori na mail i s kim popijete prvu kafu — taj sjeda za računar i radi vaš projekat.",
+    "team.lede": "Nas je četvero i kod nas nema account managera koji samo prosljeđuju poruke. Ko vam odgovori na mail i s kim popijete prvu kafu, taj sjeda za računar i radi vaš projekat.",
 
     "contact.title": ["Imate", "ideju?", "<em>Hajde da</em>", "<em>pričamo.</em>"],
-    "contact.lede": "Napišite ukratko na čemu radite. Ne morate imati spreman plan — i gruba ideja je sasvim dovoljna. Javljamo se brzo s par konkretnih pitanja ili prijedlogom za kratki poziv.",
+    "contact.lede": "Napišite ukratko na čemu radite. Ne morate imati spreman plan, i gruba ideja je sasvim dovoljna. Javljamo se brzo s par konkretnih pitanja ili prijedlogom za kratki poziv.",
 
     "form.name": "Vaše ime",
     "form.name.ph": "Ime i prezime",
@@ -205,7 +205,7 @@ const TEXT = {
     "form.offline": "Forma još nije povezana s emailom, pa ova poruka nije poslana. Pokušajte malo kasnije.",
     "form.ready": "Vaša email aplikacija bi se trebala otvoriti s popunjenom porukom. Samo pritisnite pošalji.",
 
-    "footer.line": "FourthWave — Mali studio za velike ideje. Web, aplikacije, video i marketing.",
+    "footer.line": "FourthWave, mali studio za velike ideje. Web, aplikacije, video i marketing.",
     "footer.explore": "Navigacija",
     "footer.follow": "Društvene mreže (uskoro)",
     "footer.top": "Na vrh",
@@ -575,7 +575,7 @@ const PROJECTS = {
   };
 
   function renderProduct(el, p) {
-    el.style.setProperty("--open", easeOut(step(p, 0, 0.17)).toFixed(4));
+    el.style.setProperty("--open", easeInOut(step(p, 0, 0.18)).toFixed(4));
     const n = prod.steps.length;
     const phase = step(p, 0.2, 0.88) * (n - 1);
     const k = Math.min(n - 2, Math.floor(phase));
