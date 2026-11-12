@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Šanko · digitalna knjiga šanka · FourthWave</title>
+  <meta name="description" content="Šanko je digitalna knjiga šanka za kafiće i restorane: konobar vodi smjenu na telefonu, gazda vidi obračun, manjak i u čijoj je smjeni, i dobije poruku na Telegram.">
+  <meta name="theme-color" content="#0c1c2d">
+  <link rel="icon" href="../assets/sanko/icon.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wght@400;500&family=Roboto+Slab:wght@700..900&family=Caveat:wght@600..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=9">
+  <link rel="stylesheet" href="sanko.css?v=3">
+</head>
+<body class="sanko-page">
+  <!--
+    Šanko, the whole story: one page of the bar book, laid on the dark sea of
+    the home page. Shares the home page's base styles (../styles.css); its own
+    styles are in sanko.css, its texts (EN / BS) and behaviour in sanko.js.
+  -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="bar solid docked" id="bar">
+    <a class="bar-logo" href="../" aria-label="FourthWave">
+      <img src="../assets/logo/logo.png" alt="" width="1200" height="417">
+    </a>
+    <nav class="bar-nav" aria-label="Main">
+      <a href="../#services" data-i18n="nav.services">Services</a>
+      <a href="../#web" data-i18n="nav.work">Work</a>
+      <a href="./" class="active" aria-current="page">Šanko</a>
+      <a href="../#team" data-i18n="nav.team">Team</a>
+      <a href="../#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="bar-end">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="bs" aria-pressed="true">BS</button>
+      </div>
+      <a class="btn sm" href="../?service=sanko#contact"><span data-i18n="book.demo">Ask for a demo</span></a>
+    </div>
+  </header>
+
+  <main id="top">
+    <p class="sp-back"><a class="mono" href="../"><i aria-hidden="true">←</i><span data-i18n="page.back">FourthWave home</span></a></p>
+
+    <section class="book" id="sanko-book" aria-labelledby="bookTitle">
+      <div class="book-page">
+        <p class="book-run mono" aria-hidden="true"><span>Šanko · <span data-i18n="book.run">The bar book</span></span><span>FourthWave</span></p>
+
+        <!-- Cover -->
+        <header class="bk-cover bk-rv">
+          <div class="bk-cover-main">
+            <p class="bk-kicker mono"><img src="../assets/sanko/icon.webp" alt="" width="192" height="192"><span data-i18n="book.kicker">Everything about Šanko</span></p>
+            <h2 class="bk-title" id="bookTitle" data-i18n="book.title">Know what's missing, in whose shift, the moment it happens.</h2>
+            <p class="bk-lede" data-i18n="book.lede"></p>
+            <div class="actions">
+              <a class="btn" href="../?service=sanko#contact"><span data-i18n="book.demo">Ask for a demo</span><i aria-hidden="true">→</i></a>
+              <a class="btn ghost bk-ghost" href="#sanko-faq"><span data-i18n="book.faq.go">Questions</span><i aria-hidden="true">↓</i></a>
+            </div>
+          </div>
+          <dl class="bk-facts">
+            <div><dt>15 min</dt><dd data-i18n="book.f1">to train a waiter</dd></div>
+            <div><dt>1 Excel</dt><dd data-i18n="book.f2">brings in your whole bar book</dd></div>
+            <div><dt>3</dt><dd data-i18n="book.f3">devices: Android, Windows, browser</dd></div>
+            <div><dt>0</dt><dd data-i18n="book.f4">internet needed during a shift</dd></div>
+          </dl>
+        </header>
+
+        <!-- The problem, and what it costs -->
+        <div class="bk-part bk-problem">
+          <div class="bk-rv">
+            <p class="bk-label mono"><b>§1</b><span data-i18n="book.p.kicker">How it's done today</span></p>
+            <h3 class="bk-h" data-i18n="book.p.title">The notebook doesn't say who.</h3>
+            <ol class="bk-scribbles">
+              <li data-i18n="book.p1">A shortage turns up late, or never.</li>
+              <li data-i18n="book.p2">Shift hands over to shift without a record.</li>
+              <li data-i18n="book.p3">The owner has to be in the café to know anything.</li>
+              <li data-i18n="book.p4">Adding up in a notebook takes time and goes wrong.</li>
+              <li data-i18n="book.p5">Orders to suppliers are made from memory.</li>
+            </ol>
+          </div>
+
+          <div class="bk-calc bk-rv" id="bookCalc">
+            <p class="bk-label mono"><b>§2</b><span data-i18n="book.c.kicker">The sum</span></p>
+            <p class="bk-calc-line">
+              <span data-i18n="book.c.a">If every day</span>
+              <span class="bk-step" data-calc="qty" data-min="1" data-max="30" data-by="1" data-value="2">
+                <button type="button" data-d="-1" aria-label="−">−</button><output aria-live="polite">2</output><button type="button" data-d="1" aria-label="+">+</button>
+              </span>
+              <span data-i18n="book.c.b">drinks go missing, at</span>
+              <span class="bk-step" data-calc="price" data-min="0.5" data-max="20" data-by="0.5" data-value="4">
+                <button type="button" data-d="-1" aria-label="−">−</button><output aria-live="polite">4,00</output><button type="button" data-d="1" aria-label="+">+</button>
+              </span>
+              <span>KM</span>
+            </p>
+            <div class="bk-calc-sum">
+              <p><span data-i18n="book.c.month">a month</span><b id="calcMonth">240 KM</b></p>
+              <p class="year"><span data-i18n="book.c.year">a year</span><b id="calcYear">2.880 KM</b></p>
+            </div>
+            <p class="bk-note" data-i18n="book.c.note">An example. The real loss depends on the café; Šanko shows where and when it happens, so it can be stopped.</p>
+          </div>
+        </div>
+
+        <!-- One shift, row by row -->
+        <div class="bk-part bk-shift">
+          <header class="bk-rv">
+            <p class="bk-label mono"><b>§3</b><span data-i18n="book.s.kicker">How a shift works</span></p>
+            <h3 class="bk-h" data-i18n="book.s.title">One shift, line by line.</h3>
+            <p class="bk-sub" data-i18n="book.s.lede">Every shift has its waiter. What's left at the end of one shift is where the next one starts.</p>
+          </header>
+
+          <ol class="bk-ledger bk-rv">
+            <li class="bk-row head" aria-hidden="true"><span>#</span><span data-i18n="book.s.col1">Entry</span><span data-i18n="book.s.col2">What gets written</span><span data-i18n="book.s.col3">What Šanko does</span></li>
+            <li class="bk-row"><span class="mono">01</span><b>ULAZ</b><span data-i18n="book.s1">Goods that arrived: tap the item, type the number.</span><span data-i18n="book.s1.r">Adds it to the stock.</span></li>
+            <li class="bk-row"><span class="mono">02</span><b>RASHOD</b><span data-i18n="book.s2">Cash spent from the till, with a note (milk from the shop).</span><span data-i18n="book.s2.r">Takes it off what's to hand over.</span></li>
+            <li class="bk-row"><span class="mono">03</span><b>STANJE</b><span data-i18n="book.s3">The count at the end of the shift, item by item with photos. Coffee is weighed in grams.</span><span data-i18n="book.s3.r">Works out what was sold and warns when more was counted than could be there.</span></li>
+            <li class="bk-row"><span class="mono">04</span><b>PREDAJA</b><span data-i18n="book.s4">Kitchen total, cash and cards handed over.</span><span data-i18n="book.s4.r">Shows short, over or exact before the shift closes.</span></li>
+            <li class="bk-row closed">
+              <span class="mono">05</span><b data-i18n="book.s5.t">Closed</b>
+              <span data-i18n="book.s5">The shift locks and can't be changed without a record.</span>
+              <span data-i18n="book.s5.r">Sends the owner a message and carries the stock to the next shift.</span>
+              <i class="bk-stamp" aria-hidden="true"><span data-i18n="book.stamp">Closed</span></i>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Who uses what -->
+        <div class="bk-part bk-roles">
+          <header class="bk-rv">
+            <p class="bk-label mono"><b>§4</b><span data-i18n="book.r.kicker">Who uses it</span></p>
+            <h3 class="bk-h" data-i18n="book.r.title">Three sides of the bar.</h3>
+          </header>
+
+          <div class="bk-tabs bk-rv">
+            <div class="bk-tablist" role="tablist" aria-label="Šanko">
+              <button type="button" role="tab" id="tabWaiter" aria-controls="roleWaiter" aria-selected="true"><span data-i18n="book.r1">Waiter</span><small class="mono" data-i18n="book.r1.on">Android phone</small></button>
+              <button type="button" role="tab" id="tabBar" aria-controls="roleBar" aria-selected="false" tabindex="-1"><span data-i18n="book.r2">Bar</span><small class="mono" data-i18n="book.r2.on">Phone at the bar</small></button>
+              <button type="button" role="tab" id="tabOwner" aria-controls="roleOwner" aria-selected="false" tabindex="-1"><span data-i18n="book.r3">Owner</span><small class="mono" data-i18n="book.r3.on">Laptop, phone, browser</small></button>
+            </div>
+
+            <div class="bk-panel" role="tabpanel" id="roleWaiter" aria-labelledby="tabWaiter">
+              <figure class="bk-shot is-phone"><img src="../assets/sanko/phone-1.webp" alt="" width="600" height="1298" loading="lazy" decoding="async"></figure>
+              <ul class="bk-list">
+                <li data-i18n="book.w1"><b>A PIN of their own.</b> Every waiter logs in with four digits, so you know who ran the shift.</li>
+                <li data-i18n="book.w2"><b>Four screens.</b> ULAZ, RASHOD, STANJE and PREDAJA, done in a few minutes.</li>
+                <li data-i18n="book.w3"><b>Orders at the table.</b> The waiter taps the order on the phone and it goes straight to the bar.</li>
+                <li data-i18n="book.w4"><b>Mistakes caught early.</b> A count that can't be right is flagged before the shift closes.</li>
+                <li data-i18n="book.w5"><b>No signal, no problem.</b> Everything is kept on the phone and sent as soon as the connection is back.</li>
+              </ul>
+            </div>
+
+            <div class="bk-panel" role="tabpanel" id="roleBar" aria-labelledby="tabBar" hidden>
+              <figure class="bk-shot is-tickets" aria-hidden="true">
+                <div class="bk-ticket late"><p><b data-i18n="book.t.table4">Table 4</b><span>6 min</span></p><p>2 × Espresso</p><p>1 × Coca-Cola</p></div>
+                <div class="bk-ticket"><p><b data-i18n="book.t.table2">Table 2</b><span>2 min</span></p><p>1 × Cappuccino</p><p>2 × Kisela voda</p></div>
+                <div class="bk-ticket done"><p><b data-i18n="book.t.table7">Table 7</b><span>✓</span></p><p>3 × Pivo</p></div>
+              </figure>
+              <ul class="bk-list">
+                <li data-i18n="book.b1"><b>Orders arrive on their own.</b> The oldest is on top; nobody shouts across the room.</li>
+                <li data-i18n="book.b2"><b>Nothing waits too long.</b> An order waiting more than five minutes turns red.</li>
+                <li data-i18n="book.b3"><b>One swipe.</b> Swipe the order to the right and it's marked as done.</li>
+              </ul>
+            </div>
+
+            <div class="bk-panel" role="tabpanel" id="roleOwner" aria-labelledby="tabOwner" hidden>
+              <figure class="bk-shot is-desk"><img src="../assets/sanko/desk-1.webp" alt="" width="1440" height="900" loading="lazy" decoding="async"></figure>
+              <ul class="bk-list">
+                <li data-i18n="book.o1"><b>The whole settlement.</b> Bar, kitchen, expenses, handed over and the difference, per day or per shift.</li>
+                <li data-i18n="book.o2"><b>The same panel everywhere.</b> On a Windows computer, in a browser or on the owner's own phone.</li>
+                <li data-i18n="book.o3"><b>Corrections on record.</b> Fix a count or a handover; who, when, old, new and why stays written down.</li>
+                <li data-i18n="book.o4"><b>Close a shift for them.</b> If a waiter leaves without closing, the owner closes it so the next one can start.</li>
+                <li data-i18n="book.o5"><b>More than one café.</b> One owner account, each café with its own waiters, items and books.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- The message -->
+        <div class="bk-part bk-alert">
+          <div class="bk-rv">
+            <p class="bk-label mono"><b>§5</b><span data-i18n="book.m.kicker">When the shift closes</span></p>
+            <h3 class="bk-h" data-i18n="book.m.title">The numbers come to you.</h3>
+            <p class="bk-sub" data-i18n="book.m.lede">The moment a shift is closed, the owner gets a Telegram message: bar, kitchen, expenses, handed over, any shortage, and items counted higher than they could be.</p>
+            <p class="bk-sub" data-i18n="book.m.link">Connecting takes one click in the admin panel. Several phones or a group chat can get it, say the owner and the manager.</p>
+          </div>
+
+          <figure class="bk-chat bk-rv" aria-label="Telegram">
+            <p class="bk-chat-head"><img src="../assets/sanko/icon.webp" alt="" width="192" height="192"><b>Šanko</b><span class="mono">bot</span></p>
+            <div class="bk-bubble">
+              <p><b data-i18n="book.m.l1">Korzo: shift 2 closed</b></p>
+              <p class="dim">Amra, 15.10.2026. 07:00–15:12</p>
+              <p><span data-i18n="book.m.l2">Bar</span><b>1.213,00 KM</b></p>
+              <p><span data-i18n="book.m.l3">Kitchen</span><b>20,00 KM</b></p>
+              <p><span data-i18n="book.m.l4">Expenses</span><b>5,50 KM</b></p>
+              <p><span data-i18n="book.m.l5">To hand over</span><b>1.227,50 KM</b></p>
+              <p><span data-i18n="book.m.l6">Handed over</span><b>1.217,50 KM</b></p>
+              <p class="warn"><span data-i18n="book.m.l7">⚠️ Short</span><b>10,00 KM</b></p>
+              <p class="dim" data-i18n="book.m.l8">⚠️ Counted higher than possible: KOLA, was 40, entered 42</p>
+              <time class="mono">15:12 ✓✓</time>
+            </div>
+            <figcaption class="bk-note" data-i18n="book.m.note">Example message, demo data.</figcaption>
+          </figure>
+        </div>
+
+        <!-- Owner's tools -->
+        <div class="bk-part bk-tools">
+          <header class="bk-rv">
+            <p class="bk-label mono"><b>§6</b><span data-i18n="book.a.kicker">The admin panel</span></p>
+            <h3 class="bk-h" data-i18n="book.a.title">Everything the owner needs, on one shelf.</h3>
+          </header>
+
+          <ul class="bk-cards">
+            <li class="bk-card bk-rv">
+              <button class="bk-card-shot" type="button"><img src="../assets/sanko/desk-1.webp" alt="" width="1440" height="900" loading="lazy" decoding="async"><span class="bk-zoom mono" aria-hidden="true"><i>⤢</i><span data-i18n="page.zoom">Enlarge</span></span></button>
+              <h4 data-i18n="book.a1">Settlement</h4>
+              <p data-i18n="book.a1.d">The bar book as a table: before, received, used, left, price and amount. Shortages in red, export to PDF, warnings on unusual use and low stock.</p>
+            </li>
+            <li class="bk-card bk-rv">
+              <button class="bk-card-shot" type="button"><img src="../assets/sanko/desk-3.webp" alt="" width="1440" height="900" loading="lazy" decoding="async"><span class="bk-zoom mono" aria-hidden="true"><i>⤢</i><span data-i18n="page.zoom">Enlarge</span></span></button>
+              <h4 data-i18n="book.a2">Monthly report</h4>
+              <p data-i18n="book.a2.d">Turnover and the change on last month, the best days of the week, top items, and every waiter: shifts, shortages and suspicious counts. Export to Excel.</p>
+            </li>
+            <li class="bk-card bk-rv">
+              <button class="bk-card-shot" type="button"><img src="../assets/sanko/desk-4.webp" alt="" width="1440" height="900" loading="lazy" decoding="async"><span class="bk-zoom mono" aria-hidden="true"><i>⤢</i><span data-i18n="page.zoom">Enlarge</span></span></button>
+              <h4 data-i18n="book.a3">Averages</h4>
+              <p data-i18n="book.a3.d">Use per day and per shift over 7, 30 or 90 days, how many days the stock will last, and counts that don't fit.</p>
+            </li>
+            <li class="bk-card bk-rv">
+              <button class="bk-card-shot" type="button"><img src="../assets/sanko/desk-2.webp" alt="" width="1440" height="900" loading="lazy" decoding="async"><span class="bk-zoom mono" aria-hidden="true"><i>⤢</i><span data-i18n="page.zoom">Enlarge</span></span></button>
+              <h4 data-i18n="book.a4">Items</h4>
+              <p data-i18n="book.a4.d">Bring in your Excel bar book in a minute, with prices and stock. Photos from the catalogue help waiters find an item faster.</p>
+            </li>
+            <li class="bk-card bk-card-text bk-rv">
+              <p class="bk-card-icon mono" aria-hidden="true">Viber · PDF</p>
+              <h4 data-i18n="book.a5">Supplier order</h4>
+              <p data-i18n="book.a5.d">Set a minimum and an order-up-to level. When stock falls to the minimum the item joins the list with a suggested amount, ready to send on Viber or as a PDF.</p>
+            </li>
+            <li class="bk-card bk-card-text bk-rv">
+              <p class="bk-card-icon mono" aria-hidden="true">PIN · <span data-i18n="book.a6.tag">tables</span></p>
+              <h4 data-i18n="book.a6">Staff and tables</h4>
+              <p data-i18n="book.a6.d">Add waiters and bar staff with their PINs and enter your tables. A removed waiter is logged out of every phone at once.</p>
+            </li>
+          </ul>
+          <!-- Phones: the cards become a swipe row; these dots follow it (filled by sanko.js). -->
+          <div class="bk-cards-dots" aria-hidden="true"></div>
+        </div>
+
+        <!-- Why -->
+        <div class="bk-part bk-why">
+          <header class="bk-rv">
+            <p class="bk-label mono"><b>§7</b><span data-i18n="book.y.kicker">Why Šanko</span></p>
+            <h3 class="bk-h" data-i18n="book.y.title">Eight reasons, no small print.</h3>
+          </header>
+          <ol class="bk-reasons bk-rv">
+            <li data-i18n="book.y1"><b>Loss control.</b> Missing goods and money show per shift and per waiter, not at the end of the month.</li>
+            <li data-i18n="book.y2"><b>Responsibility.</b> Every shift has a name, locks when it's closed, and changes only with a record.</li>
+            <li data-i18n="book.y3"><b>Insight from anywhere.</b> A Telegram message, and the whole panel on your phone.</li>
+            <li data-i18n="book.y4"><b>Time saved.</b> No adding up in a notebook; the settlement, report and order make themselves.</li>
+            <li data-i18n="book.y5"><b>Better buying.</b> The order list and the averages say what to buy and how much.</li>
+            <li data-i18n="book.y6"><b>Works offline</b> at the bar; data is sent as soon as the connection is back.</li>
+            <li data-i18n="book.y7"><b>Safe data.</b> PINs are stored encrypted on the server, every café sees only its own data, and every correction is recorded.</li>
+            <li data-i18n="book.y8"><b>Easy start.</b> Your Excel table comes in as it is, and a waiter learns the app in 15 minutes.</li>
+          </ol>
+        </div>
+
+        <!-- Getting started -->
+        <div class="bk-part bk-start">
+          <header class="bk-rv">
+            <p class="bk-label mono"><b>§8</b><span data-i18n="book.g.kicker">Getting started</span></p>
+            <h3 class="bk-h" data-i18n="book.g.title">From notebook to Šanko in five steps.</h3>
+          </header>
+          <ol class="bk-steps bk-rv">
+            <li><span class="mono">1</span><p data-i18n="book.g1"><b>Send us your bar book</b> in Excel, or a list of items with prices.</p></li>
+            <li><span class="mono">2</span><p data-i18n="book.g2"><b>We set up the café:</b> items, photos, waiters and PINs.</p></li>
+            <li><span class="mono">3</span><p data-i18n="book.g3"><b>Waiters install the app</b> and enter the café code once.</p></li>
+            <li><span class="mono">4</span><p data-i18n="book.g4"><b>A short training,</b> about 15 minutes, and a trial period.</p></li>
+            <li><span class="mono">5</span><p data-i18n="book.g5"><b>Connect Telegram</b> for messages, if you want them.</p></li>
+          </ol>
+        </div>
+
+        <!-- FAQ -->
+        <div class="bk-part bk-faq" id="sanko-faq">
+          <header class="bk-rv">
+            <p class="bk-label mono"><b>§9</b><span data-i18n="book.q.kicker">Questions</span></p>
+            <h3 class="bk-h" data-i18n="book.q.title">What owners ask us.</h3>
+          </header>
+          <div class="bk-qa bk-rv">
+            <details><summary data-i18n="book.q1">What if the internet goes down?</summary><p data-i18n="book.q1.a">The waiter keeps working as usual. Everything is kept on the phone and sent when the connection is back. Starting a new shift needs the internet, so two shifts are never open at once.</p></details>
+            <details><summary data-i18n="book.q2">What if a waiter miscounts?</summary><p data-i18n="book.q2.a">The app warns about obvious mistakes before the shift closes. The owner can correct a count or a handover later, and the correction stays on record.</p></details>
+            <details><summary data-i18n="book.q3">What if a waiter leaves without closing the shift?</summary><p data-i18n="book.q3.a">The owner closes it from the admin panel and enters the stock and the handover.</p></details>
+            <details><summary data-i18n="book.q4">Which devices does it run on?</summary><p data-i18n="book.q4.a">Waiters use an Android phone. The owner uses the same app on their own phone, or a Windows computer or a browser, and sees the same data everywhere.</p></details>
+            <details><summary data-i18n="book.q5">I have more than one café.</summary><p data-i18n="book.q5.a">One owner account can have several cafés, each with its own waiters, items and settlement.</p></details>
+            <details><summary data-i18n="book.q6">Can I keep my Excel table?</summary><p data-i18n="book.q6.a">You can bring it into Šanko, and export reports back to Excel at any time.</p></details>
+            <details><summary data-i18n="book.q7">How is coffee counted?</summary><p data-i18n="book.q7.a">Coffee and instant coffee are kept in grams. You set the weight of one portion, and Šanko works out how many portions were sold.</p></details>
+            <details><summary data-i18n="book.q8">How much does it cost?</summary><p data-i18n="book.q8.a">Šanko is a monthly subscription per café. Write to us and we'll send an offer and set up a demo.</p></details>
+          </div>
+        </div>
+
+        <!-- Sign here -->
+        <footer class="bk-end bk-rv">
+          <div>
+            <p class="bk-label mono"><b>§10</b><span data-i18n="book.e.kicker">Subscription</span></p>
+            <p class="bk-end-title" data-i18n="book.e.title">A monthly subscription per café. The first step is a demo.</p>
+          </div>
+          <div class="bk-sign">
+            <a class="btn" href="../?service=sanko#contact"><span data-i18n="book.demo">Ask for a demo</span><i aria-hidden="true">→</i></a>
+            <p class="bk-sign-line" aria-hidden="true"><span data-i18n="book.e.sign">Owner's signature</span></p>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <img class="footer-logo" src="../assets/logo/logo.png" alt="fourthwave." width="1200" height="417" loading="lazy">
+      <p class="footer-line" data-i18n="footer.line"></p>
+    </div>
+    <div class="footer-cols">
+      <nav aria-label="Footer">
+        <p class="mono" data-i18n="footer.explore">Pages</p>
+        <a href="../#services" data-i18n="nav.services">Services</a>
+        <a href="../#web" data-i18n="nav.work">Work</a>
+        <a href="./">Šanko</a>
+        <a href="../#team" data-i18n="nav.team">Team</a>
+        <a href="../#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div>
+        <p class="mono" data-i18n="footer.follow">Follow</p>
+        <!-- Replace with real profile links when the accounts exist. -->
+        <span class="soon">Instagram</span>
+        <span class="soon">TikTok</span>
+        <span class="soon">YouTube</span>
+      </div>
+    </div>
+    <p class="footer-bottom mono"><span>© <span id="year">2026</span> FourthWave</span><a href="#top" data-i18n="footer.top">Back to top</a></p>
+  </footer>
+
+  <!-- A screenshot from the admin panel cards, full size. -->
+  <dialog class="bk-lightbox" id="shotDialog" aria-labelledby="shotTitle">
+    <figure>
+      <img id="shotImage" src="" alt="" width="1440" height="900">
+      <figcaption><b id="shotTitle"></b><span class="mono" id="shotCount"></span></figcaption>
+    </figure>
+    <button class="bk-lb-close" type="button" data-close aria-label="Close">×</button>
+    <button class="bk-lb-nav prev" type="button" data-step="-1" aria-label="‹">‹</button>
+    <button class="bk-lb-nav next" type="button" data-step="1" aria-label="›">›</button>
+  </dialog>
+
+  <script src="sanko.js?v=2"></script>
+</body>
+</html>

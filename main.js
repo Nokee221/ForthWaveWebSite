@@ -1,5 +1,5 @@
 /*
- * FourthWave — deep ocean.
+ * FourthWave: deep ocean.
  *
  *  1. Texts (EN / BS) and the language switch
  *  2. Smooth wheel scrolling (native scroll underneath, so sticky works)
@@ -26,50 +26,50 @@ const TEXT = {
     "nav.work": "Work",
     "nav.team": "Team",
     "nav.contact": "Contact",
-    "cta.talk": "Let's talk",
+    "cta.talk": "Contact us",
 
     "hero.title": ["Websites, apps", "and video,", "<em>made in one room.</em>"],
-    "hero.lede": "FourthWave is a small studio of four. We design and code websites, build mobile apps, edit video and run campaigns, so everything you put out feels like it belongs together.",
+    "hero.lede": "FourthWave is a studio of four. We design and code websites, build mobile apps, edit video and run social campaigns. You work with the same people from the first call to launch.",
     "hero.work": "See our work",
     "hero.hint": "Scroll",
 
-    statement: "Most brands hire four agencies and end up with four different voices. We sit at one table, *so* *you* *get* *one.*",
+    statement: "Your website, your app and your videos are made by the same four people, *so* *they* *match.*",
 
     "svc.kicker": "What we do",
-    "svc.title": ["Four crafts.", "<em>One standard.</em>"],
+    "svc.title": ["What we", "<em>work on.</em>"],
     "svc.web": "Web Development",
     "svc.web.d": "Company sites, landing pages and web apps that load fast and are easy to keep up to date.",
     "svc.mobile": "Mobile Development",
     "svc.mobile.d": "iOS and Android apps, from the first sketch to the store listing.",
     "svc.video": "Video Editing",
-    "svc.video.d": "Reels, ads and brand films, cut so people watch to the end.",
+    "svc.video.d": "Reels, ads and brand films, edited and colour-graded.",
     "svc.marketing": "Digital Marketing",
-    "svc.marketing.d": "Social content and campaigns with a plan behind every post.",
+    "svc.marketing.d": "Social content and paid campaigns.",
 
     "web.kicker": "Web development",
-    "web.title": ["Your website is", "the first", "<em>handshake.</em>"],
-    "web.lede": "We plan the structure, design every screen and write the code ourselves. What you get loads quickly, reads well on a phone and stays simple for your team to update.",
+    "web.title": ["Websites that", "load fast and", "<em>are easy to edit.</em>"],
+    "web.lede": "We plan the structure, design each page and write the code ourselves. Your team can change text and photos without calling us.",
 
     "mobile.kicker": "Mobile development",
-    "mobile.title": ["Apps people", "<em>actually keep.</em>"],
-    "mobile.lede": "We start with how the app will really be used: on the move, in a hurry, with one thumb. Then we design back from there and build it for iOS and Android.",
+    "mobile.title": ["Apps for iOS", "<em>and Android.</em>"],
+    "mobile.lede": "First we look at how the app will be used, usually standing up and with one hand, and design the screens around that. Then we build it and help you publish it on the App Store and Google Play.",
     "mobile.chip": "Product design",
 
     "video.kicker": "Video editing & production",
-    "video.title": ["Raw footage in.", "<em>A story out.</em>"],
-    "video.lede": "Short edits for social, ads that hold attention in the first three seconds, longer films for launches. We cut, colour, add sound and hand over every format you need.",
+    "video.title": ["We edit reels,", "ads and", "<em>brand films.</em>"],
+    "video.lede": "Send us the footage and tell us where it will run. We cut it, grade the colour, mix the sound and send back a version for each platform, vertical included.",
     "video.play": "Watch with sound",
     "video.tag": "Our best edits",
 
     "mkt.kicker": "Digital marketing",
-    "mkt.title": ["Posting is easy.", "<em>Being remembered</em>", "takes work."],
-    "mkt.lede": "We find out who you're really talking to, shape a look and a voice that suit you, and keep them steady week after week.",
-    "mkt.s1": "Strategy",
-    "mkt.s1.d": "Who is it for, what should they feel, and where do they spend their time? We settle that before anything gets made.",
-    "mkt.s2": "Create",
-    "mkt.s2.d": "Posts, short videos, ads and visuals, shot and designed in-house so they all look like you.",
-    "mkt.s3": "Grow",
-    "mkt.s3.d": "We publish, read the numbers and adjust. Small improvements every week add up.",
+    "mkt.title": ["Social media", "<em>with a plan</em>", "behind it."],
+    "mkt.lede": "We work out who you're talking to and how you should sound. Then we post on a schedule and check each week what worked.",
+    "mkt.s1": "Plan",
+    "mkt.s1.d": "Who the posts are for and where those people spend time online. We agree on that before making anything.",
+    "mkt.s2": "Shoot and design",
+    "mkt.s2.d": "Posts, short videos, ads and graphics, all made in-house.",
+    "mkt.s3": "Post and measure",
+    "mkt.s3.d": "We publish, look at the numbers and change what isn't working.",
     "mkt.areas": "Where we help",
     "mkt.a1": "Social media",
     "mkt.a1.d": "A feed that looks and sounds like one brand.",
@@ -78,7 +78,7 @@ const TEXT = {
     "mkt.a3": "Paid advertising",
     "mkt.a3.d": "Ads with one clear message and a reason to click.",
     "mkt.a4": "Digital strategy",
-    "mkt.a4.d": "A plan for what to say, where, and how often.",
+    "mkt.a4.d": "What to post, and on which platform.",
 
     "prod.kicker": "Our own product",
     "prod.live": "Live in production",
@@ -96,13 +96,25 @@ const TEXT = {
     "prod.toast.title": "Korzo: shift 2 closed",
     "prod.toast.due": "To hand over",
     "prod.toast.short": "Short",
-    "team.kicker": "The people behind FourthWave",
-    "team.title": ["Four people.", "<em>One table.</em>"],
-    "team.lede": "We're small on purpose. You talk directly to the people doing the work, not to someone passing messages along.",
+    "prod.more": "Everything about Šanko",
+    "short.kicker": "Šanko in short",
+    "short.title": ["See a shortage", "<em>the moment it happens.</em>"],
+    "short.lede": "Waiters run the shift on a phone, the owner sees the settlement, the shortage and whose shift it was, and gets a Telegram message when the shift closes. A monthly subscription per café.",
+    "short.c1": "Android · Windows · Web",
+    "short.c2": "Works offline",
+    "short.c3": "Telegram alerts",
+    "short.c4": "15-minute training",
+    "short.more": "Everything about Šanko",
+    "short.demo": "Ask for a demo",
+    "short.soon": "Šanko ad, coming soon",
 
-    "contact.kicker": "Let's work together",
+    "team.kicker": "Team",
+    "team.title": ["Who you'll", "<em>work with.</em>"],
+    "team.lede": "There are four of us and no account managers. Whoever answers your email also does the work.",
+
+    "contact.kicker": "Contact",
     "contact.title": ["Got something", "<em>in mind?</em>"],
-    "contact.lede": "Tell us a little about it. A rough idea is enough to start; we'll ask the right questions and get back to you.",
+    "contact.lede": "Tell us what you're working on. A rough idea is enough. We'll reply with a few questions or a time to talk.",
 
     "form.name": "Your name",
     "form.name.ph": "First and last name",
@@ -116,14 +128,14 @@ const TEXT = {
     "form.message": "About the project",
     "form.message.ph": "What are you working on, and what would you like help with?",
     "form.message.err": "A couple of sentences helps us a lot (at least 20 characters).",
-    "form.send": "Send",
+    "form.send": "Send message",
     "form.offline": "The form isn't connected to email yet, so this message wasn't sent. Please try again a little later.",
     "form.ready": "Your email app should open with the message filled in. Just hit send.",
 
     "footer.line": "A small studio for web, mobile, video and marketing.",
-    "footer.explore": "Explore",
+    "footer.explore": "Pages",
     "footer.follow": "Follow (soon)",
-    "footer.top": "Back to the surface ↑",
+    "footer.top": "Back to top",
 
     "project.visit": "Visit website",
     "project.soon": "We're writing up this project. Check back soon.",
@@ -137,50 +149,50 @@ const TEXT = {
     "nav.work": "Radovi",
     "nav.team": "Tim",
     "nav.contact": "Kontakt",
-    "cta.talk": "Javite se",
+    "cta.talk": "Pišite nam",
 
     "hero.title": ["Web, aplikacije", "i video,", "<em>iz jedne sobe.</em>"],
-    "hero.lede": "FourthWave je mali studio od četiri osobe. Dizajniramo i programiramo web stranice, pravimo mobilne aplikacije, montiramo video i vodimo kampanje, pa sve što objavite djeluje kao jedna cjelina.",
+    "hero.lede": "FourthWave je studio od četiri osobe. Dizajniramo i programiramo web stranice, pravimo mobilne aplikacije, montiramo video i vodimo kampanje na mrežama. Od prvog razgovora do objave radite s istim ljudima.",
     "hero.work": "Naši radovi",
     "hero.hint": "Skrolaj",
 
-    statement: "Većina brendova angažuje četiri agencije i dobije četiri različita glasa. Mi sjedimo za istim stolom, *pa* *vi* *dobijete* *jedan.*",
+    statement: "Web stranicu, aplikaciju i videe vam prave iste četiri osobe, *pa* *se* *slažu.*",
 
     "svc.kicker": "Šta radimo",
-    "svc.title": ["Četiri zanata.", "<em>Jedan standard.</em>"],
+    "svc.title": ["Čime se", "<em>bavimo.</em>"],
     "svc.web": "Web razvoj",
     "svc.web.d": "Stranice firmi, landing stranice i web aplikacije koje se brzo učitavaju i lako održavaju.",
     "svc.mobile": "Mobilne aplikacije",
     "svc.mobile.d": "iOS i Android aplikacije, od prve skice do objave u trgovini.",
     "svc.video": "Video montaža",
-    "svc.video.d": "Reelsi, reklame i filmovi o brendu, montirani tako da se gledaju do kraja.",
+    "svc.video.d": "Reelsi, reklame i filmovi o brendu, s montažom i obradom boje.",
     "svc.marketing": "Digitalni marketing",
-    "svc.marketing.d": "Sadržaj za mreže i kampanje s planom iza svake objave.",
+    "svc.marketing.d": "Sadržaj za mreže i plaćene kampanje.",
 
     "web.kicker": "Web razvoj",
-    "web.title": ["Web stranica je", "vaš prvi", "<em>stisak ruke.</em>"],
-    "web.lede": "Sami planiramo strukturu, dizajniramo svaki ekran i pišemo kod. Dobijete stranicu koja se brzo otvara, lijepo se čita na mobitelu i koju vaš tim lako ažurira.",
+    "web.title": ["Stranice koje se", "brzo otvaraju i", "<em>lako mijenjaju.</em>"],
+    "web.lede": "Sami planiramo strukturu, dizajniramo svaku stranicu i pišemo kod. Vaš tim može mijenjati tekst i slike bez da nas zove.",
 
     "mobile.kicker": "Mobilne aplikacije",
-    "mobile.title": ["Aplikacije koje", "<em>ljudi zadrže.</em>"],
-    "mobile.lede": "Krećemo od toga kako će se aplikacija stvarno koristiti: u hodu, na brzinu, jednim palcem. Od toga gradimo dizajn, a zatim je razvijamo za iOS i Android.",
+    "mobile.title": ["Aplikacije za", "<em>iOS i Android.</em>"],
+    "mobile.lede": "Prvo gledamo kako će se aplikacija koristiti, najčešće u hodu i jednom rukom, i po tome crtamo ekrane. Onda je napravimo i pomognemo vam da je objavite na App Store i Google Play.",
     "mobile.chip": "Dizajn proizvoda",
 
     "video.kicker": "Video montaža i produkcija",
-    "video.title": ["Sirovi snimci.", "<em>Gotova priča.</em>"],
-    "video.lede": "Kratke montaže za mreže, reklame koje zadrže pažnju u prve tri sekunde i duži filmovi za lansiranja. Montiramo, radimo boju i zvuk i predajemo sve formate koji vam trebaju.",
+    "video.title": ["Montiramo reelse,", "reklame i", "<em>filmove o brendu.</em>"],
+    "video.lede": "Pošaljete nam snimke i kažete gdje će se prikazivati. Mi ih montiramo, sredimo boju i zvuk i vratimo verziju za svaku platformu, i vertikalnu.",
     "video.play": "Pogledaj sa zvukom",
     "video.tag": "Naši najbolji editi",
 
     "mkt.kicker": "Digitalni marketing",
-    "mkt.title": ["Objaviti je lako.", "<em>Ostati upamćen</em>", "je posao."],
-    "mkt.lede": "Saznamo kome se zaista obraćate, oblikujemo izgled i ton koji vam pristaju i držimo ih dosljednim iz sedmice u sedmicu.",
-    "mkt.s1": "Strategija",
-    "mkt.s1.d": "Kome se obraćamo, šta treba da osjete i gdje provode vrijeme? To riješimo prije nego što išta napravimo.",
-    "mkt.s2": "Sadržaj",
-    "mkt.s2.d": "Objave, kratki videi, oglasi i vizuali, snimljeni i dizajnirani kod nas, da sve izgleda kao vi.",
-    "mkt.s3": "Rast",
-    "mkt.s3.d": "Objavljujemo, pratimo brojke i prilagođavamo. Male promjene svake sedmice se saberu.",
+    "mkt.title": ["Društvene mreže", "<em>s planom</em>", "iza njih."],
+    "mkt.lede": "Dogovorimo kome se obraćate i kako trebate zvučati. Onda objavljujemo po rasporedu i svake sedmice pogledamo šta je radilo.",
+    "mkt.s1": "Plan",
+    "mkt.s1.d": "Kome su objave namijenjene i gdje ti ljudi provode vrijeme na internetu. To dogovorimo prije nego što išta napravimo.",
+    "mkt.s2": "Snimanje i dizajn",
+    "mkt.s2.d": "Objave, kratki videi, oglasi i grafike, sve napravljeno kod nas.",
+    "mkt.s3": "Objave i brojke",
+    "mkt.s3.d": "Objavljujemo, gledamo brojke i mijenjamo ono što ne radi.",
     "mkt.areas": "Gdje pomažemo",
     "mkt.a1": "Društvene mreže",
     "mkt.a1.d": "Profil koji izgleda i zvuči kao jedan brend.",
@@ -189,7 +201,7 @@ const TEXT = {
     "mkt.a3": "Plaćeno oglašavanje",
     "mkt.a3.d": "Oglasi s jednom jasnom porukom i razlogom za klik.",
     "mkt.a4": "Digitalna strategija",
-    "mkt.a4.d": "Plan šta reći, gdje i koliko često.",
+    "mkt.a4.d": "Šta objavljivati i na kojoj platformi.",
 
     "prod.kicker": "Naš proizvod",
     "prod.live": "U produkciji",
@@ -207,13 +219,25 @@ const TEXT = {
     "prod.toast.title": "Korzo: smjena 2 zatvorena",
     "prod.toast.due": "Za predaju",
     "prod.toast.short": "Manjak",
-    "team.kicker": "Ljudi iza FourthWave-a",
-    "team.title": ["Četiri osobe.", "<em>Jedan sto.</em>"],
-    "team.lede": "Namjerno smo mali. Razgovarate direktno s ljudima koji rade posao, a ne s nekim ko samo prenosi poruke.",
+    "prod.more": "Sve o Šanku",
+    "short.kicker": "Šanko ukratko",
+    "short.title": ["Manjak se vidi", "<em>istog trenutka.</em>"],
+    "short.lede": "Konobar vodi smjenu na telefonu, a gazda vidi obračun, manjak i u čijoj je smjeni, i dobije poruku na Telegram kad se smjena zaključi. Mjesečna pretplata po lokalu.",
+    "short.c1": "Android · Windows · Web",
+    "short.c2": "Radi i bez interneta",
+    "short.c3": "Poruka na Telegram",
+    "short.c4": "Obuka za 15 minuta",
+    "short.more": "Sve o Šanku",
+    "short.demo": "Zatražite demo",
+    "short.soon": "Reklama za Šanko uskoro",
 
-    "contact.kicker": "Radimo zajedno",
+    "team.kicker": "Tim",
+    "team.title": ["S kim ćete", "<em>raditi.</em>"],
+    "team.lede": "Nas je četvero i nemamo account managere. Ko vam odgovori na email, taj radi i posao.",
+
+    "contact.kicker": "Kontakt",
     "contact.title": ["Imate nešto", "<em>na umu?</em>"],
-    "contact.lede": "Napišite nam par rečenica. Gruba ideja je sasvim dovoljna za početak, a mi ćemo postaviti prava pitanja i javiti vam se.",
+    "contact.lede": "Napišite na čemu radite. Gruba ideja je dovoljna. Odgovorit ćemo s par pitanja ili terminom za razgovor.",
 
     "form.name": "Ime",
     "form.name.ph": "Ime i prezime",
@@ -227,14 +251,14 @@ const TEXT = {
     "form.message": "O projektu",
     "form.message.ph": "Na čemu radite i u čemu vam možemo pomoći?",
     "form.message.err": "Par rečenica nam mnogo znači (najmanje 20 znakova).",
-    "form.send": "Pošalji",
+    "form.send": "Pošalji poruku",
     "form.offline": "Forma još nije povezana s emailom, pa ova poruka nije poslana. Pokušajte malo kasnije.",
     "form.ready": "Vaša email aplikacija bi se trebala otvoriti s popunjenom porukom. Samo pritisnite pošalji.",
 
     "footer.line": "Mali studio za web, mobilne aplikacije, video i marketing.",
-    "footer.explore": "Istraži",
+    "footer.explore": "Stranice",
     "footer.follow": "Pratite nas (uskoro)",
-    "footer.top": "Nazad na površinu ↑",
+    "footer.top": "Na vrh",
 
     "project.visit": "Posjeti stranicu",
     "project.soon": "Opis ovog projekta pripremamo. Navratite uskoro.",
@@ -760,11 +784,11 @@ const PROJECTS = {
 
     const mid = vh * 0.5;
     let section = "";
-    for (const id of ["services", "web", "mobile", "video", "marketing", "sanko", "team", "contact"]) {
+    for (const id of ["services", "web", "mobile", "video", "marketing", "sanko", "sanko-short", "team", "contact"]) {
       const r = document.getElementById(id).getBoundingClientRect();
       if (r.top <= mid && r.bottom > mid) section = id;
     }
-    const nav = ["web", "mobile", "video", "marketing"].includes(section) ? "web" : section;
+    const nav = ["web", "mobile", "video", "marketing"].includes(section) ? "web" : section === "sanko-short" ? "sanko" : section;
     if (nav !== currentNav) {
       currentNav = nav;
       navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === `#${nav}`));
@@ -992,6 +1016,37 @@ const PROJECTS = {
 
   $("#year").textContent = new Date().getFullYear();
 
+  /* ---- Šanko in short: the looping ad, and "ask for a demo" */
+
+  // The ad plays only while it's on screen. Until assets/sanko/reklama.mp4
+  // exists, the frame shows "coming soon" instead of a black box.
+  const ad = $("#sankoAd");
+  if (ad) {
+    const adVideo = $("video", ad);
+    const empty = () => ad.classList.add("empty");
+    $("source", adVideo).addEventListener("error", empty);
+    adVideo.addEventListener("error", empty);
+    if (adVideo.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) empty();
+    new IntersectionObserver(([entry]) => {
+      if (ad.classList.contains("empty")) return;
+      if (entry.isIntersecting && !reduceMotion) adVideo.play().catch(() => {});
+      else adVideo.pause();
+    }, { threshold: 0.35 }).observe(ad);
+  }
+
+  // "Ask for a demo" lands on the form with Šanko already chosen; the Šanko
+  // page links here with ?service=sanko#contact.
+  function pickService(value) {
+    const choice = $$('#contactForm input[name="service"]').find((r) => r.value === value);
+    if (choice) choice.checked = true;
+  }
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("[data-pick]");
+    if (link) pickService(link.dataset.pick);
+  });
+  if (new URLSearchParams(location.search).get("service") === "sanko") pickService("Šanko");
+
+
   /* ================================================ 5. Dialogs and form */
 
   function openDialog(dialog) {
@@ -1077,7 +1132,7 @@ const PROJECTS = {
     }
     // Opens the visitor's email app with the message ready to send.
     const data = new FormData(form);
-    const subject = `New project: ${data.get("service")} — ${data.get("name")}`;
+    const subject = `New project: ${data.get("service")}, ${data.get("name")}`;
     const body = `${data.get("message")}\n\n${data.get("name")}\n${data.get("email")}`;
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     notice.textContent = t("form.ready");

@@ -6,6 +6,24 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "4173", "--bind", "127.0.0.1"],
       "port": 4173
+    },
+    {
+      "name": "fourthwave-static-py",
+      "runtimeExecutable": "py",
+      "runtimeArgs": ["-m", "http.server", "4173", "--bind", "127.0.0.1"],
+      "port": 4173
+    },
+    {
+      "name": "multipost",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:/Users/adem_/source/repos/dime999/Multipost-video/src/server.js"],
+      "port": 3000
+    },
+    {
+      "name": "nova-template",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "C:/Users/adem_/nova-agency-template", "run", "dev", "--", "-p", "3002"],
+      "port": 3002
     }
   ]
 }

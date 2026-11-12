@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FourthWave</title>
-  <meta name="description" content="FourthWave — web, mobile, video and digital marketing. One team.">
+  <meta name="description" content="FourthWave is a studio of four in web development, mobile apps, video editing and social media marketing.">
   <meta name="theme-color" content="#0c1c2d">
   <link rel="icon" href="assets/logo/logo.png">
   <link rel="preload" as="image" href="assets/logo/layer-3.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wght@400;500&family=Roboto+Slab:wght@700..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
   <!--
@@ -24,7 +24,7 @@
   <div class="grain" aria-hidden="true"></div>
 
   <header class="bar" id="bar">
-    <a class="bar-logo" href="#top" aria-label="FourthWave — back to top">
+    <a class="bar-logo" href="#top" aria-label="FourthWave, back to top">
       <img src="assets/logo/logo.png" alt="" width="1200" height="417">
     </a>
     <nav class="bar-nav" aria-label="Main">
@@ -39,7 +39,7 @@
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="bs" aria-pressed="false">BS</button>
       </div>
-      <a class="pill" href="#contact"><span data-i18n="cta.talk">Let's talk</span></a>
+      <a class="btn sm" href="#contact"><span data-i18n="cta.talk">Contact us</span></a>
     </div>
   </header>
 
@@ -63,11 +63,11 @@
 
 
         <div class="hero-copy" id="heroCopy">
-          <h1 class="display" data-i18n="hero.title">Web, mobile and video. One team.</h1>
+          <h1 class="display" data-i18n="hero.title">Websites, apps and video, made in one room.</h1>
           <div class="hero-side">
             <p class="lede" data-i18n="hero.lede"></p>
             <div class="actions">
-              <a class="btn" href="#contact"><span data-i18n="cta.talk">Let's talk</span><i aria-hidden="true">→</i></a>
+              <a class="btn" href="#contact"><span data-i18n="cta.talk">Contact us</span><i aria-hidden="true">→</i></a>
               <a class="btn ghost" href="#web"><span data-i18n="hero.work">See the work</span><i aria-hidden="true">↓</i></a>
             </div>
           </div>
@@ -86,7 +86,6 @@
       </div>
     </section>
 
-    <!-- 01 · Services -->
     <section class="services" id="services" data-sea="0.3">
       <header class="sec-head rv">
         <p class="mono idx"><b>01</b><span data-i18n="svc.kicker">What we do</span></p>
@@ -265,17 +264,17 @@
           </article>
           <article class="slide step">
             <span class="step-n mono">01</span>
-            <h3 data-i18n="mkt.s1">Strategy</h3>
+            <h3 data-i18n="mkt.s1">Plan</h3>
             <p data-i18n="mkt.s1.d"></p>
           </article>
           <article class="slide step">
             <span class="step-n mono">02</span>
-            <h3 data-i18n="mkt.s2">Create</h3>
+            <h3 data-i18n="mkt.s2">Shoot and design</h3>
             <p data-i18n="mkt.s2.d"></p>
           </article>
           <article class="slide step">
             <span class="step-n mono">03</span>
-            <h3 data-i18n="mkt.s3">Grow</h3>
+            <h3 data-i18n="mkt.s3">Post and measure</h3>
             <p data-i18n="mkt.s3.d"></p>
           </article>
           <article class="slide slide-areas">
@@ -296,7 +295,6 @@
          two screens walk through one shift together while you scroll. -->
     <section class="scene product" id="sanko" data-scene="product" data-sea="0.3">
       <div class="sticky">
-        <div class="product-glow" aria-hidden="true"></div>
 
         <div class="product-copy">
           <p class="mono idx"><b>06</b><span data-i18n="prod.kicker">Our own product</span></p>
@@ -317,6 +315,8 @@
           <ul class="chips mono product-platforms">
             <li>Android</li><li>Windows</li><li>Web</li><li data-i18n="prod.offline">Works offline</li>
           </ul>
+
+          <a class="product-more mono" href="sanko/"><span data-i18n="prod.more">Everything about Šanko</span><i aria-hidden="true">→</i></a>
         </div>
 
         <div class="devices" aria-label="Šanko on a laptop and a phone" role="img">
@@ -359,10 +359,40 @@
       </div>
     </section>
 
-    <!-- 07 · Team -->
+    <!-- 06 · Šanko in short: the ad on a loop, what matters most, and the way
+         to the full page (sanko/). The ad goes in as assets/sanko/reklama.mp4
+         (poster: reklama.jpg); until the file exists the frame says it's coming. -->
+    <section class="sanko-short" id="sanko-short" data-sea="0.3">
+      <div class="ss-ad" id="sankoAd">
+        <video muted loop playsinline preload="metadata" poster="assets/sanko/reklama.jpg" aria-label="Šanko">
+          <source src="assets/sanko/reklama.mp4" type="video/mp4">
+        </video>
+        <div class="ss-soon" aria-hidden="true">
+          <img src="assets/sanko/icon.webp" alt="" width="192" height="192">
+          <p class="mono" data-i18n="short.soon">Šanko ad, coming soon</p>
+        </div>
+      </div>
+
+      <div class="ss-copy rv">
+        <p class="mono idx"><b>06</b><span data-i18n="short.kicker">Šanko in short</span></p>
+        <h2 class="h2" data-i18n="short.title"></h2>
+        <p class="lede" data-i18n="short.lede"></p>
+        <ul class="chips mono">
+          <li data-i18n="short.c1">Android · Windows · Web</li>
+          <li data-i18n="short.c2">Works offline</li>
+          <li data-i18n="short.c3">Telegram alerts</li>
+          <li data-i18n="short.c4">15-minute training</li>
+        </ul>
+        <div class="actions">
+          <a class="btn" href="sanko/"><span data-i18n="short.more">Everything about Šanko</span><i aria-hidden="true">→</i></a>
+          <a class="btn ghost" href="#contact" data-pick="Šanko"><span data-i18n="short.demo">Ask for a demo</span><i aria-hidden="true">↓</i></a>
+        </div>
+      </div>
+    </section>
+
     <section class="team" id="team" data-sea="0.25">
       <header class="sec-head rv">
-        <p class="mono idx"><b>07</b><span data-i18n="team.kicker">The people behind FourthWave</span></p>
+        <p class="mono idx"><b>07</b><span data-i18n="team.kicker">Team</span></p>
         <h2 class="h2" data-i18n="team.title"></h2>
         <p class="lede" data-i18n="team.lede"></p>
       </header>
@@ -387,10 +417,9 @@
       </ul>
     </section>
 
-    <!-- 08 · Contact -->
     <section class="contact" id="contact" data-sea="1">
       <div class="contact-head rv">
-        <p class="mono idx"><b>08</b><span data-i18n="contact.kicker">Let's work together</span></p>
+        <p class="mono idx"><b>08</b><span data-i18n="contact.kicker">Contact</span></p>
         <h2 class="h2 huge" data-i18n="contact.title"></h2>
         <p class="lede" data-i18n="contact.lede"></p>
       </div>
@@ -413,6 +442,7 @@
             <label><input type="radio" name="service" value="Mobile"><span data-i18n="svc.mobile">Mobile</span></label>
             <label><input type="radio" name="service" value="Video"><span data-i18n="svc.video">Video</span></label>
             <label><input type="radio" name="service" value="Marketing"><span data-i18n="svc.marketing">Marketing</span></label>
+            <label><input type="radio" name="service" value="Šanko"><span>Šanko</span></label>
             <label><input type="radio" name="service" value="Multiple"><span data-i18n="form.multi">Several</span></label>
           </div>
           <em class="error" data-i18n="form.service.err" hidden></em>
@@ -437,7 +467,7 @@
     </div>
     <div class="footer-cols">
       <nav aria-label="Footer">
-        <p class="mono" data-i18n="footer.explore">Explore</p>
+        <p class="mono" data-i18n="footer.explore">Pages</p>
         <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#web" data-i18n="nav.work">Work</a>
       <a href="#sanko">Šanko</a>
@@ -452,10 +482,9 @@
         <span class="soon">YouTube</span>
       </div>
     </div>
-    <p class="footer-bottom mono"><span>© <span id="year">2026</span> FourthWave</span><a href="#top" data-i18n="footer.top">Back to the surface ↑</a></p>
+    <p class="footer-bottom mono"><span>© <span id="year">2026</span> FourthWave</span><a href="#top" data-i18n="footer.top">Back to top</a></p>
   </footer>
 
-  <!-- Project details -->
   <dialog class="dialog" id="projectDialog" aria-labelledby="projectTitle">
     <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
     <div class="project">
@@ -469,12 +498,11 @@
     </div>
   </dialog>
 
-  <!-- Showreel -->
   <dialog class="dialog dialog-video" id="videoDialog" aria-label="Showreel">
     <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
     <video id="videoPlayer" src="assets/content/reel-full.mp4" poster="assets/content/reel-poster.jpg?v=2" controls loop playsinline preload="none"></video>
   </dialog>
 
-  <script src="main.js?v=7"></script>
+  <script src="main.js?v=8"></script>
 </body>
 </html>
