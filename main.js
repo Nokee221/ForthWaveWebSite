@@ -19,7 +19,7 @@ const CONTACT_EMAIL = "";
 
 /* ================================================================ Texts */
 
-// Arrays are headline lines (each rises separately). *word* in the statement is highlighted.
+// Arrays are headline lines (each rises separately).
 const TEXT = {
   en: {
     "nav.services": "Services",
@@ -33,9 +33,7 @@ const TEXT = {
     "hero.work": "See our work",
     "hero.hint": "Scroll",
 
-    statement: "Your website, your app and your videos are made by the same four people, *so* *they* *match.*",
 
-    "svc.kicker": "What we do",
     "svc.title": ["What we", "<em>work on.</em>"],
     "svc.web": "Web Development",
     "svc.web.d": "Company sites, landing pages and web apps that load fast and are easy to keep up to date.",
@@ -46,43 +44,21 @@ const TEXT = {
     "svc.marketing": "Digital Marketing",
     "svc.marketing.d": "Social content and paid campaigns.",
 
-    "web.kicker": "Web development",
     "web.title": ["Websites that", "load fast and", "<em>are easy to edit.</em>"],
     "web.lede": "We plan the structure, design each page and write the code ourselves. Your team can change text and photos without calling us.",
 
-    "mobile.kicker": "Mobile development",
     "mobile.title": ["Apps for iOS", "<em>and Android.</em>"],
     "mobile.lede": "First we look at how the app will be used, usually standing up and with one hand, and design the screens around that. Then we build it and help you publish it on the App Store and Google Play.",
     "mobile.chip": "Product design",
 
-    "video.kicker": "Video editing & production",
     "video.title": ["We edit reels,", "ads and", "<em>brand films.</em>"],
     "video.lede": "Send us the footage and tell us where it will run. We cut it, grade the colour, mix the sound and send back a version for each platform, vertical included.",
     "video.play": "Watch with sound",
     "video.tag": "Our best edits",
 
-    "mkt.kicker": "Digital marketing",
-    "mkt.title": ["Social media", "<em>with a plan</em>", "behind it."],
-    "mkt.lede": "We work out who you're talking to and how you should sound. Then we post on a schedule and check each week what worked.",
-    "mkt.s1": "Plan",
-    "mkt.s1.d": "Who the posts are for and where those people spend time online. We agree on that before making anything.",
-    "mkt.s2": "Shoot and design",
-    "mkt.s2.d": "Posts, short videos, ads and graphics, all made in-house.",
-    "mkt.s3": "Post and measure",
-    "mkt.s3.d": "We publish, look at the numbers and change what isn't working.",
-    "mkt.areas": "Where we help",
-    "mkt.a1": "Social media",
-    "mkt.a1.d": "A feed that looks and sounds like one brand.",
-    "mkt.a2": "Content creation",
-    "mkt.a2.d": "Photos, motion and design made for each platform.",
-    "mkt.a3": "Paid advertising",
-    "mkt.a3.d": "Ads with one clear message and a reason to click.",
-    "mkt.a4": "Digital strategy",
-    "mkt.a4.d": "What to post, and on which platform.",
 
-    "prod.kicker": "Our own product",
-    "prod.live": "Live in production",
-    "prod.lede": "Šanko is the bar book we built for cafés and bars. Waiters run their shift on a phone, the owner sees every number on a laptop, and nobody counts from a notebook anymore. It's live and in use every day.",
+    "prod.tag": "A bar book for cafés and bars",
+    "prod.lede": "Waiters run their shift on a phone, the owner sees every number on a laptop, and nobody counts from a notebook anymore. We built it ourselves and it's in use every day.",
     "prod.s1": "The shift, without the notebook",
     "prod.s1.d": "The waiter logs deliveries, write-offs and stock on the phone. The owner sees the full settlement the moment it's entered.",
     "prod.s2": "Counting with pictures",
@@ -97,7 +73,6 @@ const TEXT = {
     "prod.toast.due": "To hand over",
     "prod.toast.short": "Short",
     "prod.more": "Everything about Šanko",
-    "short.kicker": "Šanko in short",
     "short.title": ["See a shortage", "<em>the moment it happens.</em>"],
     "short.lede": "Waiters run the shift on a phone, the owner sees the settlement, the shortage and whose shift it was, and gets a Telegram message when the shift closes. A monthly subscription per café.",
     "short.c1": "Android · Windows · Web",
@@ -108,11 +83,9 @@ const TEXT = {
     "short.demo": "Ask for a demo",
     "short.soon": "Šanko ad, coming soon",
 
-    "team.kicker": "Team",
     "team.title": ["Who you'll", "<em>work with.</em>"],
     "team.lede": "There are four of us and no account managers. Whoever answers your email also does the work.",
 
-    "contact.kicker": "Contact",
     "contact.title": ["Got something", "<em>in mind?</em>"],
     "contact.lede": "Tell us what you're working on. A rough idea is enough. We'll reply with a few questions or a time to talk.",
 
@@ -156,9 +129,7 @@ const TEXT = {
     "hero.work": "Naši radovi",
     "hero.hint": "Skrolaj",
 
-    statement: "Web stranicu, aplikaciju i videe vam prave iste četiri osobe, *pa* *se* *slažu.*",
 
-    "svc.kicker": "Šta radimo",
     "svc.title": ["Čime se", "<em>bavimo.</em>"],
     "svc.web": "Web razvoj",
     "svc.web.d": "Stranice firmi, landing stranice i web aplikacije koje se brzo učitavaju i lako održavaju.",
@@ -169,43 +140,21 @@ const TEXT = {
     "svc.marketing": "Digitalni marketing",
     "svc.marketing.d": "Sadržaj za mreže i plaćene kampanje.",
 
-    "web.kicker": "Web razvoj",
     "web.title": ["Stranice koje se", "brzo otvaraju i", "<em>lako mijenjaju.</em>"],
     "web.lede": "Sami planiramo strukturu, dizajniramo svaku stranicu i pišemo kod. Vaš tim može mijenjati tekst i slike bez da nas zove.",
 
-    "mobile.kicker": "Mobilne aplikacije",
     "mobile.title": ["Aplikacije za", "<em>iOS i Android.</em>"],
     "mobile.lede": "Prvo gledamo kako će se aplikacija koristiti, najčešće u hodu i jednom rukom, i po tome crtamo ekrane. Onda je napravimo i pomognemo vam da je objavite na App Store i Google Play.",
     "mobile.chip": "Dizajn proizvoda",
 
-    "video.kicker": "Video montaža i produkcija",
     "video.title": ["Montiramo reelse,", "reklame i", "<em>filmove o brendu.</em>"],
     "video.lede": "Pošaljete nam snimke i kažete gdje će se prikazivati. Mi ih montiramo, sredimo boju i zvuk i vratimo verziju za svaku platformu, i vertikalnu.",
     "video.play": "Pogledaj sa zvukom",
     "video.tag": "Naši najbolji editi",
 
-    "mkt.kicker": "Digitalni marketing",
-    "mkt.title": ["Društvene mreže", "<em>s planom</em>", "iza njih."],
-    "mkt.lede": "Dogovorimo kome se obraćate i kako trebate zvučati. Onda objavljujemo po rasporedu i svake sedmice pogledamo šta je radilo.",
-    "mkt.s1": "Plan",
-    "mkt.s1.d": "Kome su objave namijenjene i gdje ti ljudi provode vrijeme na internetu. To dogovorimo prije nego što išta napravimo.",
-    "mkt.s2": "Snimanje i dizajn",
-    "mkt.s2.d": "Objave, kratki videi, oglasi i grafike, sve napravljeno kod nas.",
-    "mkt.s3": "Objave i brojke",
-    "mkt.s3.d": "Objavljujemo, gledamo brojke i mijenjamo ono što ne radi.",
-    "mkt.areas": "Gdje pomažemo",
-    "mkt.a1": "Društvene mreže",
-    "mkt.a1.d": "Profil koji izgleda i zvuči kao jedan brend.",
-    "mkt.a2": "Kreiranje sadržaja",
-    "mkt.a2.d": "Fotografije, animacije i dizajn za svaku platformu.",
-    "mkt.a3": "Plaćeno oglašavanje",
-    "mkt.a3.d": "Oglasi s jednom jasnom porukom i razlogom za klik.",
-    "mkt.a4": "Digitalna strategija",
-    "mkt.a4.d": "Šta objavljivati i na kojoj platformi.",
 
-    "prod.kicker": "Naš proizvod",
-    "prod.live": "U produkciji",
-    "prod.lede": "Šanko je šankerska knjiga koju smo napravili za kafiće i barove. Konobar vodi smjenu na telefonu, gazda vidi svaki broj na laptopu, a sveska više nikome ne treba. Aplikacija radi i koristi se svaki dan.",
+    "prod.tag": "Šankerska knjiga za kafiće i barove",
+    "prod.lede": "Konobar vodi smjenu na telefonu, gazda vidi svaki broj na laptopu, a sveska više nikome ne treba. Napravili smo je sami i koristi se svaki dan.",
     "prod.s1": "Smjena bez sveske",
     "prod.s1.d": "Konobar na telefonu unosi ulaz, rashod i stanje. Gazda vidi cijeli obračun čim je unesen.",
     "prod.s2": "Popis sa slikama",
@@ -220,7 +169,6 @@ const TEXT = {
     "prod.toast.due": "Za predaju",
     "prod.toast.short": "Manjak",
     "prod.more": "Sve o Šanku",
-    "short.kicker": "Šanko ukratko",
     "short.title": ["Manjak se vidi", "<em>istog trenutka.</em>"],
     "short.lede": "Konobar vodi smjenu na telefonu, a gazda vidi obračun, manjak i u čijoj je smjeni, i dobije poruku na Telegram kad se smjena zaključi. Mjesečna pretplata po lokalu.",
     "short.c1": "Android · Windows · Web",
@@ -231,11 +179,9 @@ const TEXT = {
     "short.demo": "Zatražite demo",
     "short.soon": "Reklama za Šanko uskoro",
 
-    "team.kicker": "Tim",
     "team.title": ["S kim ćete", "<em>raditi.</em>"],
     "team.lede": "Nas je četvero i nemamo account managere. Ko vam odgovori na email, taj radi i posao.",
 
-    "contact.kicker": "Kontakt",
     "contact.title": ["Imate nešto", "<em>na umu?</em>"],
     "contact.lede": "Napišite na čemu radite. Gruba ideja je dovoljna. Odgovorit ćemo s par pitanja ili terminom za razgovor.",
 
@@ -302,19 +248,8 @@ const PROJECTS = {
   let lang = "en";
   const t = (key) => TEXT[lang][key] ?? TEXT.en[key] ?? "";
 
-  const statementEl = $("#statement");
-  let words = [];
-
   function renderLines(lines) {
     return lines.map((line, i) => `<span class="ln" style="--i:${i}"><span>${line}</span></span>`).join("");
-  }
-
-  function renderStatement(text) {
-    statementEl.innerHTML = text
-      .split(" ")
-      .map((w) => (w.startsWith("*") ? `<em class="w">${w.replace(/\*/g, "")}</em>` : `<span class="w">${w}</span>`))
-      .join(" ");
-    words = $$(".w", statementEl).map((node) => ({ node, shown: -1 }));
   }
 
   function setLang(next) {
@@ -322,12 +257,10 @@ const PROJECTS = {
     root.lang = lang === "bs" ? "bs" : "en";
     $$("[data-i18n]").forEach((el) => {
       const key = el.dataset.i18n;
-      if (key === "statement") return;
       const value = t(key);
       el.innerHTML = Array.isArray(value) ? renderLines(value) : value;
     });
     $$("[data-i18n-ph]").forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
-    renderStatement(t("statement"));
     $$(".lang button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
     try { localStorage.setItem("fw-lang", lang); } catch {}
   }
@@ -388,7 +321,7 @@ const PROJECTS = {
     if (el.id === "top") return 0;
     if (el.matches("[data-scene]")) {
       const travel = el.offsetHeight - window.innerHeight;
-      const at = el.id === "marketing" ? 0.02 : el.id === "sanko" ? 0.2 : 0.62;
+      const at = el.id === "sanko" ? 0.2 : 0.62;
       return top + travel * at;
     }
     return top - 40;
@@ -413,8 +346,6 @@ const PROJECTS = {
   const hint = $("#hint");
   const scenes = $$("[data-scene]").map((el) => ({ el, name: el.dataset.scene, p: -1, v: -1, vin: -1, pin: -1 }));
   const seaZones = $$("[data-sea]");
-  const track = $("#track");
-  const marketing = $(".marketing");
   const filmVideo = $(".film video");
   const navLinks = $$(".bar-nav a");
   const people = $$(".person[data-speed]");
@@ -423,7 +354,6 @@ const PROJECTS = {
   const L = {
     band: layer("band"),
     box: layer("box"),
-    ripples: layer("ripples"),
     wave: layer("wave"),
     fourth: layer("fourth"),
     wordWave: layer("word-wave"),
@@ -453,10 +383,6 @@ const PROJECTS = {
     heroBox = { start, end };
     heroLogo.style.width = `${start.w}px`;
 
-    // The marketing track: the section is as tall as the sideways travel.
-    const shift = Math.max(0, track.scrollWidth - vw);
-    marketing.style.setProperty("--shift", shift.toFixed(0));
-    if (!reduceMotion) marketing.style.height = `${shift * 1.1 + vh}px`;
     sizeSea();
   }
 
@@ -566,11 +492,6 @@ const PROJECTS = {
     L.wave.style.opacity = clamp(span(T_WAVE) * 5).toFixed(3);
     ink(L.wave, Math.max(0, wLeft) * 1.3);
     hit("wave", T_WAVE[0] + 220, 1.15, time, 0.6);
-
-    const rip = expoOut(span([T_WAVE[0] + 150, T_WAVE[1]]));
-    L.ripples.style.transform = `translate3d(${((1 - rip) * -0.35 * W).toFixed(1)}px, 0, 0)`;
-    L.ripples.style.opacity = rip.toFixed(3);
-    ink(L.ripples, (1 - rip) * 0.9);
 
     // 5. The blue block slices in from the left.
     const cut = expoOut(span(T_BOX));
@@ -763,12 +684,6 @@ const PROJECTS = {
         }
       } else if (s.name === "product" && prod) {
         renderProduct(s.el, p);
-      } else if (s.name === "statement") {
-        const lit = step(p, 0.08, 0.8) * (words.length + 1);
-        words.forEach((w, i) => {
-          const v = Math.round((0.14 + 0.86 * clamp(lit - i)) * 100) / 100;
-          if (v !== w.shown) { w.shown = v; w.node.style.opacity = v; }
-        });
       }
     }
   }
@@ -784,11 +699,11 @@ const PROJECTS = {
 
     const mid = vh * 0.5;
     let section = "";
-    for (const id of ["services", "web", "mobile", "video", "marketing", "sanko", "sanko-short", "team", "contact"]) {
+    for (const id of ["services", "web", "mobile", "video", "sanko", "sanko-short", "team", "contact"]) {
       const r = document.getElementById(id).getBoundingClientRect();
       if (r.top <= mid && r.bottom > mid) section = id;
     }
-    const nav = ["web", "mobile", "video", "marketing"].includes(section) ? "web" : section === "sanko-short" ? "sanko" : section;
+    const nav = ["web", "mobile", "video"].includes(section) ? "web" : section === "sanko-short" ? "sanko" : section;
     if (nav !== currentNav) {
       currentNav = nav;
       navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === `#${nav}`));
@@ -947,8 +862,6 @@ const PROJECTS = {
   }
   requestAnimationFrame(frame);
   playIntro();
-  // Fonts change text widths; the marketing track needs measuring again.
-  document.fonts?.ready.then(() => measure());
 
   /* ---- Intro: the logo puts itself together while the page loads */
 

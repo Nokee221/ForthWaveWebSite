@@ -7,11 +7,11 @@
   <meta name="description" content="FourthWave is a studio of four in web development, mobile apps, video editing and social media marketing.">
   <meta name="theme-color" content="#0c1c2d">
   <link rel="icon" href="assets/logo/logo.png">
-  <link rel="preload" as="image" href="assets/logo/layer-3.webp">
+  <link rel="preload" as="image" href="assets/logo/wave.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wght@400;500&family=Roboto+Slab:wght@700..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
   <!--
@@ -53,8 +53,7 @@
             <span class="hero-line" id="heroLine" aria-hidden="true"></span>
             <span class="layer band" data-layer="band"></span>
             <span class="layer box" data-layer="box"></span>
-            <img class="layer ripples" data-layer="ripples" src="assets/logo/layer-2.webp" alt="">
-            <img class="layer wave" data-layer="wave" src="assets/logo/layer-3.webp" alt="">
+            <img class="layer wave" data-layer="wave" src="assets/logo/wave.webp" alt="">
             <img class="layer fourth" data-layer="fourth" src="assets/logo/layer-5.webp" alt="">
             <img class="layer word-wave" data-layer="word-wave" src="assets/logo/layer-6.webp" alt="">
             <img class="layer dot" data-layer="dot" src="assets/logo/layer-7.webp" alt="">
@@ -79,16 +78,8 @@
       </div>
     </section>
 
-    <!-- Statement: words light up as you scroll -->
-    <section class="scene statement" data-scene="statement" data-sea="0.25">
-      <div class="sticky">
-        <p class="statement-text" id="statement" data-i18n="statement"></p>
-      </div>
-    </section>
-
     <section class="services" id="services" data-sea="0.3">
       <header class="sec-head rv">
-        <p class="mono idx"><b>01</b><span data-i18n="svc.kicker">What we do</span></p>
         <h2 class="h2" data-i18n="svc.title"></h2>
       </header>
       <ol class="svc-list">
@@ -110,7 +101,7 @@
           <span class="svc-desc" data-i18n="svc.video.d"></span>
           <span class="svc-go" aria-hidden="true">→</span>
         </a></li>
-        <li class="rv"><a class="svc" href="#marketing" data-img="assets/sections/marketing-wide.webp?v=3">
+        <li class="rv"><a class="svc" href="#contact" data-img="assets/sections/marketing-wide.webp?v=3">
           <span class="svc-n mono">04</span>
           <span class="svc-name" data-i18n="svc.marketing">Digital Marketing</span>
           <span class="svc-desc" data-i18n="svc.marketing.d"></span>
@@ -130,7 +121,6 @@
           </picture>
         </div>
         <div class="scene-text rv">
-          <p class="mono idx"><b>02</b><span data-i18n="web.kicker">Web development</span></p>
           <h2 class="h2" data-i18n="web.title"></h2>
           <p class="lede" data-i18n="web.lede"></p>
         </div>
@@ -167,7 +157,6 @@
           </button>
         </div>
         <div class="scene-text rv">
-          <p class="mono idx"><b>03</b><span data-i18n="mobile.kicker">Mobile development</span></p>
           <h2 class="h2" data-i18n="mobile.title"></h2>
           <p class="lede" data-i18n="mobile.lede"></p>
           <ul class="chips mono">
@@ -237,7 +226,6 @@
           </div>
         </div>
         <div class="film-text">
-          <p class="mono idx"><b>04</b><span data-i18n="video.kicker">Video editing &amp; production</span></p>
           <h2 class="h2 huge" data-i18n="video.title"></h2>
         </div>
         <div class="film-foot">
@@ -247,61 +235,18 @@
       </div>
     </section>
 
-    <!-- 05 · Marketing: a sideways track while you scroll down -->
-    <section class="scene marketing" id="marketing" data-scene="marketing" data-sea="0.5">
-      <div class="sticky">
-        <div class="scene-bg" aria-hidden="true">
-          <picture>
-            <source media="(max-width: 760px)" srcset="assets/sections/marketing-tall.webp?v=3">
-            <img src="assets/sections/marketing-wide.webp?v=3" alt="" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="track" id="track">
-          <article class="slide slide-intro">
-            <p class="mono idx"><b>05</b><span data-i18n="mkt.kicker">Digital marketing</span></p>
-            <h2 class="h2" data-i18n="mkt.title"></h2>
-            <p class="lede" data-i18n="mkt.lede"></p>
-          </article>
-          <article class="slide step">
-            <span class="step-n mono">01</span>
-            <h3 data-i18n="mkt.s1">Plan</h3>
-            <p data-i18n="mkt.s1.d"></p>
-          </article>
-          <article class="slide step">
-            <span class="step-n mono">02</span>
-            <h3 data-i18n="mkt.s2">Shoot and design</h3>
-            <p data-i18n="mkt.s2.d"></p>
-          </article>
-          <article class="slide step">
-            <span class="step-n mono">03</span>
-            <h3 data-i18n="mkt.s3">Post and measure</h3>
-            <p data-i18n="mkt.s3.d"></p>
-          </article>
-          <article class="slide slide-areas">
-            <p class="mono" data-i18n="mkt.areas">Where we help</p>
-            <ul>
-              <li><b data-i18n="mkt.a1">Social media</b><span data-i18n="mkt.a1.d"></span></li>
-              <li><b data-i18n="mkt.a2">Content creation</b><span data-i18n="mkt.a2.d"></span></li>
-              <li><b data-i18n="mkt.a3">Paid advertising</b><span data-i18n="mkt.a3.d"></span></li>
-              <li><b data-i18n="mkt.a4">Digital strategy</b><span data-i18n="mkt.a4.d"></span></li>
-            </ul>
-          </article>
-        </div>
-        <div class="track-rail" aria-hidden="true"><span></span></div>
-      </div>
-    </section>
-
     <!-- 06 · Šanko: our own product. A laptop opens, a phone rises, and the
          two screens walk through one shift together while you scroll. -->
     <section class="scene product" id="sanko" data-scene="product" data-sea="0.3">
       <div class="sticky">
 
         <div class="product-copy">
-          <p class="mono idx"><b>06</b><span data-i18n="prod.kicker">Our own product</span></p>
           <div class="product-name">
             <img src="assets/sanko/icon.webp" alt="" width="192" height="192">
-            <h2 class="h2">Šanko</h2>
-            <span class="live mono"><i aria-hidden="true"></i><span data-i18n="prod.live">Live in production</span></span>
+            <div>
+              <h2 class="h2">Šanko</h2>
+              <p data-i18n="prod.tag">A bar book for cafés and bars</p>
+            </div>
           </div>
           <p class="lede" data-i18n="prod.lede"></p>
 
@@ -312,11 +257,12 @@
             <li><span class="mono">04</span><div><b data-i18n="prod.s4"></b><p data-i18n="prod.s4.d"></p></div></li>
           </ol>
 
-          <ul class="chips mono product-platforms">
-            <li>Android</li><li>Windows</li><li>Web</li><li data-i18n="prod.offline">Works offline</li>
-          </ul>
-
-          <a class="product-more mono" href="sanko/"><span data-i18n="prod.more">Everything about Šanko</span><i aria-hidden="true">→</i></a>
+          <div class="product-foot">
+            <a class="btn" href="sanko/"><span data-i18n="prod.more">Everything about Šanko</span><i aria-hidden="true">→</i></a>
+            <ul class="product-platforms mono">
+              <li>Android</li><li>Windows</li><li>Web</li><li data-i18n="prod.offline">Works offline</li>
+            </ul>
+          </div>
         </div>
 
         <div class="devices" aria-label="Šanko on a laptop and a phone" role="img">
@@ -374,7 +320,6 @@
       </div>
 
       <div class="ss-copy rv">
-        <p class="mono idx"><b>06</b><span data-i18n="short.kicker">Šanko in short</span></p>
         <h2 class="h2" data-i18n="short.title"></h2>
         <p class="lede" data-i18n="short.lede"></p>
         <ul class="chips mono">
@@ -392,7 +337,6 @@
 
     <section class="team" id="team" data-sea="0.25">
       <header class="sec-head rv">
-        <p class="mono idx"><b>07</b><span data-i18n="team.kicker">Team</span></p>
         <h2 class="h2" data-i18n="team.title"></h2>
         <p class="lede" data-i18n="team.lede"></p>
       </header>
@@ -419,7 +363,6 @@
 
     <section class="contact" id="contact" data-sea="1">
       <div class="contact-head rv">
-        <p class="mono idx"><b>08</b><span data-i18n="contact.kicker">Contact</span></p>
         <h2 class="h2 huge" data-i18n="contact.title"></h2>
         <p class="lede" data-i18n="contact.lede"></p>
       </div>
@@ -503,6 +446,6 @@
     <video id="videoPlayer" src="assets/content/reel-full.mp4" poster="assets/content/reel-poster.jpg?v=2" controls loop playsinline preload="none"></video>
   </dialog>
 
-  <script src="main.js?v=8"></script>
+  <script src="main.js?v=11"></script>
 </body>
 </html>
