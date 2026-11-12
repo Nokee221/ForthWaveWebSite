@@ -212,7 +212,8 @@ main, .footer { position: relative; z-index: 1; }
 }
 
 /* Headline lines rise out of a mask, one after another. */
-.ln { display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+/* The mask leaves room above for accents (Š, Č) and below for descenders. */
+.ln { display: block; overflow: hidden; padding: 0.12em 0 0.14em; margin: -0.12em 0 -0.14em; }
 .ln > span { display: block; }
 
 .lede {
@@ -338,7 +339,7 @@ main, .footer { position: relative; z-index: 1; }
 }
 
 .rv .ln > span { transform-origin: 0 100%; }
-.rv:not(.in) .ln > span { transform: translateY(112%) rotate(2.5deg); }
+.rv:not(.in) .ln > span { transform: translateY(140%) rotate(2.5deg); }
 .rv .ln > span { transition-delay: calc(0.08s + var(--i, 0) * 110ms); }
 .rv:not(.in) .lede,
 .rv:not(.in) .chips { opacity: 0; transform: translateY(28px); }
@@ -461,17 +462,22 @@ main, .footer { position: relative; z-index: 1; }
   gap: 48px;
 }
 
-/* --c: how far the copy has come in (0..1), set by main.js. */
+/* main.js adds .in once the logo has moved aside; the lines then play in
+   full on their own, so the copy never stops half shown mid-scroll. */
 .hero-copy .ln > span {
-  transform: translateY(calc((1 - clamp(0, var(--c, 0) * 1.7 - var(--i, 0) * 0.35, 1)) * 108%));
+  transform: translateY(140%);
+  transition: transform 1.1s var(--ease) calc(var(--i, 0) * 110ms);
 }
+.hero-copy.in .ln > span { transform: none; }
 
 .hero-side {
   display: grid;
   gap: 28px;
-  opacity: clamp(0, var(--c, 0) * 2 - 0.8, 1);
-  transform: translateY(calc((1 - clamp(0, var(--c, 0) * 2 - 0.8, 1)) * 30px));
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s var(--ease) 0.35s, transform 0.9s var(--ease) 0.35s;
 }
+.hero-copy.in .hero-side { opacity: 1; transform: none; }
 
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 

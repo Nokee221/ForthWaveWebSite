@@ -551,8 +551,8 @@ const PROJECTS = {
     heroLogo.style.transform = `translate3d(${(cx - w / 2).toFixed(1)}px, ${(cy - (w * RATIO) / 2).toFixed(1)}px, 0) scale(${((w / start.w) * breathe).toFixed(4)})`;
     glow.style.opacity = ((glowAmp + 0.22 * done + born * 0.35 * (1 - tear)) * (1 - m * 0.7)).toFixed(3);
 
-    heroCopy.style.setProperty("--c", step(p, 0.22, 0.92).toFixed(4));
-    heroCopy.style.visibility = p < 0.2 ? "hidden" : "visible";
+    if (p > 0.3) heroCopy.classList.add("in");
+    else if (p < 0.18) heroCopy.classList.remove("in");
     hint.style.opacity = (done * (1 - step(p, 0, 0.12))).toFixed(3);
   }
 
